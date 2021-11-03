@@ -13,7 +13,7 @@ const typeDefs = gql`
     image: String
     quantity: Int
     price: Float
-    category: Category
+    category: String
   }
 
   type Order {
@@ -55,6 +55,7 @@ const typeDefs = gql`
     addOrder(comics: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateComic(_id: ID!, quantity: Int!): Comic
+    addComic(name: String!, description: String!, image: String!, price: Float!, quantity: Int!, category: String!): Comic
     login(email: String!, password: String!): Auth
   }
 `;
