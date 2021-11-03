@@ -8,6 +8,17 @@ const resolvers = {
     categories: async () => {
       return await Category.find();
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("orders");
+
+        return userData;
+      }
+      // if user not logged in throw error indicating a user is not logged in.
+      throw new AuthenticationError("Not logged in");
+    },
     comics: async (parent, { category, name }) => {
       const params = {};
 
