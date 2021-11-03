@@ -155,6 +155,9 @@ const resolvers = {
 
       return { token, user };
     },
+    addComic: async (parent, args,) => {
+      return await Comic.create(args);
+    }
   },
 };
 
