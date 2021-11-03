@@ -26,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/jbramirez03/Comic-Space/issues"
   },
-  "homepage": "https://github.com/jbramirez03/Comic-Space#readme"
+  "homepage": "https://github.com/jbramirez03/Comic-Space#readme",
+  "dependencies": {}
 }
