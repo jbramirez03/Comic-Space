@@ -55,6 +55,7 @@ const typeDefs = gql`
     addOrder(comics: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateComic(_id: ID!, quantity: Int!): Comic
+    addComic(_id: ID!, name: String!, description: String!, image: String!, price: Int!, quantity: Int!, category: String!)
     login(email: String!, password: String!): Auth
   }
 `;
