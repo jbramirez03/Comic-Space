@@ -9,7 +9,7 @@ import {
   CLEAR_CART,
   TOGGLE_CART,
 } from "./actions";
-
+// comment for chris to get changes
 const initialState = {
   comics: [],
   categories: [],
