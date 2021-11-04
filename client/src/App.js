@@ -8,10 +8,10 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import "./App.css";
-
-import SignInSide from "./components/SignInSide";
-
-import SignUp from "./components/SignUp";
+import Search from "./components/pages/Search"
+// import SignInSide from "./components/SignInSide";
+// import Profile from "./components/pages/Profile"
+// import SignUp from "./components/SignUp";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -36,7 +36,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <SignInSide />
+      {/* <SignInSide /> */}
+      <Search />
+      {/* <Profile /> */}
     </ApolloProvider>
   );
 }
