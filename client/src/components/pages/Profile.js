@@ -38,21 +38,7 @@ export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* <AppBar position="relative">
-        <Toolbar>
-          <ImportContactsIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Your Collection
-          </Typography>
-          <Button
-            size="small"
-            variant="contained"
-            sx={{ ml: 5, bgcolor: "white", color: "#531c28" }}
-          >
-            Home
-          </Button>
-        </Toolbar>
-      </AppBar> */}
+
       <main style={{ backgroundColor: "#531c28" }}>
         {/* Hero unit */}
         <Box
