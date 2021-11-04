@@ -28,7 +28,11 @@ const Tester = () => {
 
     const search = async () => {
         const results = await axios.get(comicUrl);
+        const total = results.data.data.total;
         console.log(results.data.data);
+        console.log(total);
+        const pages = Math.ceil(results.data.data.total / 20);
+        console.log(pages);
 
     }
     return (
