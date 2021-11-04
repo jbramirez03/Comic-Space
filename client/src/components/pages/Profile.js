@@ -38,7 +38,7 @@ export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
+      {/* <AppBar position="relative">
         <Toolbar>
           <ImportContactsIcon sx={{ mr: 2 }} />
           <Typography variant="h6" color="inherit" noWrap>
@@ -52,7 +52,7 @@ export default function Profile() {
             Home
           </Button>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <main style={{ backgroundColor: "#531c28" }}>
         {/* Hero unit */}
         <Box
