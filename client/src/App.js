@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,11 +7,10 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Provider } from "reacrt-redux";
+import { Provider } from "react-redux";
 import "./App.css";
-import { Store } from "./utils/store";
+import store from "./utils/store";
 import SignInSide from "./components/SignInSide";
-
 import SignUp from "./components/SignUp";
 import Profile from "./components/pages/Profile";
 
@@ -37,7 +36,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <SignInSide />
+      <Router>
+        <Provider store={store}>
+          <Routes>
+            <Route exact path="/" component={SignInSide} />
+          </Routes>
+        </Provider>
+      </Router>
     </ApolloProvider>
   );
 }
