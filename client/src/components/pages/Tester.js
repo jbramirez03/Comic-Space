@@ -1,4 +1,6 @@
 import axios from 'axios';
+import CryptoJS from 'crypto-js';
+import { useState } from 'react';
 
 import React from 'react'
 
@@ -31,7 +33,12 @@ const Tester = () => {
     }
     return (
         <div>
-
+            <form action="submit">
+                <input type="text" />
+                <button onSubmit={() => { search() }}></button>
+            </form>
+            <button onClick={() => { search() }}>SEARCH</button>
+            <button onClick={() => { next() }}>NEXT</button>
         </div>
     )
 }
