@@ -11,40 +11,46 @@ const Tester = () => {
     const ts = new Date().getTime();
     const hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
     const [comics, setComics] = useState([]);
+    const [currentCharacter, setCurrentCharacter] = useState('');
 
     let [offset, setOffset] = useState(0);
     const [total, setTotal] = useState(0);
     const [pages, setPages] = useState(0);
-    // const next = () => {
-    //     setOffset(offset += 20);
-    //     console.log(offset);
-    // }
-
-    const search = async (e,) => {
-        e.preventDefault();
-        const characterName = character;
-        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${characterName}`;
+    const next = async () => {
+        setOffset(offset += 20);
+        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${character}`;
         const url = `https://gateway.marvel.com/v1/public/characters?${queryParams}`;
         const results = await axios.get(url);
         const id = results.data.data.results[0].id;
-        // console.log(results);
-        // console.log(id);
         const newParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&characters=${id}`;
         const characterUrl = `https://gateway.marvel.com/v1/public/comics?${newParams}&offset=${offset}`;
         const comicResults = await axios.get(characterUrl);
-        console.log(comicResults);
         const searchedComics = comicResults.data.data.results;
-        console.log(searchedComics);
         setComics([...searchedComics]);
         setTotal(comicResults.data.data.total);
-        // console.log(total);
-        const showPages = Math.ceil(comicResults.data.data.total / 20);
-        setPages(showPages);
-        // console.log(pages);
+        setPages(Math.ceil(comicResults.data.data.total / 20));
+    }
+
+    const search = async (e) => {
+        e.preventDefault();
+        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${character}`;
+        const url = `https://gateway.marvel.com/v1/public/characters?${queryParams}`;
+        const results = await axios.get(url);
+        const id = results.data.data.results[0].id;
+        const newParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&characters=${id}`;
+        const characterUrl = `https://gateway.marvel.com/v1/public/comics?${newParams}&offset=${offset}`;
+        const comicResults = await axios.get(characterUrl);
+        const searchedComics = comicResults.data.data.results;
+        setComics([...searchedComics]);
+        setTotal(comicResults.data.data.total);
+        setPages(Math.ceil(comicResults.data.data.total / 20));
     }
     return (
 
         <div>
+            <button onClick={() => console.log(total)}>SEE total</button>
+            <button onClick={() => console.log(pages)}>SEE Pages</button>
+            <button onClick={() => next()}>Next</button>
             <form action="submit" onSubmit={search}>
                 <input type="text" value={character} onChange={e => setCharacter(e.target.value)} />
                 <button>Search</button>
@@ -59,8 +65,6 @@ const Tester = () => {
                         </div>
                     );
                 }) : 'not cool'}
-            <button onClick={() => console.log(total)}>SEE total</button>
-            <button onClick={() => console.log(pages)}>SEE total</button>
             {/* <button onClick={() => { search() }}>SEARCH</button>
             <button onClick={() => { next() }}>NEXT</button> */}
         </div>
