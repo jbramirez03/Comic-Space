@@ -14,12 +14,12 @@ const Tester = () => {
     let [offset, setOffset] = useState(0);
     const [total, setTotal] = useState(0);
     const [pages, setPages] = useState(0);
-    const [id, setId] = useState(0);
     const params = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`;
     const characterUrl = `https://gateway.marvel.com/v1/public/characters?`;
     const comicUrl = `https://gateway.marvel.com/v1/public/comics?`;
     const [searchedUrl, setSearchedUrl] = useState('');
-
+    let buttons = [];
+    const [test, setTest] = useState([]);
 
 
 
@@ -72,8 +72,18 @@ const Tester = () => {
         set(response);
     }
 
-    return (
+    const createButtons = () => {
+        for (let i = 0; i < pages; i++) {
+            buttons = [...buttons, i]
+        }
 
+        console.log(buttons);
+        setTest([...buttons])
+
+    }
+
+
+    return (
         <div>
             <button onClick={() => console.log(total)}>SEE total</button>
             <button onClick={() => console.log(pages)}>SEE Pages</button>
@@ -94,7 +104,7 @@ const Tester = () => {
                         </div>
                     );
                 }) : 'not cool'}
-
+            {pages >= 1 ? <div><button onClick={createButtons}>Check</button><button onClick={() => console.log(test)}>See</button></div> : 'no pages'}
         </div>
     )
 }
