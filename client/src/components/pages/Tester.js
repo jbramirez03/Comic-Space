@@ -11,47 +11,68 @@ const Tester = () => {
     const ts = new Date().getTime();
     const hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
     const [comics, setComics] = useState([]);
-    const [currentCharacter, setCurrentCharacter] = useState('');
-
     let [offset, setOffset] = useState(0);
     const [total, setTotal] = useState(0);
     const [pages, setPages] = useState(0);
-    const next = async () => {
-        setOffset(offset += 20);
-        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${character}`;
-        const url = `https://gateway.marvel.com/v1/public/characters?${queryParams}`;
-        const results = await axios.get(url);
-        const id = results.data.data.results[0].id;
-        const newParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&characters=${id}`;
-        const characterUrl = `https://gateway.marvel.com/v1/public/comics?${newParams}&offset=${offset}`;
-        const comicResults = await axios.get(characterUrl);
-        const searchedComics = comicResults.data.data.results;
-        setComics([...searchedComics]);
-        setTotal(comicResults.data.data.total);
-        setPages(Math.ceil(comicResults.data.data.total / 20));
+
+    const getCharacterId = input => {
+        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${input}`;
+        return axios.get(`https://gateway.marvel.com/v1/public/characters?${queryParams}`);
     }
 
-    const search = async (e) => {
-        e.preventDefault();
-        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${character}`;
-        const url = `https://gateway.marvel.com/v1/public/characters?${queryParams}`;
-        const results = await axios.get(url);
-        const id = results.data.data.results[0].id;
-        const newParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&characters=${id}`;
-        const characterUrl = `https://gateway.marvel.com/v1/public/comics?${newParams}&offset=${offset}`;
-        const comicResults = await axios.get(characterUrl);
-        const searchedComics = comicResults.data.data.results;
-        setComics([...searchedComics]);
-        setTotal(comicResults.data.data.total);
-        setPages(Math.ceil(comicResults.data.data.total / 20));
+    const getComics = input => {
+        const newParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&characters=${input}`;
+        return axios.get(`https://gateway.marvel.com/v1/public/comics?${newParams}&offset=${offset}`);
     }
+
+    const next = async () => {
+        setOffset(offset += 20);
+        const response = await search();
+        setResponse(response);
+        set(response);
+    }
+
+    const back = async () => {
+        const newOffset = offset - 20;
+        setOffset(newOffset);
+        const response = await search();
+        console.log(response);
+        setResponse(response);
+        set(response);
+    };
+
+    const search = async () => {
+        const characterInfo = await getCharacterId(character);
+        const characterId = characterInfo.data.data.results[0].id;
+        const rawComics = await getComics(characterId);
+        return rawComics;
+    }
+
+    const set = (response) => {
+        setTotal(response.data.data.total);
+        setPages(Math.ceil(response.data.data.total / 20));
+    }
+
+    const setResponse = (response) => {
+        setComics([...response.data.data.results]);
+    }
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const response = await search();
+        setResponse(response);
+        set(response);
+    }
+
     return (
 
         <div>
             <button onClick={() => console.log(total)}>SEE total</button>
             <button onClick={() => console.log(pages)}>SEE Pages</button>
+            <button onClick={() => console.log(offset)}>Offset</button>
             <button onClick={() => next()}>Next</button>
-            <form action="submit" onSubmit={search}>
+            <button onClick={() => back()}>back</button>
+            <form action="submit" onSubmit={onSubmit}>
                 <input type="text" value={character} onChange={e => setCharacter(e.target.value)} />
                 <button>Search</button>
             </form>
@@ -65,8 +86,7 @@ const Tester = () => {
                         </div>
                     );
                 }) : 'not cool'}
-            {/* <button onClick={() => { search() }}>SEARCH</button>
-            <button onClick={() => { next() }}>NEXT</button> */}
+
         </div>
     )
 }
