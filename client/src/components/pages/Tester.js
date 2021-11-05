@@ -14,29 +14,37 @@ const Tester = () => {
     let [offset, setOffset] = useState(0);
     const [total, setTotal] = useState(0);
     const [pages, setPages] = useState(0);
+    const [id, setId] = useState(0);
+    const params = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+    const characterUrl = `https://gateway.marvel.com/v1/public/characters?`;
+    const comicUrl = `https://gateway.marvel.com/v1/public/comics?`;
+    const [searchedUrl, setSearchedUrl] = useState('');
 
-    const getCharacterId = input => {
-        const queryParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&name=${input}`;
-        return axios.get(`https://gateway.marvel.com/v1/public/characters?${queryParams}`);
+
+
+
+    const getCharacterId = () => {
+        return axios.get(`${characterUrl}${params}&name=${character}`);
     }
 
     const getComics = input => {
-        const newParams = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&characters=${input}`;
-        return axios.get(`https://gateway.marvel.com/v1/public/comics?${newParams}&offset=${offset}`);
+        setSearchedUrl(`${comicUrl}${params}&characters=${input}`);
+        return axios.get(`${comicUrl}${params}&characters=${input}`);
     }
 
     const next = async () => {
+        console.log(searchedUrl);
         setOffset(offset += 20);
-        const response = await search();
+        const response = await axios.get(`${searchedUrl}&offset=${offset}`);
         setResponse(response);
         set(response);
     }
 
     const back = async () => {
+        console.log(searchedUrl);
         const newOffset = offset - 20;
         setOffset(newOffset);
-        const response = await search();
-        console.log(response);
+        const response = await axios.get(`${searchedUrl}&offset=${newOffset}`);
         setResponse(response);
         set(response);
     };
