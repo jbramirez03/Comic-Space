@@ -17,6 +17,7 @@ import Link from "@mui/material/Link";
 import { Avatar } from "@mui/material";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ComicCard from "../ComicCard";
 
 function Copyright() {
   return (
@@ -109,7 +110,10 @@ export default function Profile() {
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
+                <Card>
+                  <ComicCard></ComicCard>
+                </Card>
+                {/* <Card
                   sx={{
                     boxShadow: 2,
                     backgroundColor: "#385059",
@@ -146,7 +150,7 @@ export default function Profile() {
                       Buy
                     </Button>
                   </CardActions>
-                </Card>
+                </Card> */}
               </Grid>
             ))}
           </Grid>
