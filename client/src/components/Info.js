@@ -16,6 +16,9 @@ function Info({
       <Divider />
       <Box mt={2}>
         <Typography variant="h4">{title}</Typography>
+        <Typography variant="h5">
+          Issue # {issueNo} ({publishedYear})
+        </Typography>
         <Typography variant="subtitle1">{description}</Typography>
         <Typography variant="h5">${price}</Typography>
       </Box>
