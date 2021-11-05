@@ -34,7 +34,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
@@ -57,7 +57,7 @@ export default function SignInSide() {
             backgroundImage:
               "url(https://media.istockphoto.com/photos/comic-books-background-texture-picture-id526834648)",
             backgroundRepeat: "no-repeat",
-            backgroundColor: t =>
+            backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
@@ -129,7 +129,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

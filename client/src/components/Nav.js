@@ -16,6 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Avatar } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -101,15 +102,21 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose} component={Link} to="/">
         Home
       </MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/signin">
+        Sign In
+      </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
         Profile
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+
       <MenuItem onClick={handleMenuClose} component={Link} to="/search">
         Search for Comics
       </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
         Create an Acccount
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
+        Comics For Sale
       </MenuItem>
     </Menu>
   );
@@ -170,7 +177,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -178,7 +185,8 @@ export default function PrimarySearchAppBar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
+
           <Typography
             variant="h6"
             noWrap
@@ -231,7 +239,9 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <Avatar sx={{ bgcolor: "#4f999d", textAlign: "center" }}>
+                CM
+              </Avatar>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
