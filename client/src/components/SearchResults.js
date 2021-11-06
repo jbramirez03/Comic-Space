@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
+import Card from "@mui/material/Card";
 
 const Tester = () => {
   const PRIV_KEY = "b62c40680e3ea3090a2462bc3021628651c2d45f";
@@ -50,7 +51,7 @@ const Tester = () => {
   const createButtons = (p) => {
     let currentPage = 0;
     for (let i = 0; i < p; i++) {
-      buttons = [...buttons, { i: i, page: currentPage }];
+      buttons = [...buttons, { i: i, page: currentPage, num: i + 1 }];
       currentPage += 20;
     }
   };
@@ -68,7 +69,7 @@ const Tester = () => {
   return (
     <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="md">
       <Grid container spacing={4}>
-        <Grid item>
+        <Grid item xs={12} sm={6} md={4}>
           <div>
             <form action="submit" onSubmit={onSubmit}>
               <input
@@ -81,15 +82,17 @@ const Tester = () => {
             {comics.length >= 1
               ? comics.map((comic) => {
                   return (
-                    <div key={comic.id}>
-                      <h3>{comic.title}</h3>
-                      <p>{comic.description}</p>
-                      <img
-                        width="75px"
-                        src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                        alt="comic"
-                      />
-                    </div>
+                    <Card sx={{ margin: 2 }} align="center">
+                      <div key={comic.id}>
+                        <h3>{comic.title}</h3>
+                        <p>{comic.description}</p>
+                        <img
+                          width="75px"
+                          src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                          alt="comic"
+                        />
+                      </div>
+                    </Card>
                   );
                 })
               : "Character"}
@@ -101,7 +104,7 @@ const Tester = () => {
                     key={button.i}
                     onClick={() => next(button.page)}
                   >
-                    Hi
+                    {button.num}
                   </Button>
                 ))
               : ""}
