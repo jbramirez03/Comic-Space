@@ -13,7 +13,6 @@ const typeDefs = gql`
     image: String
     quantity: Int
     price: Float
-    category: String
   }
 
   type Order {
@@ -27,6 +26,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    comics: [Comic]
     orders: [Order]
   }
 
