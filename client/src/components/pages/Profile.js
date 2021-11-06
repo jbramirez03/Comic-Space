@@ -36,6 +36,28 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
+const picName = {
+display: "flex",
+flexDirection: "row",
+margin: "15px",
+}
+
+const user ={
+  fontSize:"2rem",
+}
+
+const intro = {
+  color: "white",
+  marginLeft: "15px",
+  marginTop: "15px",
+  fontSize: "1rem"
+}
+
+const profilePic = {
+  height: "100%",
+  width: "100%",
+}
+
 export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
@@ -51,7 +73,7 @@ export default function Profile() {
             pb: 6,
           }}
         >
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" >
             <Typography
               component="h1"
               variant="h2"
@@ -59,24 +81,30 @@ export default function Profile() {
               gutterBottom
               style={{ color: "white" }}
             >
+              <div style={picName}>
+              <div>
               <Avatar
                 sx={{
                   bgcolor: "#4f999d",
-                  m: "auto",
+                  m: "10px",
                   textAlign: "center",
-                  width: 56,
-                  height: 56,
+                  width: 150,
+                  height: 150,
+                  borderRadius: "35%",
                 }}
-                variant="rounded"
+                
               >
-                CM
+            
+                <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4badb223f33c9.jpg" alt="avatar" style={profilePic}/>
               </Avatar>
-              Profile
-            </Typography>
-            <Typography
+              <div style={user}>
+              User Name
+              </div>
+              </div>
+              <div><Typography
               variant="h5"
               align="center"
-              style={{ color: "white" }}
+              style={intro}
               paragraph
             >
               Something short and leading about the collection below—its
@@ -89,11 +117,16 @@ export default function Profile() {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Message Me</Button>
+            <Button variant="contained">Message Me</Button>
               <Button variant="outlined" style={{ color: "white" }}>
-                Secondary action
+                Add Friend
               </Button>
-            </Stack>
+              </Stack>
+              </div>
+              </div> 
+               {/* end profile pic div */}
+              
+            </Typography>
           </Container>
         </Box>
         <Container sx={{ py: 8, bgcolor: "#531c28" }} maxWidth="md">
