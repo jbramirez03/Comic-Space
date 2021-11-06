@@ -49,3 +49,34 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_COMIC = gql`
+mutation saveComic($input: savedComic!){
+    saveComic(input: $input) {
+        _id
+        email
+        comics {
+            comicId
+            image
+            description
+            title
+        }
+        }
+}
+`;
+
+
+export const REMOVE_BOOK = gql`
+mutation removeComic($comicId: ID!){
+    removeComic(comicId: $comicId){
+        _id
+        email
+        comics {
+            comicId
+            description
+            image
+            title
+        }
+    }
+}
+`;
