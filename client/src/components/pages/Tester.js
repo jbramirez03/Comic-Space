@@ -11,9 +11,6 @@ const Tester = () => {
     const ts = new Date().getTime();
     const hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
     const [comics, setComics] = useState([]);
-    let [offset, setOffset] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [pages, setPages] = useState(0);
     const params = `ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`;
     const characterUrl = `https://gateway.marvel.com/v1/public/characters?`;
     const comicUrl = `https://gateway.marvel.com/v1/public/comics?`;
@@ -33,21 +30,10 @@ const Tester = () => {
     }
 
     const next = async (input) => {
-        console.log(searchedUrl);
-        setOffset(input);
         const response = await axios.get(`${searchedUrl}&offset=${input}`);
         setResponse(response);
-        set(response);
     }
 
-    const back = async () => {
-        console.log(searchedUrl);
-        const newOffset = offset - 20;
-        setOffset(newOffset);
-        const response = await axios.get(`${searchedUrl}&offset=${newOffset}`);
-        setResponse(response);
-        set(response);
-    };
 
     const search = async () => {
         const characterInfo = await getCharacterId(character);
@@ -56,42 +42,34 @@ const Tester = () => {
         return rawComics;
     }
 
-    const set = (response) => {
-        setTotal(response.data.data.total);
-        setPages(Math.ceil(response.data.data.total / 20));
-    }
 
     const setResponse = (response) => {
         setComics([...response.data.data.results]);
     }
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        const response = await search();
-        setResponse(response);
-        set(response);
-    }
-
-    const createButtons = () => {
+    const createButtons = (p) => {
         let currentPage = 0;
-        for (let i = 0; i < pages; i++) {
+        for (let i = 0; i < p; i++) {
             buttons = [...buttons, { i: i, page: currentPage }]
             currentPage += 20
         }
-
-        console.log(buttons);
-        setTest([...buttons])
-
     }
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const response = await search();
+        const p = Math.ceil(response.data.data.total / 20);
+        createButtons(p);
+        setTest([...buttons])
+        setResponse(response);
+        buttons = [];
+    }
+
 
 
     return (
         <div>
-            <button onClick={() => console.log(total)}>SEE total</button>
-            <button onClick={() => console.log(pages)}>SEE Pages</button>
-            <button onClick={() => console.log(offset)}>Offset</button>
-            <button onClick={() => next()}>Next</button>
-            <button onClick={() => back()}>back</button>
             <form action="submit" onSubmit={onSubmit}>
                 <input type="text" value={character} onChange={e => setCharacter(e.target.value)} />
                 <button>Search</button>
@@ -106,7 +84,6 @@ const Tester = () => {
                         </div>
                     );
                 }) : 'not cool'}
-            {pages >= 1 ? <div><button onClick={createButtons}>Check</button><button onClick={() => console.log(test)}>See</button></div> : 'no pages'}
             {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>Hi</button>) : 'no length'}
         </div>
     )
