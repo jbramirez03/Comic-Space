@@ -50,7 +50,7 @@ const Tester = () => {
     const createButtons = (p) => {
         let currentPage = 0;
         for (let i = 0; i < p; i++) {
-            buttons = [...buttons, { i: i, page: currentPage }]
+            buttons = [...buttons, { i: i, page: currentPage, pageNumber: i + 1 }]
             currentPage += 20
         }
     }
@@ -84,7 +84,7 @@ const Tester = () => {
                         </div>
                     );
                 }) : 'not cool'}
-            {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>Hi</button>) : 'no length'}
+            {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>{button.pageNumber}</button>) : 'no length'}
         </div>
     )
 }
