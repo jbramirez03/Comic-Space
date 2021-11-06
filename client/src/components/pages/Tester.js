@@ -32,10 +32,10 @@ const Tester = () => {
         return axios.get(`${comicUrl}${params}&characters=${input}`);
     }
 
-    const next = async () => {
+    const next = async (input) => {
         console.log(searchedUrl);
-        setOffset(offset += 20);
-        const response = await axios.get(`${searchedUrl}&offset=${offset}`);
+        setOffset(input);
+        const response = await axios.get(`${searchedUrl}&offset=${input}`);
         setResponse(response);
         set(response);
     }
@@ -73,8 +73,10 @@ const Tester = () => {
     }
 
     const createButtons = () => {
+        let currentPage = 0;
         for (let i = 0; i < pages; i++) {
-            buttons = [...buttons, i]
+            buttons = [...buttons, { i: i, page: currentPage }]
+            currentPage += 20
         }
 
         console.log(buttons);
@@ -105,6 +107,7 @@ const Tester = () => {
                     );
                 }) : 'not cool'}
             {pages >= 1 ? <div><button onClick={createButtons}>Check</button><button onClick={() => console.log(test)}>See</button></div> : 'no pages'}
+            {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>Hi</button>) : 'no length'}
         </div>
     )
 }
