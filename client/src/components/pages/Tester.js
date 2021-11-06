@@ -1,6 +1,8 @@
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { SAVE_COMIC } from '../../utils/mutations';
 
 import React from 'react'
 
@@ -17,6 +19,30 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
+    const [saveComic] = useMutation(SAVE_COMIC);
+
+
+    // const handleComicSave = async (comicId) => {
+
+    //     const comicToSave = comics.find((comic) => comic.id === bookId);
+
+    //     // get token
+    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    //     if (!token) {
+    //         return false;
+    //     }
+    //     // Add the input for the mutation save_book in a variable object set to bookToSave
+    //     try {
+    //         await saveComic({
+    //             variables: { input: comicToSave },
+    //         });
+
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+
+    // }
 
 
 
@@ -44,7 +70,14 @@ const Tester = () => {
 
 
     const setResponse = (response) => {
-        setComics([...response.data.data.results]);
+        const rawComics = [...response.data.data.results];
+        const comicData = rawComics.map((comic) => ({
+            comicId: comic.id,
+            title: comic.title || 'No title available',
+            description: comic.description || 'No description available',
+            image: `${comic.thumbnail.path}.${comic.thumbnail.extension}` || '',
+        }));
+        setComics(comicData);
     }
 
     const createButtons = (p) => {
@@ -77,10 +110,10 @@ const Tester = () => {
             {comics.length >= 1 ? comics.map(
                 (comic) => {
                     return (
-                        <div key={comic.id}>
+                        <div key={comic.comicId}>
                             <h3>{comic.title}</h3>
                             <p>{comic.description}</p>
-                            <img width="75px" src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt="comic" />
+                            <img width="75px" src={comic.image} alt="comic" />
                         </div>
                     );
                 }) : 'not cool'}
