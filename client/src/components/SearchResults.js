@@ -68,47 +68,45 @@ const Tester = () => {
 
   return (
     <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="md">
+      <form action="submit" onSubmit={onSubmit}>
+        <input
+          type="text"
+          value={character}
+          onChange={(e) => setCharacter(e.target.value)}
+        />
+        <button>Search</button>
+      </form>
       <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4}>
-          <div>
-            <form action="submit" onSubmit={onSubmit}>
-              <input
-                type="text"
-                value={character}
-                onChange={(e) => setCharacter(e.target.value)}
-              />
-              <button>Search</button>
-            </form>
-            {comics.length >= 1
-              ? comics.map((comic) => {
-                  return (
-                    <Card sx={{ margin: 2 }} align="center">
-                      <div key={comic.id}>
-                        <h3>{comic.title}</h3>
-                        <p>{comic.description}</p>
-                        <img
-                          width="75px"
-                          src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                          alt="comic"
-                        />
-                      </div>
-                    </Card>
-                  );
-                })
-              : "Character"}
-            {test.length
-              ? test.map((button) => (
-                  <Button
-                    variant="contained"
-                    sx={{ margin: 1 }}
-                    key={button.i}
-                    onClick={() => next(button.page)}
-                  >
-                    {button.num}
-                  </Button>
-                ))
-              : ""}
-          </div>
+        <Grid item xs={12} sm={6} md={8} align="center">
+          {comics.length >= 1
+            ? comics.map((comic) => {
+                return (
+                  <Card sx={{ margin: 2 }} align="center">
+                    <div key={comic.id}>
+                      <h3>{comic.title}</h3>
+                      <p>{comic.description}</p>
+                      <img
+                        width="75px"
+                        src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                        alt="comic"
+                      />
+                    </div>
+                  </Card>
+                );
+              })
+            : "Character"}
+          {test.length
+            ? test.map((button) => (
+                <Button
+                  variant="contained"
+                  sx={{ margin: 1 }}
+                  key={button.i}
+                  onClick={() => next(button.page)}
+                >
+                  {button.num}
+                </Button>
+              ))
+            : ""}
         </Grid>
       </Grid>
     </Container>

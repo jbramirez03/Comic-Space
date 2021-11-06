@@ -107,9 +107,9 @@ export default function Profile() {
             Collection
           </Typography>
           {/* End hero unit */}
-          <Grid container spacing={4} direction="column">
+          <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4} direction="row">
+              <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card>
                   <ComicCard></ComicCard>
                 </Card>
