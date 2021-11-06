@@ -34,6 +34,14 @@ const typeDefs = gql`
     session: ID
   }
 
+  input savedComic {
+    comicId: Int
+    authors: [String]
+    description: String
+    image: String
+    title: String
+}
+
   type Auth {
     token: ID
     user: User
@@ -41,7 +49,7 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
-    comics(category: ID, name: String): [Comic]
+    comics: [Comic]
     comic(_id: ID!): Comic
     user: User
     order(_id: ID!): Order
@@ -53,9 +61,9 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!,password: String!): Auth
     addOrder(comics: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateComic(_id: ID!, quantity: Int!): Comic
-    addComic(name: String!, description: String!, image: String!, price: Float!, quantity: Int!, category: String!): Comic
     login(email: String!, password: String!): Auth
+    saveComic(input: savedComic!): User
+    removeComic(comicId: ID!): User
   }
 `;
 

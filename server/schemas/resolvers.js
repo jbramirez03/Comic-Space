@@ -157,9 +157,18 @@ const resolvers = {
 
       return { token, user };
     },
-    addComic: async (parent, args,) => {
-      return await Comic.create(args);
-    }
+    saveComic: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { comics: args.input } },
+          { new: true, runValidators: true }
+        );
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
