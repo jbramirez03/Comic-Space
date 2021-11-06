@@ -68,19 +68,20 @@ const Tester = () => {
 
   return (
     <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="md">
-      <form action="submit" onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={character}
-          onChange={(e) => setCharacter(e.target.value)}
-        />
-        <button>Search</button>
-      </form>
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={8} align="center">
-          {comics.length >= 1
-            ? comics.map((comic) => {
-                return (
+      <Grid container>
+        <form action="submit" onSubmit={onSubmit}>
+          <input
+            type="text"
+            value={character}
+            onChange={(e) => setCharacter(e.target.value)}
+          />
+          <button>Search</button>
+        </form>
+
+        {comics.length >= 1
+          ? comics.map((comic) => {
+              return (
+                <Grid item xs={12} sm={6} md={4}>
                   <Card sx={{ margin: 2 }} align="center">
                     <div key={comic.id}>
                       <h3>{comic.title}</h3>
@@ -92,22 +93,23 @@ const Tester = () => {
                       />
                     </div>
                   </Card>
-                );
-              })
-            : "Character"}
-          {test.length
-            ? test.map((button) => (
-                <Button
-                  variant="contained"
-                  sx={{ margin: 1 }}
-                  key={button.i}
-                  onClick={() => next(button.page)}
-                >
-                  {button.num}
-                </Button>
-              ))
-            : ""}
-        </Grid>
+                </Grid>
+              );
+            })
+          : "Character"}
+
+        {test.length
+          ? test.map((button) => (
+              <Button
+                variant="contained"
+                sx={{ margin: 1 }}
+                key={button.i}
+                onClick={() => next(button.page)}
+              >
+                {button.num}
+              </Button>
+            ))
+          : ""}
       </Grid>
     </Container>
   );
