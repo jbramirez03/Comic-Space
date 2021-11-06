@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
+const Comic = require('./Comic');
 
 const userSchema = new Schema({
   firstName: {
@@ -25,6 +26,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  comics: [Comic.schema],
   orders: [Order.schema]
 });
 

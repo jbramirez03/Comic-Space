@@ -23,10 +23,6 @@ const comicSchema = new Schema({
     min: 0,
     default: 0
   },
-  category: {
-    type: String,
-    required: true
-  }
 });
 
 const Comic = mongoose.model('Comic', comicSchema);
