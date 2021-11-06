@@ -27,5 +27,13 @@
     "url": "https://github.com/jbramirez03/Comic-Space/issues"
   },
   "homepage": "https://github.com/jbramirez03/Comic-Space#readme",
+<<<<<<< HEAD
+  "dependencies": {
+    "@mui/material": "^5.0.6",
+    "@mui/styled-engine-sc": "^5.0.4",
+    "styled-components": "^5.3.3"
+  }
+=======
   "dependencies": {}
+>>>>>>> main
 }
