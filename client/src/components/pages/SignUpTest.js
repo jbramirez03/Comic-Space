@@ -17,11 +17,11 @@ const SignUpTest = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
             const { data } = await addUser({
                 variables: { ...userFormData },
             });
+
 
             Auth.login(data.addUser.token);
         } catch (err) {
