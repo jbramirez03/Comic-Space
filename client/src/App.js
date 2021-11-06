@@ -13,6 +13,7 @@ import store from "./utils/store";
 import SignInSide from "./components/SignInSide";
 import SignUp from "./components/SignUp";
 import Nav from "./components/Nav";
+import SearchResults from "./components/SearchResults";
 import Profile from "./components/pages/Profile";
 import Search from "./components/pages/Search";
 import Listings from "./components/pages/Listings";
@@ -52,6 +53,7 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/search" component={Search} />
               <Route exact path="/listings" component={Listings} />
+              <Route exact path="/results" component={SearchResults} />
             </Switch>
             {/* </Provider> */}
           </div>
