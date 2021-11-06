@@ -1,10 +1,36 @@
+<<<<<<< Updated upstream
 import React from 'react'
 import './App.css';
 import { Button } from '@mui/material';
+=======
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { Provider } from "react-redux";
+import "./App.css";
+import store from "./utils/store";
+import SignInSide from "./components/SignInSide";
+import SignUp from "./components/SignUp";
+import Nav from "./components/Nav";
+import SearchResults from "./components/SearchResults";
+import Profile from "./components/pages/Profile";
+import Search from "./components/pages/Search";
+import Listings from "./components/pages/Listings";
+import Tester from "./components/pages/Tester";
+import SignUpTest from './components/pages/SignUpTest';
+import Cards from './components/Cards'
+>>>>>>> Stashed changes
 
 
 function App() {
   return (
+<<<<<<< Updated upstream
   <>
 <div className="App">
     <Button onClick={()=>alert("Just Kidding")} variant="outlined" >
@@ -12,6 +38,28 @@ function App() {
     </Button>
     </div>
   </>
+=======
+    <>
+      <ApolloProvider client={client}>
+        <Router>
+          <div>
+            {/* <Provider store={store}> */}
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Tester} />
+              <Route exact path="/signin" component={SignInSide} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/search" component={Search} />
+              <Route exact path="/listings" component={Listings} />
+              <Route exact path="/results" component={SearchResults} />
+            </Switch>
+            {/* </Provider> */}
+          </div>
+        </Router>
+      </ApolloProvider>
+    </>
+>>>>>>> Stashed changes
   );
 }
 
