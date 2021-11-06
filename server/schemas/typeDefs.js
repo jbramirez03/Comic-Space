@@ -36,7 +36,6 @@ const typeDefs = gql`
 
   input savedComic {
     comicId: Int
-    authors: [String]
     description: String
     image: String
     title: String
