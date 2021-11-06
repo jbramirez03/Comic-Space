@@ -66,7 +66,7 @@ mutation saveComic($input: savedComic!){
 `;
 
 
-export const REMOVE_BOOK = gql`
+export const REMOVE_COMIC = gql`
 mutation removeComic($comicId: ID!){
     removeComic(comicId: $comicId){
         _id
