@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import React from 'react'
 import './App.css';
 import { Button } from '@mui/material';
 =======
+=======
+>>>>>>> main
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
@@ -24,6 +27,7 @@ import Search from "./components/pages/Search";
 import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 import SignUpTest from './components/pages/SignUpTest';
+<<<<<<< HEAD
 import Cards from './components/Cards'
 >>>>>>> Stashed changes
 
@@ -39,6 +43,30 @@ function App() {
     </div>
   </>
 =======
+=======
+
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+function App() {
+  return (
+>>>>>>> main
     <>
       <ApolloProvider client={client}>
         <Router>
@@ -48,7 +76,11 @@ function App() {
             <Switch>
               <Route exact path="/" component={Tester} />
               <Route exact path="/signin" component={SignInSide} />
+<<<<<<< HEAD
               <Route exact path="/signup" component={SignUp} />
+=======
+              <Route exact path="/signup" component={SignUpTest} />
+>>>>>>> main
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/search" component={Search} />
               <Route exact path="/listings" component={Listings} />
@@ -59,7 +91,10 @@ function App() {
         </Router>
       </ApolloProvider>
     </>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
   );
 }
 
