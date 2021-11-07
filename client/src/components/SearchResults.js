@@ -2,12 +2,26 @@ import axios from "axios";
 import CryptoJS from "crypto-js";
 import { useState } from "react";
 import React from "react";
+import Flippy, { FrontSide, BackSide } from "react-flippy";
+import Box from "@mui/material/Box";
 
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import Card from "@mui/material/Card";
+// import Cards from "../components/Cards";
+
+const cardStyle = {
+  height: "300px",
+  width: "200px",
+};
+const imgStyle = {
+  maxWidth: "100%",
+  maxHeight: "100%",
+  bgColor: "#531c28",
+};
 
 const Tester = () => {
   const PRIV_KEY = "b62c40680e3ea3090a2462bc3021628651c2d45f";
@@ -69,35 +83,58 @@ const Tester = () => {
   return (
     <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="md">
       <Grid container>
-        <form action="submit" onSubmit={onSubmit}>
-          <input
-            type="text"
-            value={character}
-            onChange={(e) => setCharacter(e.target.value)}
-          />
-          <button>Search</button>
-        </form>
-
+        <Grid item xs={12} sm={6} md={4} sx={{ marginRight: "auto" }}>
+          <form action="submit" onSubmit={onSubmit}>
+            <input
+              type="text"
+              style={{ margin: "auto", width: "30vw", align: "center" }}
+              value={character}
+              onChange={(e) => setCharacter(e.target.value)}
+            />
+            <button
+              sx={{
+                width: "100px",
+                height: "30px",
+                marginTop: "5px",
+                bgackgroundColor: "#531c28",
+              }}
+            >
+              Search
+            </button>
+          </form>
+        </Grid>
+        <Grid item xs={12}>
+          <Divider orientation="vertical" flexItem />
+        </Grid>
         {comics.length >= 1
           ? comics.map((comic) => {
               return (
                 <Grid item xs={12} sm={6} md={4}>
-                  <Card sx={{ margin: 2 }} align="center">
-                    <div key={comic.id}>
-                      <h3>{comic.title}</h3>
-                      <p>{comic.description}</p>
+                  <Flippy
+                    style={{ cardStyle }}
+                    flipOnClick={true}
+                    flipDirection="horizontal"
+                    key={comic.id}
+                  >
+                    <FrontSide>
                       <img
-                        width="75px"
                         src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                         alt="comic"
+                        style={imgStyle}
                       />
-                    </div>
-                  </Card>
+                    </FrontSide>
+                    <BackSide>
+                      <h3>{comic.title}</h3>
+                      <p>{comic.description}</p>
+                    </BackSide>
+                  </Flippy>
                 </Grid>
               );
             })
-          : "Character"}
-
+          : ""}
+        <Grid item xs={12}>
+          <Divider orientation="vertical" flexItem />
+        </Grid>
         {test.length
           ? test.map((button) => (
               <Button
