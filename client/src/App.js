@@ -19,7 +19,7 @@ import Profile from "./components/pages/Profile";
 import Search from "./components/pages/Search";
 import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
-import SignUpTest from './components/pages/SignUpTest';
+// import SignUpTest from './components/pages/SignUpTest';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -51,7 +51,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Tester} />
               <Route exact path="/signin" component={SignInSide} />
-              <Route exact path="/signup" component={SignUpTest} />
+              <Route exact path="/signup" component={SignUp} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/search" component={Search} />
               <Route exact path="/listings" component={Listings} />

@@ -167,7 +167,6 @@ export default function SignInSide() {
           </Box>
         </Grid>
       </Grid>
-      {Auth.loggedIn() ? <button onClick={Auth.logout}>logout</button> : 'no'}
     </ThemeProvider>
   );
 }
