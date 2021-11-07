@@ -49,22 +49,36 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_USER = gql`
-  {
+  query user {
     user {
+      _id
       firstName
       lastName
-      orders {
-        _id
-        purchaseDate
-        comics {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+      email
+      comics {
+        comicId
+        description
+        title
+        image
       }
-    }
   }
+`;
+
+
+export const QUERY_ME = gql`
+query me {
+  me {
+      _id
+      firstName
+      lastName
+      email
+      comics {
+          comicId
+          description
+          title
+          image
+      }
+  }
+}
+
 `;
