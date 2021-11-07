@@ -3,6 +3,7 @@ import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { SAVE_COMIC } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 import React from 'react'
 
@@ -22,27 +23,29 @@ const Tester = () => {
     const [saveComic] = useMutation(SAVE_COMIC);
 
 
-    // const handleComicSave = async (comicId) => {
+    const handleComicSave = async (comicId) => {
 
-    //     const comicToSave = comics.find((comic) => comic.id === bookId);
+        const comicToSave = comics.find((comic) => comic.comicId === comicId);
 
-    //     // get token
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+        console.log(comicToSave)
 
-    //     if (!token) {
-    //         return false;
-    //     }
-    //     // Add the input for the mutation save_book in a variable object set to bookToSave
-    //     try {
-    //         await saveComic({
-    //             variables: { input: comicToSave },
-    //         });
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
+        if (!token) {
+            return false;
+        }
+        // Add the input for the mutation save_book in a variable object set to bookToSave
+        try {
+            await saveComic({
+                variables: { input: comicToSave },
+            });
 
-    // }
+        } catch (err) {
+            console.error(err);
+        }
+
+    }
 
 
 
@@ -114,6 +117,7 @@ const Tester = () => {
                             <h3>{comic.title}</h3>
                             <p>{comic.description}</p>
                             <img width="75px" src={comic.image} alt="comic" />
+                            <button onClick={() => handleComicSave(comic.comicId)}>Save</button>
                         </div>
                     );
                 }) : 'not cool'}

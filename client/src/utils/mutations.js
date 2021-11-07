@@ -57,9 +57,9 @@ mutation saveComic($input: savedComic!){
         email
         comics {
             comicId
-            image
-            description
             title
+            description
+            image
         }
         }
 }
