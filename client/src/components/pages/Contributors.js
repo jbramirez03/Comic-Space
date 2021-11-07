@@ -1,6 +1,7 @@
 import HTMLFlipBook from "react-pageflip";
 import chris from "../../images/chris.jpg";
-import jammy from '../../images/jammy.png';
+import jammy from "../../images/jammy.png";
+import jason from "../../images/jason.jpeg";
 
 const Contributors = () => {
   const styles = {
@@ -47,15 +48,31 @@ const Contributors = () => {
         <div className="info">
           <h3>About Me</h3>
           <p>
-          I am from Raleigh, North Carolina. I am looking for a career change
+            I am from Raleigh, North Carolina. I am looking for a career change
             into software development. I am currently enrolled in UNC Coding
             Bootcamp expected to graduate November 20th, 2021.
           </p>
         </div>
       </div>
 
+      
+      <div className="demoPage">
+        <div className="info">
+          <img className="avatar" src={jason} alt="jason" />
+          <h3>Jason Barrera</h3>
+        </div>
+      </div>
+      <div className="demoPage">
+        <div className="info">
+          <h3>About Me</h3>
+          <p>
+          Full-Stack Web Developer, a graduate of `The Coding Bootcamp At UNC-Chapel Hill` with a special appreciation for back-end projects and a life-long dedication to learning. Determined to improve in all aspects of life and known amongst peers for having an eye for detail and being skilled at problem-solving no matter the complexity of the project.
+          </p>
+        </div>
+      </div>
 
-      <div className="demoPage">Page 3</div>
+
+
       <div className="demoPage">Page 4</div>
     </HTMLFlipBook>
   );
