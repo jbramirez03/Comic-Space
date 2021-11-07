@@ -8,11 +8,10 @@ const typeDefs = gql`
 
   type Comic {
     _id: ID
-    name: String
+    comicId: Int
+    title: String
     description: String
     image: String
-    quantity: Int
-    price: Float
   }
 
   type Order {
@@ -36,9 +35,9 @@ const typeDefs = gql`
 
   input savedComic {
     comicId: Int
+    title: String
     description: String
     image: String
-    title: String
 }
 
   type Auth {

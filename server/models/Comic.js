@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const comicSchema = new Schema({
-  name: {
+  comicId: {
+    type: Number,
+  },
+  title: {
     type: String,
     required: true,
     trim: true
@@ -16,7 +19,6 @@ const comicSchema = new Schema({
   },
   price: {
     type: Number,
-    required: true,
   },
   quantity: {
     type: Number,
