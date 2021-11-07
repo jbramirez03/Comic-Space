@@ -47,14 +47,9 @@ const Contributors = () => {
         <div className="info">
           <h3>About Me</h3>
           <p>
-            Hello and thanks for checking out my portfolio! My name is Chris
-            Mattix and I am currently a student in the UNC Full Stack Developer
-            Bootcamp. I am a former teacher who spent 12 years in education
-            before deciding it was time to move on to a new career where I can
-            put my problem-solving skills to the test. I am originally from
-            Montana, and miss my home state everyday. I have lived in North
-            Carolina for the past 6 years, and truly love it...even if the
-            mountains here don't have the same majesty as the ones in Montana.
+          I am from Raleigh, North Carolina. I am looking for a career change
+            into software development. I am currently enrolled in UNC Coding
+            Bootcamp expected to graduate November 20th, 2021.
           </p>
         </div>
       </div>
