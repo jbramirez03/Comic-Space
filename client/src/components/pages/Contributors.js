@@ -2,7 +2,7 @@ import HTMLFlipBook from "react-pageflip";
 import comic1 from "../../images/comic1.jpg";
 import comic2 from "../../images/comic2.jpg";
 import chris from "../../images/chris.jpg";
-import jammy from "../../images/jammy.png";
+import jammy from "../../images/jammy.jpg";
 import jason from "../../images/jason.jpeg";
 import qabas from "../../images/qabas-photo.jpg";
 
