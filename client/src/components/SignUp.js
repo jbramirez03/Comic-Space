@@ -12,6 +12,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 function Copyright(props) {
   return (
@@ -34,15 +39,46 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
   };
+
+  const [addUser] = useMutation(ADD_USER);
+
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+
+
+      Auth.login(data.addUser.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    });
+  }
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   // eslint-disable-next-line no-console
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,7 +101,7 @@ export default function SignUp() {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={handleFormSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
@@ -77,6 +113,8 @@ export default function SignUp() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  value={userFormData.firstName}
+                  onChange={handleInputChange}
                   autoFocus
                 />
               </Grid>
@@ -87,6 +125,8 @@ export default function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
+                  value={userFormData.lastName}
+                  onChange={handleInputChange}
                   autoComplete="family-name"
                 />
               </Grid>
@@ -97,6 +137,8 @@ export default function SignUp() {
                   id="email"
                   label="Email Address"
                   name="email"
+                  value={userFormData.email}
+                  onChange={handleInputChange}
                   autoComplete="email"
                 />
               </Grid>
@@ -108,6 +150,8 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
+                  value={userFormData.password}
+                  onChange={handleInputChange}
                   autoComplete="new-password"
                 />
               </Grid>
