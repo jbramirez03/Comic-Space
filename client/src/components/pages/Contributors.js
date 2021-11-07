@@ -1,4 +1,5 @@
 import HTMLFlipBook from "react-pageflip";
+import comic1 from "../../images/comic1.jpg";
 import chris from "../../images/chris.jpg";
 import jammy from "../../images/jammy.png";
 import jason from "../../images/jason.jpeg";
@@ -20,23 +21,14 @@ const Contributors = () => {
 
 <div className="demoPage">
         <div className="info">
-          <img className="avatar" src={chris} alt="chris" />
-          <h3>Chris Mattix</h3>
+        
+          <h1>Comic-Space</h1>
+          <h5>Contributors</h5>
         </div>
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
-          <p>
-            Hello and thanks for checking out my portfolio! My name is Chris
-            Mattix and I am currently a student in the UNC Full Stack Developer
-            Bootcamp. I am a former teacher who spent 12 years in education
-            before deciding it was time to move on to a new career where I can
-            put my problem-solving skills to the test. I am originally from
-            Montana, and miss my home state everyday. I have lived in North
-            Carolina for the past 6 years, and truly love it...even if the
-            mountains here don't have the same majesty as the ones in Montana.
-          </p>
+        <img className="avatar" src={comic1} alt="comic1" id="comic" />
         </div>
       </div>
 
