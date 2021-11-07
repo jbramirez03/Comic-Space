@@ -1,5 +1,6 @@
 import HTMLFlipBook from "react-pageflip";
 import comic1 from "../../images/comic1.jpg";
+import comic2 from "../../images/comic2.jpg";
 import chris from "../../images/chris.jpg";
 import jammy from "../../images/jammy.png";
 import jason from "../../images/jason.jpeg";
@@ -28,7 +29,8 @@ const Contributors = () => {
       </div>
       <div className="demoPage">
         <div className="info">
-        <img className="avatar" src={comic1} alt="comic1" id="comic" />
+        <img className="avatar" src={comic1} alt="comic1" />
+        <img className="avatar" src={comic2} alt="comic2" />
         </div>
       </div>
 
