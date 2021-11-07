@@ -120,8 +120,8 @@ const Tester = () => {
                             {Auth.loggedIn ? <button onClick={() => handleComicSave(comic.comicId)}>Save</button> : 'You need to login'}
                         </div>
                     );
-                }) : 'not cool'}
-            {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>{button.pageNumber}</button>) : 'no length'}
+                }) : <div>There is no comics to diplay at this time</div>}
+            {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>{button.pageNumber}</button>) : 'No page buttons yet'}
         </div>
     )
 }

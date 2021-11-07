@@ -12,7 +12,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("orders");
+          .populate("comics");
 
         return userData;
       }
@@ -45,7 +45,7 @@ const resolvers = {
         //   populate: "category",
         // });
 
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+        // user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
         return user;
       }
