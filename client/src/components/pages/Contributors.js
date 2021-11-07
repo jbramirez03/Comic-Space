@@ -108,8 +108,6 @@ const Contributors = () => {
           </p>
         </div>
       </div>
-
-      <div className="demoPage">Page 4</div>
     </HTMLFlipBook>
   );
 };
