@@ -6,6 +6,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import Contributors from './components/pages/Contributors'
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import "./App.css";
@@ -55,6 +56,7 @@ function App() {
               <Route exact path="/search" component={Search} />
               <Route exact path="/listings" component={Listings} />
               <Route exact path="/results" component={SearchResults} />
+              <Route exact path="/contributors" component={Contributors} />
             </Switch>
             {/* </Provider> */}
           </div>

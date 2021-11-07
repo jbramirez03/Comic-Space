@@ -118,6 +118,9 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
         Comics For Sale
       </MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/contributors">
+      Contributors
+      </MenuItem>
     </Menu>
   );
 
