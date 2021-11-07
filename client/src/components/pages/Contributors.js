@@ -19,23 +19,19 @@ const Contributors = () => {
 
   return (
     <HTMLFlipBook width={350} height={450} drawShadow={true} style={styles}>
-
-<div className="demoPage">
+      <div className="demoPage">
         <div className="info">
-        
           <h1>Comic-Space</h1>
+          <h1>Book</h1>
           <h5>Contributors</h5>
+          <img className="avatar" src={comic2} alt="comic2" />
         </div>
       </div>
       <div className="demoPage">
         <div className="info">
-        <img className="avatar" src={comic1} alt="comic1" />
-        <img className="avatar" src={comic2} alt="comic2" />
+          <img className="avatar1" src={comic1} alt="comic1" />
         </div>
       </div>
-
-
-
 
       <div className="demoPage">
         <div className="info">
