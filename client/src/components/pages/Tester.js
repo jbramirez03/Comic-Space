@@ -117,7 +117,7 @@ const Tester = () => {
                             <h3>{comic.title}</h3>
                             <p>{comic.description}</p>
                             <img width="75px" src={comic.image} alt="comic" />
-                            <button onClick={() => handleComicSave(comic.comicId)}>Save</button>
+                            {Auth.loggedIn ? <button onClick={() => handleComicSave(comic.comicId)}>Save</button> : 'You need to login'}
                         </div>
                     );
                 }) : 'not cool'}
