@@ -12,6 +12,12 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
+
 
 function Copyright(props) {
   return (
@@ -34,13 +40,31 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [loginUser] = useMutation(LOGIN);
+
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+
+    try {
+      const { data } = await loginUser({
+        variables: { ...userFormData }
+      });
+
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      email: '',
+      password: '',
     });
   };
 
@@ -87,7 +111,7 @@ export default function SignInSide() {
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleFormSubmit}
               sx={{ mt: 1 }}
             >
               <TextField
@@ -97,6 +121,8 @@ export default function SignInSide() {
                 id="email"
                 label="Email Address"
                 name="email"
+                value={userFormData.email}
+                onChange={handleInputChange}
                 autoComplete="email"
                 autoFocus
               />
@@ -105,6 +131,8 @@ export default function SignInSide() {
                 required
                 fullWidth
                 name="password"
+                value={userFormData.password}
+                onChange={handleInputChange}
                 label="Password"
                 type="password"
                 id="password"
@@ -139,6 +167,7 @@ export default function SignInSide() {
           </Box>
         </Grid>
       </Grid>
+      {Auth.loggedIn() ? <button onClick={Auth.logout}>logout</button> : 'no'}
     </ThemeProvider>
   );
 }
