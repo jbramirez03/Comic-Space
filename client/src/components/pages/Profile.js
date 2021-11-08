@@ -19,6 +19,7 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import ViewCollection from "../ViewCollection";
+import ViewWishlist from "../ViewWishlist";
 
 function Copyright() {
   return (
@@ -131,16 +132,32 @@ export default function Profile() {
           </Container>
         </Box>
         <Container sx={{ py: 8, bgcolor: "#531c28" }} maxWidth="md">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            gutterBottom
-            style={{ color: "white" }}
-          >
-            Your Collection
-            <ViewCollection />
-          </Typography>
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={6} md={6}>
+              <Typography
+                component="h1"
+                variant="h3"
+                align="center"
+                gutterBottom
+                style={{ color: "white", fontFamily: "Helvetica Neue" }}
+              >
+                Your Collection
+                <ViewCollection />
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <Typography
+                component="h1"
+                variant="h3"
+                align="center"
+                gutterBottom
+                style={{ color: "white", fontFamily: "Helvetica Neue" }}
+              >
+                Your Wishlist
+                <ViewWishlist />
+              </Typography>
+            </Grid>
+          </Grid>
 
           {/* End hero unit */}
           <Grid container spacing={4}>
