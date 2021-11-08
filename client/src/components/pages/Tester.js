@@ -91,6 +91,7 @@ const Tester = () => {
         const characterInfo = await getCharacterId(character);
         const characterId = characterInfo.data.data.results[0].id;
         const rawComics = await getComics(characterId);
+        console.log(rawComics)
         return rawComics;
     }
 
@@ -102,6 +103,7 @@ const Tester = () => {
             title: comic.title || 'No title available',
             description: comic.description || 'No description available',
             image: `${comic.thumbnail.path}.${comic.thumbnail.extension}` || '',
+            series: comic.series.name || 'this comic does not belong to a series'
         }));
         setComics(comicData);
     }
@@ -155,7 +157,8 @@ const Tester = () => {
                             <h3>{comic.title}</h3>
                             <p>{comic.description}</p>
                             <img width="75px" src={comic.image} alt="comic" />
-                            {/* {Auth.loggedIn ? <button onClick={() => handleComicSave(comic.comicId)}>Save</button> : 'You need to login'} */}
+                            <p>Series: {comic.series}</p>
+                            <button onClick={() => console.log(comic)}>Save</button>
                         </div>
                     );
                 }) : <div>There is no comics to diplay at this time</div>}
