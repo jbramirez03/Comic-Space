@@ -4,7 +4,7 @@ import { useState } from "react";
 import React from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import Box from "@mui/material/Box";
-
+import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
@@ -14,13 +14,23 @@ import Card from "@mui/material/Card";
 // import Cards from "../components/Cards";
 
 const cardStyle = {
-  height: "300px",
-  width: "200px",
+  frontSide: {
+    backgroundColor: "#531c28",
+    border: "2px solid #531c28",
+    borderRadius: "5px",
+    boxShadow: "3px 3px 0px #4f999d",
+    height: "100%",
+    width: "100%",
+  },
+  backSide: {
+    color: "black",
+    backgroundColor: "#d7c5b7",
+  },
 };
 const imgStyle = {
-  maxWidth: "100%",
-  maxHeight: "100%",
-  backgroundColor: "#531c28",
+  width: "100%",
+  height: "100%",
+  overflow: "hidden",
 };
 
 const Tester = () => {
@@ -82,12 +92,15 @@ const Tester = () => {
 
   return (
     <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="md">
-      <Grid container>
-        <Grid item xs={12} sm={6} md={4} sx={{ marginRight: "auto" }}>
+      <Typography variant="h2" align="center" color="white">
+        Comic Search
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4} sx={{ margin: "0 auto" }}>
           <form action="submit" onSubmit={onSubmit}>
             <input
               type="text"
-              style={{ margin: "auto", width: "30vw", align: "center" }}
+              style={{ margin: "0 auto", width: "100%", align: "center" }}
               value={character}
               onChange={(e) => setCharacter(e.target.value)}
             />
@@ -111,7 +124,8 @@ const Tester = () => {
               return (
                 <Grid item xs={12} sm={6} md={4}>
                   <Flippy
-                    style={{ bgColor: "#531c28" }}
+                    style={cardStyle.frontSide}
+                    className="flipCard"
                     flipOnClick={true}
                     flipDirection="horizontal"
                     key={comic.id}
@@ -123,7 +137,7 @@ const Tester = () => {
                         style={imgStyle}
                       />
                     </FrontSide>
-                    <BackSide style={{ bgColor: "#531c28" }}>
+                    <BackSide style={cardStyle.backSide}>
                       <h3>{comic.title}</h3>
                       <p>{comic.description}</p>
                     </BackSide>
