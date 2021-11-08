@@ -1,5 +1,4 @@
 import React from 'react'
-import Forum from './pages/Forum'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Container } from '@mui/material';
@@ -13,7 +12,7 @@ const replyBox = {
 
 const submitButton = {
     marginTop:"2%",
-  marginLeft: "90%"
+  float: "right"
 }
 const ForumReply = () => {
     return (
@@ -26,7 +25,7 @@ const ForumReply = () => {
          label=""
          multiline
          rows={1.5}
-         defaultValue="Reply to this thread"
+         defaultValue="Reply to this thread..."
          >
         </TextField>
         <Box style={submitButton}><Button variant="contained">Reply</Button>
