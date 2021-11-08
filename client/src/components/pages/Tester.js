@@ -2,7 +2,7 @@ import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { SAVE_COMIC } from '../../utils/mutations';
+import { SAVE_COMIC, REMOVE_COMIC } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries'
 
@@ -24,6 +24,26 @@ const Tester = () => {
     const [saveComic] = useMutation(SAVE_COMIC);
     const { loading, data } = useQuery(QUERY_ME);
     const userData = data?.me || [];
+    const [removeComic] = useMutation(REMOVE_COMIC);
+
+
+    const handleDeleteComic = async (comicId) => {
+
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            // pass in the id for the desired book to be removed
+            await removeComic({
+                variables: { comicId }
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
 
     const handleComicSave = async (comicId) => {
@@ -124,6 +144,7 @@ const Tester = () => {
                         <h3>{comic.title}</h3>
                         <p>{comic.description}</p>
                         <img width="75px" src={comic.image} alt="comic" />
+                        <button onClick={() => handleDeleteComic(comic.comicId)}>Delete comic</button>
                     </div>
                 )
             }) : 'No comics to view from user'}
