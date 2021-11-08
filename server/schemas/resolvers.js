@@ -174,6 +174,18 @@ const resolvers = {
       }
       throw new AuthenticationError("Please login in!");
     },
+    wishComic: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { wishlist: args.input } },
+          { new: true, runValidators: true }
+        );
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    }
   },
 };
 
