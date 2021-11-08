@@ -21,6 +21,8 @@ import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 // import SignUpTest from './components/pages/SignUpTest';
 
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
