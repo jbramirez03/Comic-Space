@@ -41,6 +41,13 @@ const typeDefs = gql`
     image: String
 }
 
+  input wishedComic {
+    comicId: Int
+    title: String
+    description: String
+    image: String
+  }
+
   type Auth {
     token: ID
     user: User
@@ -62,6 +69,7 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     saveComic(input: savedComic!): User
+    wishComic(input: wishedComic!): User
     removeComic(comicId: Int!): User
   }
 `;
