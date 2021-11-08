@@ -80,3 +80,18 @@ mutation removeComic($comicId: Int!){
     }
 }
 `;
+
+export const WISH_COMIC = gql`
+mutation wishComic($input: wishedComic!){
+  wishComic(input: $input){
+    _id
+    email
+    comics{
+      comicId
+      title
+      description
+      image
+    }
+  }
+}
+`;
