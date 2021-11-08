@@ -2,7 +2,7 @@ import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { SAVE_COMIC, REMOVE_COMIC } from '../../utils/mutations';
+import { SAVE_COMIC, REMOVE_COMIC, WISH_COMIC } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries'
 
@@ -21,10 +21,10 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
-    // const [saveComic] = useMutation(SAVE_COMIC);
+    // const [saveComic] = useMutation(WISH_COMIC);
     // const { loading, data } = useQuery(QUERY_ME);
     // const userData = data?.me || [];
-    // const [removeComic] = useMutation(REMOVE_COMIC);
+    // // const [removeComic] = useMutation(REMOVE_COMIC);
 
 
     // const handleDeleteComic = async (comicId) => {
@@ -103,7 +103,7 @@ const Tester = () => {
             title: comic.title || 'No title available',
             description: comic.description || 'No description available',
             image: `${comic.thumbnail.path}.${comic.thumbnail.extension}` || '',
-            series: comic.series.name || 'this comic does not belong to a series'
+            series: comic.series.name || 'This comic does not belong to a series'
         }));
         setComics(comicData);
     }
