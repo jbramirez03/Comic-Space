@@ -20,7 +20,7 @@ const cardStyle = {
 const imgStyle = {
   maxWidth: "100%",
   maxHeight: "100%",
-  bgColor: "#531c28",
+  backgroundColor: "#531c28",
 };
 
 const Tester = () => {
@@ -111,7 +111,7 @@ const Tester = () => {
               return (
                 <Grid item xs={12} sm={6} md={4}>
                   <Flippy
-                    style={{ cardStyle }}
+                    style={{ bgColor: "#531c28" }}
                     flipOnClick={true}
                     flipDirection="horizontal"
                     key={comic.id}
@@ -123,7 +123,7 @@ const Tester = () => {
                         style={imgStyle}
                       />
                     </FrontSide>
-                    <BackSide>
+                    <BackSide style={{ bgColor: "#531c28" }}>
                       <h3>{comic.title}</h3>
                       <p>{comic.description}</p>
                     </BackSide>
