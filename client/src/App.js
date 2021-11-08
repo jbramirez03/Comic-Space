@@ -20,6 +20,7 @@ import Search from "./components/pages/Search";
 import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 // import SignUpTest from './components/pages/SignUpTest';
+import Forum from './components/pages/Forum'
 
 const httpLink = createHttpLink({
   uri: "/graphql",
