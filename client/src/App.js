@@ -1,4 +1,5 @@
 import React from "react";
+import Dictaphone from './components/pages/Dictaphone'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
@@ -21,6 +22,7 @@ import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 // import SignUpTest from './components/pages/SignUpTest';
 import Forum from './components/pages/Forum'
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -57,7 +59,8 @@ function App() {
               <Route exact path="/search" component={Search} />
               <Route exact path="/listings" component={Listings} />
               <Route exact path="/results" component={SearchResults} />
-              <Route exact path="/contributors" component={Contributors} />
+              <Route exact path="/contributors" component={Contributors } />
+              <Route exact path="/dictaphone" component={Dictaphone } />
             </Switch>
             {/* </Provider> */}
           </div>

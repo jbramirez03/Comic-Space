@@ -27,5 +27,7 @@
     "url": "https://github.com/jbramirez03/Comic-Space/issues"
   },
   "homepage": "https://github.com/jbramirez03/Comic-Space#readme",
-  "dependencies": {}
+  "dependencies": {
+    "react-mic": "^12.4.6"
+  }
 }

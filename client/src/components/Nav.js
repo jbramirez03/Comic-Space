@@ -121,6 +121,9 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose} component={Link} to="/contributors">
       Contributors
       </MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/dictaphone">
+      Note Taking
+      </MenuItem>
     </Menu>
   );
 
