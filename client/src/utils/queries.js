@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 export const QUERY_COMICS = gql`
   query getComics($category: ID) {
@@ -48,21 +48,21 @@ export const QUERY_CATEGORIES = gql`
   }
 `;
 
-export const QUERY_USER = gql`
-  query user {
-    user {
-      _id
-      firstName
-      lastName
-      email
-      comics {
-        comicId
-        description
-        title
-        image
-      }
-  }
-`;
+// export const QUERY_USER = gql`
+//   {
+//     user {
+//       _id
+//       firstName
+//       lastName
+//       email
+//       comics {
+//         comicId
+//         description
+//         title
+//         image
+//       }
+//   }
+// `;
 
 
 export const QUERY_ME = gql`

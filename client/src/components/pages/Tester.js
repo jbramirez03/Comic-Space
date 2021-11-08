@@ -1,9 +1,10 @@
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_COMIC } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { QUERY_ME } from '../../utils/queries'
 
 import React from 'react'
 
@@ -21,6 +22,8 @@ const Tester = () => {
     let buttons = [];
     const [test, setTest] = useState([]);
     const [saveComic] = useMutation(SAVE_COMIC);
+    const { loading, data } = useQuery(QUERY_ME);
+    const userData = data?.me || [];
 
 
     const handleComicSave = async (comicId) => {
@@ -102,7 +105,9 @@ const Tester = () => {
         buttons = [];
     }
 
-
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    }
 
     return (
         <div>
@@ -110,6 +115,18 @@ const Tester = () => {
                 <input type="text" value={character} onChange={e => setCharacter(e.target.value)} />
                 <button>Search</button>
             </form>
+            <button onClick={() => console.log(userData)}>CHeck data</button>
+            <button onClick={() => console.log(userData.comics)}>See saved comics</button>
+            {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
+            {userData.comics.length ? userData.comics.map(comic => {
+                return (
+                    <div key={comic.comicId}>
+                        <h3>{comic.title}</h3>
+                        <p>{comic.description}</p>
+                        <img width="75px" src={comic.image} alt="comic" />
+                    </div>
+                )
+            }) : 'No comics to view from user'}
             {comics.length >= 1 ? comics.map(
                 (comic) => {
                     return (
