@@ -21,54 +21,54 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
-    const [saveComic] = useMutation(SAVE_COMIC);
-    const { loading, data } = useQuery(QUERY_ME);
-    const userData = data?.me || [];
-    const [removeComic] = useMutation(REMOVE_COMIC);
+    // const [saveComic] = useMutation(SAVE_COMIC);
+    // const { loading, data } = useQuery(QUERY_ME);
+    // const userData = data?.me || [];
+    // const [removeComic] = useMutation(REMOVE_COMIC);
 
 
-    const handleDeleteComic = async (comicId) => {
+    // const handleDeleteComic = async (comicId) => {
 
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-        if (!token) {
-            return false;
-        }
+    //     if (!token) {
+    //         return false;
+    //     }
 
-        try {
-            // pass in the id for the desired book to be removed
-            await removeComic({
-                variables: { comicId }
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    //     try {
+    //         // pass in the id for the desired book to be removed
+    //         await removeComic({
+    //             variables: { comicId }
+    //         });
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
 
-    const handleComicSave = async (comicId) => {
+    // const handleComicSave = async (comicId) => {
 
-        const comicToSave = comics.find((comic) => comic.comicId === comicId);
+    //     const comicToSave = comics.find((comic) => comic.comicId === comicId);
 
-        console.log(comicToSave)
+    //     console.log(comicToSave)
 
-        // get token
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+    //     // get token
+    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-        if (!token) {
-            return false;
-        }
-        // Add the input for the mutation save_book in a variable object set to bookToSave
-        try {
-            await saveComic({
-                variables: { input: comicToSave },
-            });
+    //     if (!token) {
+    //         return false;
+    //     }
+    //     // Add the input for the mutation save_book in a variable object set to bookToSave
+    //     try {
+    //         await saveComic({
+    //             variables: { input: comicToSave },
+    //         });
 
-        } catch (err) {
-            console.error(err);
-        }
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
 
-    }
+    // }
 
 
 
@@ -125,9 +125,9 @@ const Tester = () => {
         buttons = [];
     }
 
-    if (loading) {
-        return <h2>LOADING...</h2>;
-    }
+    // if (loading) {
+    //     return <h2>LOADING...</h2>;
+    // }
 
     return (
         <div>
@@ -135,9 +135,9 @@ const Tester = () => {
                 <input type="text" value={character} onChange={e => setCharacter(e.target.value)} />
                 <button>Search</button>
             </form>
-            <button onClick={() => console.log(userData)}>CHeck data</button>
-            <button onClick={() => console.log(userData.comics)}>See saved comics</button>
-            {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
+            {/* <button onClick={() => console.log(userData)}>CHeck data</button>
+            <button onClick={() => console.log(userData.comics)}>See saved comics</button> */}
+            {/* {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
             {userData.comics.length ? userData.comics.map(comic => {
                 return (
                     <div key={comic.comicId}>
@@ -147,7 +147,7 @@ const Tester = () => {
                         <button onClick={() => handleDeleteComic(comic.comicId)}>Delete comic</button>
                     </div>
                 )
-            }) : 'No comics to view from user'}
+            }) : 'No comics to view from user'} */}
             {comics.length >= 1 ? comics.map(
                 (comic) => {
                     return (
@@ -155,7 +155,7 @@ const Tester = () => {
                             <h3>{comic.title}</h3>
                             <p>{comic.description}</p>
                             <img width="75px" src={comic.image} alt="comic" />
-                            {Auth.loggedIn ? <button onClick={() => handleComicSave(comic.comicId)}>Save</button> : 'You need to login'}
+                            {/* {Auth.loggedIn ? <button onClick={() => handleComicSave(comic.comicId)}>Save</button> : 'You need to login'} */}
                         </div>
                     );
                 }) : <div>There is no comics to diplay at this time</div>}
