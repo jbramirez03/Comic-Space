@@ -27,6 +27,7 @@ const typeDefs = gql`
     email: String
     comics: [Comic]
     orders: [Order]
+    wishlist: [Comic]
   }
 
   type Checkout {

@@ -27,7 +27,8 @@ const userSchema = new Schema({
     minlength: 5
   },
   comics: [Comic.schema],
-  orders: [Order.schema]
+  orders: [Order.schema],
+  wishlist: [Comic.schema]
 });
 
 // set up pre-save middleware to create password

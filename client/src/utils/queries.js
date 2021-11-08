@@ -78,6 +78,12 @@ query me {
           title
           image
       }
+      wishlist {
+          comicId
+          description
+          title
+          image
+      }
   }
 }
 
