@@ -84,6 +84,12 @@ query me {
           title
           image
       }
+      posts {
+        comicId
+        description
+        title
+        image
+      }
   }
 }
 
