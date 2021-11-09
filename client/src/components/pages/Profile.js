@@ -14,12 +14,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import Divider from "@mui/material/Divider";
 import { Avatar } from "@mui/material";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import ViewCollection from "../ViewCollection";
 import ViewWishlist from "../ViewWishlist";
+import { QUERY_ME } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 
 function Copyright() {
   return (
@@ -61,6 +64,12 @@ const profilePic = {
 };
 
 export default function Profile() {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || [];
+  const [collectedComics, setCollectedComics] = React.useState([]);
+  if (loading) {
+    return <div>LOADING...</div>;
+  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -133,20 +142,39 @@ export default function Profile() {
         </Box>
         <Container sx={{ py: 8, bgcolor: "#531c28" }} maxWidth="md">
           <Grid container spacing={4}>
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                component="h1"
-                variant="h3"
-                align="center"
-                gutterBottom
-                style={{ color: "white", fontFamily: "Helvetica Neue" }}
+            <Typography
+              component="h1"
+              variant="h3"
+              align="center"
+              gutterBottom
+              style={{ color: "white", fontFamily: "Helvetica Neue" }}
+            >
+              Your Collection{" "}
+              <Button
+                variant="contained"
+                sx={{ margin: "auto 0" }}
+                onClick={() => setCollectedComics([...userData.comics])}
               >
-                Your Collection
-                <ViewCollection />
-              </Typography>
+                View
+              </Button>
+            </Typography>
+
+            <Grid item xs={12} sm={6} md={12}>
+              {collectedComics.length > 1
+                ? collectedComics.map((comic) => {
+                    return (
+                      <ComicCard
+                        key={comic.comicId}
+                        title={comic.title}
+                        description={comic.description}
+                        image={comic.image}
+                      />
+                    );
+                  })
+                : ""}
             </Grid>
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
+            {/* <Grid item xs={12} sm={6} md={6}> */}
+            {/* <Typography
                 component="h1"
                 variant="h3"
                 align="center"
@@ -154,10 +182,21 @@ export default function Profile() {
                 style={{ color: "white", fontFamily: "Helvetica Neue" }}
               >
                 Your Wishlist
-                <ViewWishlist />
-              </Typography>
-            </Grid>
+              </Typography> */}
+            {/* {collectedComics.length > 1
+                ? collectedComics.map((comic) => {
+                    return (
+                      <ComicCard
+                        key={comic.comicId}
+                        title={comic.title}
+                        description={comic.description}
+                        image={comic.image}
+                      />
+                    );
+                  })
+                : ""} */}
           </Grid>
+          {/* </Grid> */}
 
           {/* End hero unit */}
           <Grid container spacing={4}>
