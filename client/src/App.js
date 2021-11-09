@@ -1,6 +1,6 @@
 import React from "react";
 import Dictaphone from './components/pages/Dictaphone'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -22,6 +22,7 @@ import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 // import SignUpTest from './components/pages/SignUpTest';
 import Forum from './components/pages/Forum'
+import Auth from './utils/auth';
 
 
 const httpLink = createHttpLink({
@@ -52,12 +53,25 @@ function App() {
             {/* <Provider store={store}> */}
             <Nav />
             <Switch>
-              <Route exact path="/" component={Tester} />
-              <Route exact path="/signin" component={SignInSide} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/search" component={Search} />
-              <Route exact path="/listings" component={Listings} />
+              <Route exact path='/'>
+                {Auth.loggedIn() ? <Tester /> : <Redirect to='/login' />}
+              </Route>
+              <Route exact path='/login'>
+                {Auth.loggedIn() ? <Redirect to='/' /> : <SignInSide />}
+              </Route>
+              <Route exact path='/signup'>
+                {Auth.loggedIn() ? <Redirect to='/' /> : <SignUp />}
+              </Route>
+              <Route exact path='/profile'>
+                {Auth.loggedIn() ? <Profile /> : <Redirect to='/login' />}
+              </Route>
+              {/* <Route exact path="/search" component={Search} /> */}
+              <Route exact path='/search'>
+                {Auth.loggedIn() ? <SearchResults /> : <Redirect to='/login' />}
+              </Route>
+              <Route exact path='/listings'>
+                {Auth.loggedIn() ? <Listings /> : <Redirect to='/login' />}
+              </Route>
               <Route exact path="/results" component={SearchResults} />
               <Route exact path="/contributors" component={Contributors} />
               <Route exact path="/dictaphone" component={Dictaphone} />

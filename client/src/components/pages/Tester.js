@@ -32,7 +32,7 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
-    const [saveComic] = useMutation(POST_COMIC);
+    // const [saveComic] = useMutation(POST_COMIC);
     // const { loading, data } = useQuery(QUERY_ME);
     // const userData = data?.me || [];
     // const [removeComic] = useMutation(REMOVE_COMIC);
