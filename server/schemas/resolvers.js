@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Comic, Category, Order } = require("../models");
+const { User, Comic, Category, Order, Post } = require("../models");
 const { update } = require("../models/Post");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
@@ -189,7 +189,7 @@ const resolvers = {
     },
     postComic: async (parent, args, context) => {
       if (context.user) {
-        // const post = await Post.create(args.input);
+        await Post.create(args.input);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { posts: args.input } },
