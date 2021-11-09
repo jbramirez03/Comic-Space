@@ -2,7 +2,7 @@ import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { SAVE_COMIC, REMOVE_COMIC, WISH_COMIC } from '../../utils/mutations';
+import { SAVE_COMIC, REMOVE_COMIC, WISH_COMIC, POST_COMIC } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries'
 import Pagination from '@mui/material/Pagination';
@@ -32,10 +32,10 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
-    // const [saveComic] = useMutation(WISH_COMIC);
-    // const { loading, data } = useQuery(QUERY_ME);
-    // const userData = data?.me || [];
-    // // const [removeComic] = useMutation(REMOVE_COMIC);
+    const [saveComic] = useMutation(POST_COMIC);
+    const { loading, data } = useQuery(QUERY_ME);
+    const userData = data?.me || [];
+    // const [removeComic] = useMutation(REMOVE_COMIC);
 
 
     // const handleDeleteComic = async (comicId) => {
@@ -57,29 +57,29 @@ const Tester = () => {
     // };
 
 
-    // const handleComicSave = async (comicId) => {
+    const handleComicSave = async (comic) => {
 
-    //     const comicToSave = comics.find((comic) => comic.comicId === comicId);
+        // const comicToSave = comics.find((comic) => comic.comicId === comicId);
+        // console.log(comicToSave)
+        const comicToPost = { comicId: comic.comicId, title: comic.title, description: comic.description, image: comic.image };
+        console.log(comicToPost)
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    //     console.log(comicToSave)
+        if (!token) {
+            return false;
+        }
+        // Add the input for the mutation save_book in a variable object set to bookToSave
+        try {
+            await saveComic({
+                variables: { input: comicToPost },
+            });
 
-    //     // get token
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+        } catch (err) {
+            console.error(err);
+        }
 
-    //     if (!token) {
-    //         return false;
-    //     }
-    //     // Add the input for the mutation save_book in a variable object set to bookToSave
-    //     try {
-    //         await saveComic({
-    //             variables: { input: comicToSave },
-    //         });
-
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-
-    // }
+    }
 
 
 
@@ -119,7 +119,7 @@ const Tester = () => {
             title: comic.title || 'No title available',
             description: comic.description || 'No description available',
             image: `${comic.thumbnail.path}.${comic.thumbnail.extension}` || '',
-            series: comic.series.name || 'This comic does not belong to a series'
+            // series: comic.series.name || 'This comic does not belong to a series'
         }));
         setComics(comicData);
     }
@@ -143,9 +143,9 @@ const Tester = () => {
         buttons = [];
     }
 
-    // if (loading) {
-    //     return <h2>LOADING...</h2>;
-    // }
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    }
 
     return (
         <div>
@@ -155,17 +155,17 @@ const Tester = () => {
             </form>
             {/* <button onClick={() => console.log(userData)}>CHeck data</button>
             <button onClick={() => console.log(userData.comics)}>See saved comics</button> */}
-            {/* {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
+            {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
             {userData.comics.length ? userData.comics.map(comic => {
                 return (
                     <div key={comic.comicId}>
                         <h3>{comic.title}</h3>
                         <p>{comic.description}</p>
                         <img width="75px" src={comic.image} alt="comic" />
-                        <button onClick={() => handleDeleteComic(comic.comicId)}>Delete comic</button>
+                        <button onClick={() => handleComicSave(comic)}>Delete comic</button>
                     </div>
                 )
-            }) : 'No comics to view from user'} */}
+            }) : 'No comics to view from user'}
             {comics.length >= 1 ? comics.map(
                 (comic) => {
                     return (
@@ -174,7 +174,7 @@ const Tester = () => {
                             <p>{comic.description}</p>
                             <img width="75px" src={comic.image} alt="comic" />
                             <p>Series: {comic.series}</p>
-                            <button onClick={() => console.log(comic)}>Save</button>
+                            <button onClick={() => handleComicSave(comic.comicId)}>Save</button>
                         </div>
                     );
                 }) : <div>There is no comics to diplay at this time</div>}

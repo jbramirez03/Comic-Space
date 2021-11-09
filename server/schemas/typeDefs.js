@@ -20,6 +20,14 @@ const typeDefs = gql`
     comics: [Comic]
   }
 
+  type Post {
+    _id: ID
+    comicId: Int
+    title: String
+    description: String
+    image: String
+  }
+
   type User {
     _id: ID
     firstName: String
@@ -28,6 +36,7 @@ const typeDefs = gql`
     comics: [Comic]
     orders: [Order]
     wishlist: [Comic]
+    posts: [Post]
   }
 
   type Checkout {
