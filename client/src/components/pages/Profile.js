@@ -18,8 +18,9 @@ import { Avatar } from "@mui/material";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
-import ViewCollection from "../ViewCollection";
-import ViewWishlist from "../ViewWishlist";
+import WishlistCard from "../WishlistCard";
+import ComicSpaceLogo from "../../images/ComicSpace.png";
+
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
@@ -36,7 +37,7 @@ function Copyright() {
   );
 }
 
-const collectedComics = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const collectedComics = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
@@ -66,6 +67,7 @@ export default function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || [];
   const [collectedComics, setCollectedComics] = React.useState([]);
+  const [wishComics, setWishComics] = React.useState([]);
   if (loading) {
     return <div>LOADING...</div>;
   }
@@ -159,11 +161,40 @@ export default function Profile() {
               View
             </Button>
           </Typography>
+          <Typography
+            component="h1"
+            variant="h3"
+            align="center"
+            gutterBottom
+            style={{ color: "white", fontFamily: "Helvetica Neue" }}
+          >
+            Your Wishlist
+            <Button
+              variant="contained"
+              sx={{ marginLeft: "10px" }}
+              onClick={() => setWishComics([...userData.wishlist])}
+            >
+              View
+            </Button>
+          </Typography>
+
           <Grid container spacing={4} direction="row" alignItems="flex-start">
             {collectedComics.length > 1
               ? collectedComics.map((comic) => {
                   return (
                     <ComicCard
+                      key={comic.comicId}
+                      title={comic.title}
+                      description={comic.description}
+                      image={comic.image}
+                    />
+                  );
+                })
+              : ""}
+            {wishComics.length > 1
+              ? wishComics.map((comic) => {
+                  return (
+                    <WishlistCard
                       key={comic.comicId}
                       title={comic.title}
                       description={comic.description}
