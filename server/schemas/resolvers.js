@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Comic, Category, Order } = require("../models");
+const { update } = require("../models/Post");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -182,6 +183,20 @@ const resolvers = {
           { new: true, runValidators: true }
         );
         return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    postComic: async (parent, args, context) => {
+      if (context.user) {
+        const post = await Post.create(args.input);
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { posts: args.input } },
+          { new: true, runValidators: true }
+        );
+        return post;
+
       }
 
       throw new AuthenticationError("You need to be logged in!");

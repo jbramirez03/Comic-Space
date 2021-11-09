@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
 const Comic = require('./Comic');
+const Post = require('./Post');
 
 const userSchema = new Schema({
   firstName: {
@@ -28,7 +29,8 @@ const userSchema = new Schema({
   },
   comics: [Comic.schema],
   orders: [Order.schema],
-  wishlist: [Comic.schema]
+  wishlist: [Comic.schema],
+  posts: [Post.schema]
 });
 
 // set up pre-save middleware to create password
