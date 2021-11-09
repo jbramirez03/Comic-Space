@@ -97,11 +97,19 @@ const Contributors = () => {
           <img className="avatar" src={qabas} alt="qabas" />
           <h3>Qabas Al Ani</h3>
 
-          <button>
-            <a href="https://github.com/Qabas-al-ani"  target="_blank">
+          <button >
+            <a href="https://github.com/Qabas-al-ani" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </button>
+
+          <button >
+            <a href="https://www.linkedin.com/in/qabas-al-ani-7b858863/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </button>
+
+
         </div>
       </div>
       <div className="demoPage">
