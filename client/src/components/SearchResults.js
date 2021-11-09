@@ -1,6 +1,9 @@
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import { useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
+import { SAVE_COMIC, REMOVE_COMIC, WISH_COMIC } from "../utils/mutations";
+import Auth from "../utils/auth";
 import React from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import Box from "@mui/material/Box";
@@ -11,6 +14,7 @@ import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import Card from "@mui/material/Card";
+import Pagination from "@mui/material/Pagination";
 // import Cards from "../components/Cards";
 
 const cardStyle = {
@@ -25,6 +29,7 @@ const cardStyle = {
   backSide: {
     color: "black",
     backgroundColor: "#d7c5b7",
+    overflowX: "scroll",
   },
 };
 const imgStyle = {
@@ -46,6 +51,29 @@ const Tester = () => {
   const [searchedUrl, setSearchedUrl] = useState("");
   let buttons = [];
   const [test, setTest] = useState([]);
+
+  const [saveComic] = useMutation(SAVE_COMIC);
+
+  const handleComicSave = async (comicId) => {
+    const comicToSave = comics.find((comic) => comic.comicId === comicId);
+
+    console.log(comicToSave);
+
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+    // Add the input for the mutation save_book in a variable object set to bookToSave
+    try {
+      await saveComic({
+        variables: { input: comicToSave },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const getCharacterId = () => {
     return axios.get(`${characterUrl}${params}&name=${character}`);
@@ -140,6 +168,14 @@ const Tester = () => {
                     <BackSide style={cardStyle.backSide}>
                       <h3>{comic.title}</h3>
                       <p>{comic.description}</p>
+                      {Auth.loggedIn && (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleComicSave(comic.comicId)}
+                        >
+                          Save
+                        </Button>
+                      )}
                     </BackSide>
                   </Flippy>
                 </Grid>
@@ -149,18 +185,19 @@ const Tester = () => {
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
         </Grid>
-        {test.length
-          ? test.map((button) => (
-              <Button
-                variant="contained"
-                sx={{ margin: 1 }}
-                key={button.i}
-                onClick={() => next(button.page)}
-              >
-                {button.num}
-              </Button>
-            ))
-          : ""}
+        {test.length && (
+          <Pagination
+            count={test.length}
+            variant="outlined"
+            color="warning"
+            defaultPage={1}
+            shape="rounded"
+            onChange={(event, page) => {
+              console.log("Go to Page: ", page);
+              next(page);
+            }}
+          />
+        )}
       </Grid>
     </Container>
   );
