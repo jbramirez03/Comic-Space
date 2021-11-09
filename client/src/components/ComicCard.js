@@ -14,7 +14,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 // import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import AssignmentIcon from "@mui/icons-material/Assignment";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -35,50 +34,32 @@ export default function RecipeReviewCard({ image, title, description }) {
   };
 
   return (
-    <Card
-      sx={{
-        maxWidth: 345,
-        margin: 2,
-        bgcolor: "#d7c5b7",
-        border: "2px solid #385059",
-        boxShadow: "3px 4px 1px #4f999d",
-      }}
-    >
+    <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar
-            variant="rounded"
-            sx={{ bgcolor: "green" }}
-            aria-label="collection"
-          >
-            <AssignmentIcon />
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            API
           </Avatar>
         }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Comic Title"
+        subheader="Other informations we want to show..."
       />
-      {/* <Typography variant="h6" align="center">
-        {title}
-      </Typography> */}
-      <CardMedia
-        component="img"
-        height="100%"
-        image={image}
-        alt="Paella dish"
-      />
+      <CardMedia component="img" height="400" image={image} alt="Paella dish" />
       <CardContent>
-        {/* <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary">
           API data snapshot
-        </Typography> */}
+        </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to wishlist">
           <FavoriteIcon />
         </IconButton>
-        {/* <Typography variant="subtitle1">Add to Wishlist</Typography> */}
+        <Typography variant="subtitle1">Add to Wishlist</Typography>
 
         <ExpandMore
           expand={expanded}
@@ -91,8 +72,8 @@ export default function RecipeReviewCard({ image, title, description }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Title: {title}</Typography>
-          <Typography paragraph>Synopsis: {description}</Typography>
+          <Typography paragraph>Title:{title}</Typography>
+          <Typography paragraph>{description}</Typography>
           {/* <Typography paragraph>Price:{}</Typography> */}
           <Typography paragraph>Open to Trades:</Typography>
         </CardContent>

@@ -14,7 +14,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
-import Divider from "@mui/material/Divider";
 import { Avatar } from "@mui/material";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -142,61 +141,49 @@ export default function Profile() {
         </Box>
         <Container sx={{ py: 8, bgcolor: "#531c28" }} maxWidth="md">
           <Grid container spacing={4}>
-            <Typography
-              component="h1"
-              variant="h3"
-              align="center"
-              gutterBottom
-              style={{ color: "white", fontFamily: "Helvetica Neue" }}
-            >
-              Your Collection{" "}
-              <Button
-                variant="contained"
-                sx={{ margin: "auto 0" }}
-                onClick={() => setCollectedComics([...userData.comics])}
-              >
-                View
-              </Button>
-            </Typography>
-
-            <Grid item xs={12} sm={6} md={12}>
-              {collectedComics.length > 1
-                ? collectedComics.map((comic) => {
-                    return (
-                      <ComicCard
-                        key={comic.comicId}
-                        title={comic.title}
-                        description={comic.description}
-                        image={comic.image}
-                      />
-                    );
-                  })
-                : ""}
-            </Grid>
-            {/* <Grid item xs={12} sm={6} md={6}> */}
-            {/* <Typography
+            <Grid item xs={12} sm={6} md={6}>
+              <Typography
                 component="h1"
                 variant="h3"
                 align="center"
                 gutterBottom
                 style={{ color: "white", fontFamily: "Helvetica Neue" }}
               >
+                Your Collection
+                <Button
+                  variant="contained"
+                  onClick={() => setCollectedComics([...userData.comics])}
+                >
+                  View
+                </Button>
+                {/* <ViewCollection /> */}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <Typography
+                component="h1"
+                variant="h3"
+                align="center"
+                gutterBottom
+                style={{ color: "white", fontFamily: "Helvetica Neue" }}
+              >
+                {collectedComics.length > 1
+                  ? collectedComics.map((comic) => {
+                      return (
+                        <ComicCard
+                          key={comic.comicId}
+                          title={comic.title}
+                          description={comic.description}
+                          image={comic.image}
+                        />
+                      );
+                    })
+                  : "No comics to render"}
                 Your Wishlist
-              </Typography> */}
-            {/* {collectedComics.length > 1
-                ? collectedComics.map((comic) => {
-                    return (
-                      <ComicCard
-                        key={comic.comicId}
-                        title={comic.title}
-                        description={comic.description}
-                        image={comic.image}
-                      />
-                    );
-                  })
-                : ""} */}
+                {/* <ViewWishlist /> */}
+              </Typography>
+            </Grid>
           </Grid>
-          {/* </Grid> */}
 
           {/* End hero unit */}
           <Grid container spacing={4}>
