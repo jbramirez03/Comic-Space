@@ -20,12 +20,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import ViewCollection from "../ViewCollection";
 import ViewWishlist from "../ViewWishlist";
-import { QUERY_ME } from '../../utils/queries'
-import { useQuery } from '@apollo/client';
-
-
-
-
+import { QUERY_ME } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 
 function Copyright() {
   return (
@@ -40,7 +36,7 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const collectedComics = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
@@ -71,9 +67,7 @@ export default function Profile() {
   const userData = data?.me || [];
   const [collectedComics, setCollectedComics] = React.useState([]);
   if (loading) {
-    return (
-      <div>LOADING...</div>
-    )
+    return <div>LOADING...</div>;
   }
   return (
     <ThemeProvider theme={theme}>
@@ -90,103 +84,97 @@ export default function Profile() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              gutterBottom
-              style={{ color: "white" }}
-            >
-              <div style={picName}>
-                <div>
-                  <Avatar
-                    sx={{
-                      bgcolor: "#4f999d",
-                      m: "10px",
-                      textAlign: "center",
-                      width: 150,
-                      height: 150,
-                      borderRadius: "35%",
-                    }}
-                  >
-                    <img
-                      src="http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4badb223f33c9.jpg"
-                      alt="avatar"
-                      style={profilePic}
-                    />
-                  </Avatar>
-                  <div style={user}>User Name</div>
+            <Grid container spacing={2}>
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                gutterBottom
+                style={{ color: "white" }}
+              >
+                <div style={picName}>
+                  <Grid item>
+                    <Avatar
+                      sx={{
+                        bgcolor: "#4f999d",
+                        m: "10px",
+                        textAlign: "center",
+                        width: 150,
+                        height: 150,
+                        borderRadius: "35%",
+                      }}
+                    >
+                      <img
+                        src="http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4badb223f33c9.jpg"
+                        alt="avatar"
+                        style={profilePic}
+                      />
+                    </Avatar>
+                    <div style={user}>User Name</div>
+                  </Grid>
+                  <Grid item>
+                    <Typography
+                      variant="h5"
+                      align="center"
+                      style={intro}
+                      paragraph
+                    >
+                      Something short and leading about the collection below—its
+                      contents, the creator, etc. Make it short and sweet, but
+                      not too short so folks don&apos;t simply skip over it
+                      entirely.
+                    </Typography>
+                    <Stack
+                      sx={{ pt: 4 }}
+                      direction="row"
+                      spacing={2}
+                      justifyContent="center"
+                    >
+                      <Button variant="contained">Message Me</Button>
+                      <Button variant="outlined" style={{ color: "white" }}>
+                        Add Friend
+                      </Button>
+                    </Stack>
+                  </Grid>
                 </div>
-                <div>
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    style={intro}
-                    paragraph
-                  >
-                    Something short and leading about the collection below—its
-                    contents, the creator, etc. Make it short and sweet, but not
-                    too short so folks don&apos;t simply skip over it entirely.
-                  </Typography>
-                  <Stack
-                    sx={{ pt: 4 }}
-                    direction="row"
-                    spacing={2}
-                    justifyContent="center"
-                  >
-                    <Button variant="contained">Message Me</Button>
-                    <Button variant="outlined" style={{ color: "white" }}>
-                      Add Friend
-                    </Button>
-                  </Stack>
-                </div>
-              </div>
-              {/* end profile pic div */}
-            </Typography>
+                {/* end profile pic div */}
+              </Typography>
+            </Grid>
           </Container>
         </Box>
         <Container sx={{ py: 8, bgcolor: "#531c28" }} maxWidth="md">
-          <Grid container spacing={4}>
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                component="h1"
-                variant="h3"
-                align="center"
-                gutterBottom
-                style={{ color: "white", fontFamily: "Helvetica Neue" }}
-              >
-                Your Collection
-                <Button variant='contained' onClick={() => setCollectedComics([...userData.comics])}>View</Button>
-                {/* <ViewCollection /> */}
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                component="h1"
-                variant="h3"
-                align="center"
-                gutterBottom
-                style={{ color: "white", fontFamily: "Helvetica Neue" }}
-              >
-                {collectedComics.length > 1 ? collectedComics.map((comic) => {
+          <Typography
+            component="h1"
+            variant="h3"
+            align="center"
+            gutterBottom
+            style={{ color: "white", fontFamily: "Helvetica Neue" }}
+          >
+            Your Collection
+            <Button
+              variant="contained"
+              sx={{ marginLeft: "10px" }}
+              onClick={() => setCollectedComics([...userData.comics])}
+            >
+              View
+            </Button>
+          </Typography>
+          <Grid container spacing={4} direction="row" alignItems="flex-start">
+            {collectedComics.length > 1
+              ? collectedComics.map((comic) => {
                   return (
-                    <ComicCard key={comic.comicId} title={comic.title} description={comic.description} image={comic.image} />
-                  )
-                }) : 'No comics to render'}
-                Your Wishlist
-                {/* <ViewWishlist /> */}
-              </Typography>
-            </Grid>
+                    <ComicCard
+                      key={comic.comicId}
+                      title={comic.title}
+                      description={comic.description}
+                      image={comic.image}
+                    />
+                  );
+                })
+              : ""}
           </Grid>
 
           {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card>{/* <ViewCollection /> */}</Card>
-              </Grid>
-            ))}
-          </Grid>
         </Container>
       </main>
       {/* Footer */}

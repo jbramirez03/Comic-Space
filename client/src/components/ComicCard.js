@@ -14,6 +14,9 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 // import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import Grid from "@mui/material/Grid";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -34,55 +37,65 @@ export default function RecipeReviewCard({ image, title, description }) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            API
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+    <Grid item xs={12} sm={6} md={6}>
+      <Card
+        sx={{
+          maxWidth: 345,
+          marginBottom: "10px",
+          bgcolor: "#385059",
+          color: "white",
+        }}
+      >
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: "green" }} aria-label="recipe">
+              <PlaylistAddCheckIcon />
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={title}
+        />
+        <CardMedia
+          component="img"
+          height="100%"
+          image={image}
+          alt="collected comic"
+        />
+        <CardContent></CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to wishlist">
+            <PlaylistAddIcon />
           </IconButton>
-        }
-        title="Comic Title"
-        subheader="Other informations we want to show..."
-      />
-      <CardMedia
-        component="img"
-        height="400"
-        image={image}
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          API data snapshot
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to wishlist">
-          <FavoriteIcon />
-        </IconButton>
-        <Typography variant="subtitle1">Add to Wishlist</Typography>
+          <Typography variant="subtitle1" color="white">
+            Add to Wishlist
+          </Typography>
 
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Title:{title}</Typography>
-          <Typography paragraph>{description}</Typography>
-          {/* <Typography paragraph>Price:{}</Typography> */}
-          <Typography paragraph>Open to Trades:</Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>
+              <strong>Title:</strong> {title}
+            </Typography>
+            <Typography paragraph>
+              <strong>Synopsis:</strong> {description}
+            </Typography>
+            {/* <Typography paragraph>Price:{}</Typography> */}
+            {/* <Typography paragraph>Open to Trades:</Typography> */}
+          </CardContent>
+        </Collapse>
+      </Card>
+    </Grid>
   );
 }
