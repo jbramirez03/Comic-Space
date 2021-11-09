@@ -10,13 +10,14 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-// import ShareIcon from "@mui/icons-material/Share";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+// // import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import Grid from "@mui/material/Grid";
+import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
+import ComicSpaceLogo from "../images/ComicSpace.png";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -42,14 +43,14 @@ export default function RecipeReviewCard({ image, title, description }) {
         sx={{
           maxWidth: 345,
           marginBottom: "10px",
-          bgcolor: "#385059",
+          bgcolor: "#4f999d",
           color: "white",
         }}
       >
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: "green" }} aria-label="recipe">
-              <PlaylistAddCheckIcon />
+            <Avatar sx={{ bgcolor: "#d23954" }} aria-label="wishlist icon">
+              <BookmarkAddedIcon />
             </Avatar>
           }
           action={
@@ -63,15 +64,15 @@ export default function RecipeReviewCard({ image, title, description }) {
           component="img"
           height="100%"
           image={image}
-          alt="collected comic"
+          alt="wishlist comic"
         />
         <CardContent></CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to wishlist">
-            <PlaylistAddIcon />
-          </IconButton>
-          <Typography variant="subtitle1" color="white">
-            Favorite
+          {/* <IconButton aria-label="add to wishlist">
+            <BookmarkAddedIcon />
+          </IconButton> */}
+          <Typography variant="h6" color="white" sx={{ marginLeft: "auto" }}>
+            Details:
           </Typography>
 
           <ExpandMore
@@ -91,8 +92,6 @@ export default function RecipeReviewCard({ image, title, description }) {
             <Typography paragraph>
               <strong>Synopsis:</strong> {description}
             </Typography>
-            {/* <Typography paragraph>Price:{}</Typography> */}
-            {/* <Typography paragraph>Open to Trades:</Typography> */}
           </CardContent>
         </Collapse>
       </Card>
