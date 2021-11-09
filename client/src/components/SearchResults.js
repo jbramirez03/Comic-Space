@@ -53,6 +53,7 @@ const Tester = () => {
   const [test, setTest] = useState([]);
 
   const [saveComic] = useMutation(SAVE_COMIC);
+  const [wishComic] = useMutation(WISH_COMIC);
 
   const handleComicSave = async (comicId) => {
     const comicToSave = comics.find((comic) => comic.comicId === comicId);
@@ -69,6 +70,27 @@ const Tester = () => {
     try {
       await saveComic({
         variables: { input: comicToSave },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  // Wishlish function to add to comic Wishlist in profile
+  const handleComicWish = async (comicId) => {
+    const comicToWish = comics.find((comic) => comic.comicId === comicId);
+
+    console.log(comicToWish);
+
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+    // Add the input for the mutation save_book in a variable object set to bookToSave
+    try {
+      await wishComic({
+        variables: { input: comicToWish },
       });
     } catch (err) {
       console.error(err);
@@ -172,10 +194,20 @@ const Tester = () => {
                       <p>{comic.description}</p>
                       {Auth.loggedIn && (
                         <Button
+                          sx={{ marginBottom: "5px" }}
+                          color="success"
                           variant="contained"
                           onClick={() => handleComicSave(comic.comicId)}
                         >
-                          Save
+                          Save to Collection
+                        </Button>
+                      )}
+                      {Auth.loggedIn && (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleComicWish(comic.comicId)}
+                        >
+                          Add to Wishlist
                         </Button>
                       )}
                     </BackSide>
