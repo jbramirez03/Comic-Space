@@ -11,7 +11,9 @@ const divBox = {
     alignItems: "center",
     textAlign: "center",
     display: "block",
-  
+    justifyContent: "spaceEvenly",
+    padding: "5px",
+    marginTop: "4px"
 }
 const messageStyle = {
 width: "100%",
@@ -23,53 +25,70 @@ const submitButton = {
   marginLeft: "90%"
 }
 
-
-const Forum = () => {
-    // const [body, setBody] = useState('');
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const message = {body.value};
-
-    //     fetch('http://localhost:3000/forum', {
-    //         method: 'POST', 
-    //         body: JSON.stringify(message)
-    //     }).then(() => 
-    //     console.log("new thread made"))
-    // }
-    return (
-        
-        <div style={divBox}>
-            <div><Container style={messageStyle}>
-                Messages
-            </Container></div>
-            
-        <Container style={messageStyle}>
-        <TextField 
-         fullWidth
-         id="outlined-multiline-static body"
-         label="start thread"
-         multiline
-         rows={3}
-         defaultValue=""
-         >
-        </TextField>
-        <Box style={submitButton}><Button variant="contained">Submit</Button>
-</Box>
-        </Container>
-        <ForumReply> <TextField 
-     fullWidth
-         id="outlined-multiline-static reply"
-         label=""
-         multiline
-         rows={1.5}
-         defaultValue="Reply to this thread..."
-         >
-        </TextField></ForumReply>
-
-       
-        </div>
-    )
+const inputName = {
+    width: "200px",
+    float: "left",
+    marginTop: "2%",
+}
+const inputTitle = {
+   
+    width: "200px",
+    float: "left",
+    marginTop: "2%",
 }
 
-export default Forum;
+const headerDiv = {
+    width: "200px",
+    float: "left",
+    marginTop: "2%",
+}
+
+
+
+const Forum = () => {
+   
+    return (
+        <div style={divBox}>
+        <div><Container style={messageStyle}>
+            Messages
+        </Container></div>
+        
+    <Container style={messageStyle}>
+    <div style={headerDiv}>
+    <TextField
+    label="Required"
+    defaultValue="Your name"
+    size="small"
+    style={inputName}></TextField>
+    <TextField
+    size="small"
+    label="Required"
+    required="true"
+    defaultValue="Topic"
+    style={inputTitle}></TextField>
+    </div>
+    <TextField 
+     fullWidth
+     required="true"
+     label="required"
+     id="outlined-multiline-static body"
+     label="Required"
+     multiline
+     rows={3}
+     defaultValue="Start a thread..."
+     style={messageStyle}
+     >
+    </TextField>
+  
+    <Box style={submitButton}><Button variant="contained">Submit</Button>
+</Box>
+    </Container>
+    <ForumReply />
+
+   
+    </div>
+
+
+    )
+}
+     export default Forum;
