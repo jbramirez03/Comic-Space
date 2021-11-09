@@ -5,6 +5,17 @@ import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_COMIC, REMOVE_COMIC, WISH_COMIC } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+
+// export default function PaginationRounded() {
+//     return (
+//         <Stack spacing={2}>
+//             <Pagination count={10} shape="rounded" />
+//             <Pagination count={10} variant="outlined" shape="rounded" />
+//         </Stack>
+//     );
+// }
 
 import React from 'react'
 
@@ -163,6 +174,9 @@ const Tester = () => {
                     );
                 }) : <div>There is no comics to diplay at this time</div>}
             {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>{button.pageNumber}</button>) : 'No page buttons yet'}
+            {test.length && <Stack spacing={2}>
+                <Pagination count={test.length} variant="outlined" defaultPage={1} shape="rounded" onChange={(event, page) => { console.log("Go to Page: ", page); next(page) }} />
+            </Stack>}
         </div>
     )
 }
