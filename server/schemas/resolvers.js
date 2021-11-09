@@ -190,12 +190,12 @@ const resolvers = {
     postComic: async (parent, args, context) => {
       if (context.user) {
         const post = await Post.create(args.input);
-        await User.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { posts: args.input } },
           { new: true, runValidators: true }
         );
-        return post;
+        return { post, updatedUser };
 
       }
 
