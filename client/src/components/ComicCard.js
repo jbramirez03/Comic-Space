@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({ image, title, description }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -52,7 +52,7 @@ export default function RecipeReviewCard() {
       <CardMedia
         component="img"
         height="400"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHQhsZXsVSBRZSkkzVRfeCKuz0ADr-vFfMw&usqp=CAU"
+        image={image}
         alt="Paella dish"
       />
       <CardContent>
@@ -77,9 +77,9 @@ export default function RecipeReviewCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Title:</Typography>
-          <Typography paragraph>Description:</Typography>
-          <Typography paragraph>Price:</Typography>
+          <Typography paragraph>Title:{title}</Typography>
+          <Typography paragraph>{description}</Typography>
+          {/* <Typography paragraph>Price:{}</Typography> */}
           <Typography paragraph>Open to Trades:</Typography>
         </CardContent>
       </Collapse>

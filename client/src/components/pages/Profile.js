@@ -20,6 +20,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import ViewCollection from "../ViewCollection";
 import ViewWishlist from "../ViewWishlist";
+import { QUERY_ME } from '../../utils/queries'
+import { useQuery } from '@apollo/client';
+
+
+
+
 
 function Copyright() {
   return (
@@ -61,6 +67,14 @@ const profilePic = {
 };
 
 export default function Profile() {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || [];
+  const [collectedComics, setCollectedComics] = React.useState([]);
+  if (loading) {
+    return (
+      <div>LOADING...</div>
+    )
+  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -142,7 +156,8 @@ export default function Profile() {
                 style={{ color: "white", fontFamily: "Helvetica Neue" }}
               >
                 Your Collection
-                <ViewCollection />
+                <Button variant='contained' onClick={() => setCollectedComics([...userData.comics])}>View</Button>
+                {/* <ViewCollection /> */}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
@@ -153,8 +168,13 @@ export default function Profile() {
                 gutterBottom
                 style={{ color: "white", fontFamily: "Helvetica Neue" }}
               >
+                {collectedComics.length > 1 ? collectedComics.map((comic) => {
+                  return (
+                    <ComicCard key={comic.comicId} title={comic.title} description={comic.description} image={comic.image} />
+                  )
+                }) : 'No comics to render'}
                 Your Wishlist
-                <ViewWishlist />
+                {/* <ViewWishlist /> */}
               </Typography>
             </Grid>
           </Grid>
