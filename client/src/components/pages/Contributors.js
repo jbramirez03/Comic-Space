@@ -1,4 +1,4 @@
-import HTMLFlipBook from 'react-pageflip';
+import HTMLFlipBook from "react-pageflip";
 import comic1 from "../../images/comic1.jpg";
 import comic2 from "../../images/comic2.jpg";
 import chris from "../../images/chris.jpg";
@@ -96,6 +96,12 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={qabas} alt="qabas" />
           <h3>Qabas Al Ani</h3>
+
+          <button>
+            <a href="https://github.com/Qabas-al-ani"  target="_blank">
+              GitHub
+            </a>
+          </button>
         </div>
       </div>
       <div className="demoPage">
