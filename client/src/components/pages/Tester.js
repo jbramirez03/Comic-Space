@@ -97,6 +97,11 @@ const Tester = () => {
         setResponse(response);
     }
 
+    const findPage = (page) => {
+        const set = test.find((button) => button.pageNumber === page)
+        next(set.pageNumber);
+        // console.log(set);
+    }
 
     const search = async () => {
         const characterInfo = await getCharacterId(character);
@@ -175,7 +180,7 @@ const Tester = () => {
                 }) : <div>There is no comics to diplay at this time</div>}
             {test.length ? test.map(button => <button key={button.i} onClick={() => next(button.page)}>{button.pageNumber}</button>) : 'No page buttons yet'}
             {test.length && <Stack spacing={2}>
-                <Pagination count={test.length} variant="outlined" defaultPage={1} shape="rounded" onChange={(event, page) => { console.log("Go to Page: ", page); next(page) }} />
+                <Pagination count={test.length} variant="outlined" defaultPage={1} shape="rounded" onChange={(event, page) => { console.log("Go to Page: ", page); findPage(page) }} />
             </Stack>}
         </div>
     )
