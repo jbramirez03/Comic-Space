@@ -99,8 +99,8 @@ const Tester = () => {
 
     const findPage = (page) => {
         const set = test.find((button) => button.pageNumber === page)
-        next(set.pageNumber);
-        // console.log(set);
+        next(set.page);
+        console.log(set.page);
     }
 
     const search = async () => {
