@@ -185,7 +185,7 @@ const Tester = () => {
                             <p>{comic.description}</p>
                             <img width="75px" src={comic.image} alt="comic" />
                             <p>Series: {comic.series}</p>
-                            <button onClick={() => console.log(comic.comicId)}>Save</button>
+                            {Auth.loggedIn() && <button onClick={() => console.log(comic.comicId)}>Save</button>}
                         </div>
                     );
                 }) : <div>There is no comics to diplay at this time</div>}
