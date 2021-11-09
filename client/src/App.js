@@ -54,13 +54,13 @@ function App() {
             <Switch>
               <Route exact path="/" component={Tester} />
               <Route exact path="/signin" component={SignInSide} />
-              <Route exact path="/signup" component={Forum} />
+              <Route exact path="/signup" component={SignUp} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/search" component={Search} />
               <Route exact path="/listings" component={Listings} />
               <Route exact path="/results" component={SearchResults} />
-              <Route exact path="/contributors" component={Contributors } />
-              <Route exact path="/dictaphone" component={Dictaphone } />
+              <Route exact path="/contributors" component={Contributors} />
+              <Route exact path="/dictaphone" component={Dictaphone} />
             </Switch>
             {/* </Provider> */}
           </div>
