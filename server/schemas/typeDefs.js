@@ -48,6 +48,13 @@ const typeDefs = gql`
     image: String
   }
 
+  input postedComic {
+    comicId: Int
+    title: String
+    description: String
+    image: String
+  }
+
   type Auth {
     token: ID
     user: User
@@ -71,6 +78,7 @@ const typeDefs = gql`
     saveComic(input: savedComic!): User
     wishComic(input: wishedComic!): User
     removeComic(comicId: Int!): User
+    postComic(input: postedComic!): User
   }
 `;
 
