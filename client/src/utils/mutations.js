@@ -110,3 +110,19 @@ export const ADD_THOUGHT = gql`
     }
   }
 `;
+
+export const POST_COMIC = gql`
+  mutation postComic($input: postedComic!){
+    postedComic(input: $input){
+        _id
+        email
+        comics {
+            comicId
+            title
+            description
+            image
+        }
+        }
+    }
+  }
+`;
