@@ -22,6 +22,18 @@
   height: 75vh;
 }
 
+.button {
+  background-color: white;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.a {
+  text-decoration: none;
+}
+
 .avatar {
   width: 200px;
   margin: auto;
