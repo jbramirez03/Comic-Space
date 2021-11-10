@@ -37,20 +37,37 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={chris} alt="chris" />
           <h3>Chris Mattix</h3>
-          <button className='button' >
-            <a className='a' href="https://github.com/BeardoMattix" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/BeardoMattix"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://www.linkedin.com/in/christopher-j-mattix-4773b736/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/christopher-j-mattix-4773b736/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://beardomattix.github.io/Mattix-Portfolio/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://beardomattix.github.io/Mattix-Portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Portfolio
             </a>
           </button>
@@ -62,13 +79,9 @@ const Contributors = () => {
           <p>
             Hello and thanks for checking out my portfolio! My name is Chris
             Mattix and I am currently a student in the UNC Full Stack Developer
-            Bootcamp. I am a former teacher who spent 12 years in education
-            before deciding it was time to move on to a new career where I can
-            put my problem-solving skills to the test. I am originally from
-            Montana, and miss my home state everyday. I have lived in North
-            Carolina for the past 6 years, and truly love it...even if the
-            mountains here don't have the same majesty as the ones in Montana.
+            Bootcamp.
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
 
@@ -77,24 +90,40 @@ const Contributors = () => {
           <img className="avatar" src={jammy} alt="jammy" />
           <h3>James Simpson</h3>
 
-          <button className='button' >
-            <a className='a' href="https://github.com/simpsonjd12" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/simpsonjd12"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://www.linkedin.com/in/james-simpson-2ab668194/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/james-simpson-2ab668194/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://simpsonjd12.github.io/React_Portfolio/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://simpsonjd12.github.io/React_Portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Portfolio
             </a>
           </button>
-
         </div>
       </div>
       <div className="demoPage">
@@ -112,24 +141,40 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={jason} alt="jason" />
           <h3>Jason Barrera</h3>
-          <button className='button' >
-            <a className='a' href="https://github.com/jbramirez03" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/jbramirez03"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://www.linkedin.com/in/jason-barrera-ramirez-b2a473204/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/jason-barrera-ramirez-b2a473204/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://jbramirez03.github.io/React-Portfolio/#/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://jbramirez03.github.io/React-Portfolio/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Portfolio
             </a>
           </button>
-
         </div>
       </div>
       <div className="demoPage">
@@ -151,27 +196,40 @@ const Contributors = () => {
           <img className="avatar" src={qabas} alt="qabas" />
           <h3>Qabas Al Ani</h3>
 
-          <button className='button' >
-            <a className='a' href="https://github.com/Qabas-al-ani" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/Qabas-al-ani"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://www.linkedin.com/in/qabas-al-ani-7b858863/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/qabas-al-ani-7b858863/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
-          </button><br/>
+          </button>
+          <br />
 
-          <button className='button' >
-            <a className='a' href="https://www.linkedin.com/in/qabas-al-ani-7b858863/" target="_blank" rel="noopener noreferrer">
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/qabas-al-ani-7b858863/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Portfolio
             </a>
           </button>
-
-          
-
-
         </div>
       </div>
       <div className="demoPage">
