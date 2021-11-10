@@ -242,6 +242,7 @@ const Contributors = () => {
             focus on mobile-first design & graduate of the UNC Chapel Hill
             Coding Boot Camp
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
     </HTMLFlipBook>
