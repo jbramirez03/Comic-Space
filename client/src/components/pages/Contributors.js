@@ -76,6 +76,25 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={jammy} alt="jammy" />
           <h3>James Simpson</h3>
+
+          <button className='button' >
+            <a className='a' href="https://github.com/simpsonjd12" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </button><br/>
+
+          <button className='button' >
+            <a className='a' href="" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </button><br/>
+
+          <button className='button' >
+            <a className='a' href="https://simpsonjd12.github.io/React_Portfolio/" target="_blank" rel="noopener noreferrer">
+              Portfolio
+            </a>
+          </button>
+
         </div>
       </div>
       <div className="demoPage">
