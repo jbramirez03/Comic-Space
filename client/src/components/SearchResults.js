@@ -120,8 +120,8 @@ const Tester = () => {
       // console.log(rawComics)
       return rawComics;
     } else {
-      console.log('Character not found')
-      return
+      console.log("Character not found");
+      return;
     }
     // const characterId = characterInfo.data.data.results[0].id;
     // const rawComics = await getComics(characterId);
@@ -148,16 +148,16 @@ const Tester = () => {
   };
 
   const findPage = (page) => {
-    const set = test.find((button) => button.num === page)
+    const set = test.find((button) => button.num === page);
     next(set.page);
     console.log(set.page);
-  }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const response = await search();
     if (response === undefined) {
-      window.alert('Character not found')
+      window.alert("Character not found");
       return;
     }
     const p = Math.ceil(response.data.data.total / 20);
@@ -168,7 +168,7 @@ const Tester = () => {
   };
 
   return (
-    <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="md">
+    <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="lg">
       <Typography variant="h2" align="center" color="white">
         Comic Search
       </Typography>
@@ -198,43 +198,43 @@ const Tester = () => {
         </Grid>
         {comics.length >= 1
           ? comics.map((comic) => {
-            return (
-              <Grid item xs={12} sm={6} md={4} key={comic.comicId}>
-                <Flippy
-                  style={cardStyle.frontSide}
-                  className="flipCard"
-                  flipOnClick={true}
-                  flipDirection="horizontal"
-                >
-                  <FrontSide>
-                    <img src={comic.image} alt="comic" style={imgStyle} />
-                  </FrontSide>
-                  <BackSide style={cardStyle.backSide}>
-                    <h3>{comic.title}</h3>
-                    <p>{comic.description}</p>
-                    {Auth.loggedIn && (
-                      <Button
-                        sx={{ marginBottom: "5px" }}
-                        color="success"
-                        variant="contained"
-                        onClick={() => handleComicSave(comic.comicId)}
-                      >
-                        Save to Collection
-                      </Button>
-                    )}
-                    {Auth.loggedIn && (
-                      <Button
-                        variant="contained"
-                        onClick={() => handleComicWish(comic.comicId)}
-                      >
-                        Add to Wishlist
-                      </Button>
-                    )}
-                  </BackSide>
-                </Flippy>
-              </Grid>
-            );
-          })
+              return (
+                <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
+                  <Flippy
+                    style={cardStyle.frontSide}
+                    className="flipCard"
+                    flipOnClick={true}
+                    flipDirection="horizontal"
+                  >
+                    <FrontSide>
+                      <img src={comic.image} alt="comic" style={imgStyle} />
+                    </FrontSide>
+                    <BackSide style={cardStyle.backSide}>
+                      <h3>{comic.title}</h3>
+                      <p>{comic.description}</p>
+                      {Auth.loggedIn && (
+                        <Button
+                          sx={{ marginBottom: "5px" }}
+                          color="success"
+                          variant="contained"
+                          onClick={() => handleComicSave(comic.comicId)}
+                        >
+                          Save to Collection
+                        </Button>
+                      )}
+                      {Auth.loggedIn && (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleComicWish(comic.comicId)}
+                        >
+                          Add to Wishlist
+                        </Button>
+                      )}
+                    </BackSide>
+                  </Flippy>
+                </Grid>
+              );
+            })
           : ""}
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
