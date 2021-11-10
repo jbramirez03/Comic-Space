@@ -37,6 +37,23 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={chris} alt="chris" />
           <h3>Chris Mattix</h3>
+          <button className='button' >
+            <a className='a' href="https://github.com/BeardoMattix" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </button><br/>
+
+          <button className='button' >
+            <a className='a' href="https://www.linkedin.com/in/christopher-j-mattix-4773b736/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </button><br/>
+
+          <button className='button' >
+            <a className='a' href="https://beardomattix.github.io/Mattix-Portfolio/" target="_blank" rel="noopener noreferrer">
+              Portfolio
+            </a>
+          </button>
         </div>
       </div>
       <div className="demoPage">
