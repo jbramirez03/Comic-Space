@@ -189,6 +189,7 @@ const Contributors = () => {
             and being skilled at problem-solving no matter the complexity of the
             project.
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
 
