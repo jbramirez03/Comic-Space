@@ -40,9 +40,13 @@
   width: 200px;
   margin: auto;
 }
+
+
 .info {
+  
   padding: 20px;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
 }
 
 .App-header {
