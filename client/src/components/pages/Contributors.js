@@ -134,6 +134,7 @@ const Contributors = () => {
             into software development. I am currently enrolled in UNC Coding
             Bootcamp expected to graduate November 20th, 2021.
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
 
