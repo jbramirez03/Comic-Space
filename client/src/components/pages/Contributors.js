@@ -84,7 +84,7 @@ const Contributors = () => {
           </button><br/>
 
           <button className='button' >
-            <a className='a' href="" target="_blank" rel="noopener noreferrer">
+            <a className='a' href="https://www.linkedin.com/in/james-simpson-2ab668194/" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
           </button><br/>
