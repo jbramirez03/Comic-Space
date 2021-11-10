@@ -25,8 +25,6 @@ const Contributors = () => {
           <h1>Book</h1>
           <h1>Store</h1>
           <h1>Contributors</h1>
-
-          {/* <img className="avatar" src={comi} alt="comi" /> */}
         </div>
       </div>
       <div className="demoPage">
@@ -46,7 +44,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+             My GitHub
             </a>
           </button>
           <br />
@@ -58,7 +56,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+             My LinkedIn
             </a>
           </button>
           <br />
@@ -70,7 +68,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Portfolio
+             My Portfolio
             </a>
           </button>
         </div>
@@ -99,7 +97,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+             My GitHub
             </a>
           </button>
           <br />
@@ -111,7 +109,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+             My LinkedIn
             </a>
           </button>
           <br />
@@ -123,7 +121,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Portfolio
+             My Portfolio
             </a>
           </button>
         </div>
@@ -151,7 +149,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+             My GitHub
             </a>
           </button>
           <br />
@@ -163,7 +161,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+             My LinkedIn
             </a>
           </button>
           <br />
@@ -175,7 +173,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Portfolio
+             My Portfolio
             </a>
           </button>
         </div>
@@ -207,7 +205,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+             My GitHub
             </a>
           </button>
           <br />
@@ -219,7 +217,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+             My LinkedIn
             </a>
           </button>
           <br />
@@ -227,11 +225,11 @@ const Contributors = () => {
           <button className="button">
             <a
               className="a"
-              href="https://www.linkedin.com/in/qabas-al-ani-7b858863/"
+              href="https://qabas-al-ani.github.io/Personal_portfolio/#/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Portfolio
+             My Portfolio
             </a>
           </button>
         </div>
