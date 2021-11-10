@@ -37,7 +37,7 @@ export default function RecipeReviewCard({ image, title, description }) {
   };
 
   return (
-    <Grid item xs={12} sm={6} md={6}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card
         sx={{
           maxWidth: 345,
@@ -65,13 +65,14 @@ export default function RecipeReviewCard({ image, title, description }) {
           image={image}
           alt="collected comic"
         />
-        <CardContent></CardContent>
+
         <CardActions disableSpacing>
-          <IconButton aria-label="add to wishlist">
-            <PlaylistAddIcon />
-          </IconButton>
-          <Typography variant="subtitle1" color="white">
-            Favorite
+          <Typography
+            variant="subtitle1"
+            color="white"
+            sx={{ marginLeft: "auto" }}
+          >
+            Details:
           </Typography>
 
           <ExpandMore

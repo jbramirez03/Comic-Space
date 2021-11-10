@@ -38,7 +38,7 @@ export default function RecipeReviewCard({ image, title, description }) {
   };
 
   return (
-    <Grid item xs={12} sm={6} md={6}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card
         sx={{
           maxWidth: 345,
@@ -66,12 +66,16 @@ export default function RecipeReviewCard({ image, title, description }) {
           image={image}
           alt="wishlist comic"
         />
-        <CardContent></CardContent>
+
         <CardActions disableSpacing>
           {/* <IconButton aria-label="add to wishlist">
             <BookmarkAddedIcon />
           </IconButton> */}
-          <Typography variant="h6" color="white" sx={{ marginLeft: "auto" }}>
+          <Typography
+            variant="subtitle1"
+            color="white"
+            sx={{ marginLeft: "auto" }}
+          >
             Details:
           </Typography>
 

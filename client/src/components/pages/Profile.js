@@ -161,22 +161,6 @@ export default function Profile() {
               View
             </Button>
           </Typography>
-          <Typography
-            component="h1"
-            variant="h3"
-            align="center"
-            gutterBottom
-            style={{ color: "white", fontFamily: "Helvetica Neue" }}
-          >
-            Your Wishlist
-            <Button
-              variant="contained"
-              sx={{ marginLeft: "10px" }}
-              onClick={() => setWishComics([...userData.wishlist])}
-            >
-              View
-            </Button>
-          </Typography>
 
           <Grid container spacing={4} direction="row" alignItems="flex-start">
             {collectedComics.length > 1
@@ -191,18 +175,43 @@ export default function Profile() {
                   );
                 })
               : ""}
-            {wishComics.length > 1
-              ? wishComics.map((comic) => {
-                  return (
-                    <WishlistCard
-                      key={comic.comicId}
-                      title={comic.title}
-                      description={comic.description}
-                      image={comic.image}
-                    />
-                  );
-                })
-              : ""}
+            <Container sx={{ py: 8 }} maxWidth="md">
+              <Typography
+                component="h1"
+                variant="h3"
+                align="center"
+                gutterBottom
+                style={{ color: "white", fontFamily: "Helvetica Neue" }}
+              >
+                Your Wishlist
+                <Button
+                  variant="contained"
+                  sx={{ marginLeft: "10px" }}
+                  onClick={() => setWishComics([...userData.wishlist])}
+                >
+                  View
+                </Button>
+              </Typography>
+              <Grid
+                container
+                spacing={4}
+                direction="row"
+                alignItems="flex-start"
+              >
+                {wishComics.length > 1
+                  ? wishComics.map((comic) => {
+                      return (
+                        <WishlistCard
+                          key={comic.comicId}
+                          title={comic.title}
+                          description={comic.description}
+                          image={comic.image}
+                        />
+                      );
+                    })
+                  : ""}
+              </Grid>
+            </Container>
           </Grid>
 
           {/* End hero unit */}
