@@ -1,6 +1,6 @@
-import HTMLFlipBook from 'react-pageflip';
+import HTMLFlipBook from "react-pageflip";
 import comic1 from "../../images/comic1.jpg";
-import comic2 from "../../images/comic2.jpg";
+import comi from "../../images/comi.jpg";
 import chris from "../../images/chris.jpg";
 import jammy from "../../images/jammy.jpeg";
 import jason from "../../images/jason.jpeg";
@@ -23,8 +23,8 @@ const Contributors = () => {
         <div className="info">
           <h1>Comic-Space</h1>
           <h1>Book</h1>
-          <h5>Contributors</h5>
-          <img className="avatar" src={comic2} alt="comic2" />
+          <h1>Store</h1>
+          <h1>Contributors</h1>
         </div>
       </div>
       <div className="demoPage">
@@ -37,6 +37,40 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={chris} alt="chris" />
           <h3>Chris Mattix</h3>
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/BeardoMattix"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My GitHub
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/christopher-j-mattix-4773b736/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My LinkedIn
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://beardomattix.github.io/Mattix-Portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My Portfolio
+            </a>
+          </button>
         </div>
       </div>
       <div className="demoPage">
@@ -45,13 +79,9 @@ const Contributors = () => {
           <p>
             Hello and thanks for checking out my portfolio! My name is Chris
             Mattix and I am currently a student in the UNC Full Stack Developer
-            Bootcamp. I am a former teacher who spent 12 years in education
-            before deciding it was time to move on to a new career where I can
-            put my problem-solving skills to the test. I am originally from
-            Montana, and miss my home state everyday. I have lived in North
-            Carolina for the past 6 years, and truly love it...even if the
-            mountains here don't have the same majesty as the ones in Montana.
+            Bootcamp.
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
 
@@ -59,6 +89,41 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={jammy} alt="jammy" />
           <h3>James Simpson</h3>
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/simpsonjd12"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My GitHub
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/james-simpson-2ab668194/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My LinkedIn
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://simpsonjd12.github.io/React_Portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My Portfolio
+            </a>
+          </button>
         </div>
       </div>
       <div className="demoPage">
@@ -69,6 +134,7 @@ const Contributors = () => {
             into software development. I am currently enrolled in UNC Coding
             Bootcamp expected to graduate November 20th, 2021.
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
 
@@ -76,6 +142,40 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={jason} alt="jason" />
           <h3>Jason Barrera</h3>
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/jbramirez03"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My GitHub
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/jason-barrera-ramirez-b2a473204/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My LinkedIn
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://jbramirez03.github.io/React-Portfolio/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My Portfolio
+            </a>
+          </button>
         </div>
       </div>
       <div className="demoPage">
@@ -89,6 +189,7 @@ const Contributors = () => {
             and being skilled at problem-solving no matter the complexity of the
             project.
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
 
@@ -96,6 +197,41 @@ const Contributors = () => {
         <div className="info">
           <img className="avatar" src={qabas} alt="qabas" />
           <h3>Qabas Al Ani</h3>
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://github.com/Qabas-al-ani"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My GitHub
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://www.linkedin.com/in/qabas-al-ani-7b858863/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My LinkedIn
+            </a>
+          </button>
+          <br />
+
+          <button className="button">
+            <a
+              className="a"
+              href="https://qabas-al-ani.github.io/Personal_portfolio/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             My Portfolio
+            </a>
+          </button>
         </div>
       </div>
       <div className="demoPage">
@@ -106,6 +242,7 @@ const Contributors = () => {
             focus on mobile-first design & graduate of the UNC Chapel Hill
             Coding Boot Camp
           </p>
+          <h3>My Role:</h3>
         </div>
       </div>
     </HTMLFlipBook>

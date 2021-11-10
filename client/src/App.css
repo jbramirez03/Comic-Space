@@ -19,15 +19,34 @@
 .avatar1 {
   width: 300px;
   margin: auto;
-  height: 75vh;
+  height: 75%;
+}
+
+.button {
+  background-color: white;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.a {
+  text-decoration: none;
+  color: black;
+  text-shadow: 1px 1px #5f5b5b;
 }
 
 .avatar {
   width: 200px;
   margin: auto;
 }
+
+
 .info {
+  
   padding: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
 }
 
 .App-header {
