@@ -22,7 +22,7 @@ const cardStyle = {
     backgroundColor: "#531c28",
     border: "2px solid #531c28",
     borderRadius: "5px",
-    boxShadow: "3px 3px 0px #4f999d",
+    boxShadow: "3px 3px 4px grey",
     height: "100%",
     width: "100%",
   },
@@ -168,28 +168,40 @@ const Tester = () => {
   };
 
   return (
-    <Container sx={{ py: 8, bgcolor: "#385059" }} maxWidth="lg">
-      <Typography variant="h2" align="center" color="white">
+    <Container sx={{ py: 8, bgcolor: "transparent" }} maxWidth="lg">
+      <Typography variant="h2" align="center" color="black">
         Comic Search
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} sx={{ margin: " auto" }}>
           <form action="submit" onSubmit={onSubmit}>
             <input
+              placeholder="Search by character..."
               type="text"
-              style={{ margin: "0 auto", width: "100%", align: "center" }}
+              style={{
+                margin: "0 auto",
+                width: "100%",
+                height: "30px",
+                align: "center",
+                fontSize: "20px",
+                borderRadius: "5px",
+              }}
               value={character}
               onChange={(e) => setCharacter(e.target.value)}
             />
             <button
-              sx={{
+              style={{
+                float: "right",
                 width: "100px",
                 height: "30px",
                 marginTop: "5px",
-                bgackgroundColor: "#531c28",
+                backgroundColor: "#4f999d",
+                borderRadius: "5px",
+                color: "black",
+                fontWeight: "bold",
               }}
             >
-              Search
+              SEARCH
             </button>
           </form>
         </Grid>
@@ -239,11 +251,13 @@ const Tester = () => {
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
         </Grid>
-        {test.length && (
+        {test.length ? (
           <Pagination
+            sx={{ margin: "auto" }}
             count={test.length}
-            variant="outlined"
-            color="warning"
+            variant="contained"
+            size="large"
+            color="black"
             defaultPage={1}
             shape="rounded"
             onChange={(event, page) => {
@@ -251,6 +265,8 @@ const Tester = () => {
               findPage(page);
             }}
           />
+        ) : (
+          ""
         )}
       </Grid>
     </Container>
