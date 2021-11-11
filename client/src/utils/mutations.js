@@ -96,20 +96,18 @@ mutation wishComic($input: wishedComic!){
 }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
-    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
+// Jimmy added for forum page.  Remove if broken
+export const ADD_REPLY = gql`
+  mutation addReply($name: ID!, $reply: String!) {
+    addReply(profileId: $profileId, reply: $reply) {
+  
+      name
+      replies
     }
   }
 `;
+// Jimmy added for forum page.  Remove if broken
+
 
 export const POST_COMIC = gql`
   mutation postComic($input: postedComic!){
