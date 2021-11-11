@@ -75,6 +75,7 @@ function App() {
               <Route exact path="/results" component={SearchResults} />
               <Route exact path="/contributors" component={Contributors} />
               <Route exact path="/dictaphone" component={Dictaphone} />
+              <Route exact path="/forum" component={Forum} />
             </Switch>
             {/* </Provider> */}
           </div>

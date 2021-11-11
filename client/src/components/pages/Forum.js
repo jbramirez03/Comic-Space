@@ -90,7 +90,7 @@ const Forum = (thought, title) => {
 </Box>
  </Container>
           
-<Thread />
+
     <ThreadReply />
 
     </div>
