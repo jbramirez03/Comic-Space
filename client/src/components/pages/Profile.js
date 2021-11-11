@@ -20,6 +20,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import WishlistCard from "../WishlistCard";
 import ComicSpaceLogo from "../../images/ComicSpace.png";
+import ComicSpaceBIG from "../../images/ComicSpaceBIG.png";
 
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -41,26 +42,27 @@ function Copyright() {
 
 const theme = createTheme();
 
-const picName = {
-  display: "flex",
-  flexDirection: "row",
-  margin: "15px",
-};
+// const picName = {
+//   display: "flex",
+//   flexDirection: "row",
+//   margin: "15px",
+// };
 
 const user = {
   fontSize: "2rem",
 };
 
-const intro = {
-  color: "white",
-  marginLeft: "15px",
-  marginTop: "15px",
-  fontSize: "1rem",
-};
+// const intro = {
+//   color: "white",
+//   marginLeft: "15px",
+//   marginTop: "15px",
+//   fontSize: "1rem",
+// };
 
 const profilePic = {
-  height: "100%",
-  width: "100%",
+  // height: "100%",
+  // width: "100%",
+  objectFit: "contain",
 };
 
 export default function Profile() {
@@ -75,7 +77,7 @@ export default function Profile() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <main style={{ backgroundColor: "#531c28" }}>
+      <main style={{ backgroundColor: "transparent" }}>
         {/* Hero unit */}
         <Box
           sx={{
@@ -85,72 +87,81 @@ export default function Profile() {
             pb: 6,
           }}
         >
-          <Container maxWidth="sm">
-            <Grid container spacing={2}>
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                gutterBottom
-                style={{ color: "white" }}
-              >
-                <div style={picName}>
-                  <Grid item>
-                    <Avatar
-                      sx={{
-                        bgcolor: "#4f999d",
-                        m: "10px",
-                        textAlign: "center",
-                        width: 150,
-                        height: 150,
-                        borderRadius: "35%",
-                      }}
-                    >
-                      <img
-                        src="http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4badb223f33c9.jpg"
-                        alt="avatar"
-                        style={profilePic}
-                      />
-                    </Avatar>
-                    <div style={user}>User Name</div>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="h5"
-                      align="center"
-                      style={intro}
-                      paragraph
-                    >
-                      Something short and leading about the collection below—its
-                      contents, the creator, etc. Make it short and sweet, but
-                      not too short so folks don&apos;t simply skip over it
-                      entirely.
-                    </Typography>
-                    <Stack
-                      sx={{ pt: 4 }}
-                      direction="row"
-                      spacing={2}
-                      justifyContent="center"
-                    >
-                      <Button variant="contained">Message Me</Button>
-                      <Button variant="outlined" style={{ color: "white" }}>
-                        Add Friend
-                      </Button>
-                    </Stack>
-                  </Grid>
-                </div>
-                {/* end profile pic div */}
-              </Typography>
+          <Container maxWidth="md" spacing={2}>
+            <Grid container spacing={0}>
+              <Grid item xs={12} sm={6} md={4}>
+                <Avatar
+                  sx={{
+                    bgcolor: "transparent",
+                    margin: "auto",
+                    textAlign: "center",
+                    width: 180,
+                    height: 180,
+                    borderRadius: "10px",
+                  }}
+                >
+                  <img src={ComicSpaceBIG} alt="avatar" />
+                </Avatar>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Typography
+                    component="h1"
+                    variant="h2"
+                    gutterBottom
+                    style={{
+                      color: "white",
+                      textAlign: "center",
+                      bgcolor: "transparent",
+                    }}
+                  >
+                    UserName
+                  </Typography>
+                </Grid>
+              </Grid>
+              {/* <div style={picName}> */}
+
+              <Grid item xs={12} sm={6} md={8}>
+                <Typography
+                  variant="h4"
+                  color="white"
+                  align="center"
+                  sx={{ textAlign: "center", marginTop: "5px" }}
+                >
+                  About Me:
+                </Typography>
+                <Typography
+                  variant="h4"
+                  color="white"
+                  align="center"
+                  sx={{ textAlign: "center", marginTop: "5px" }}
+                >
+                  Favorite Characters:
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <Stack
+                  sx={{ pt: 4 }}
+                  direction="row"
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <Button variant="contained">Message Me</Button>
+                  <Button variant="outlined" style={{ color: "white" }}>
+                    Add Friend
+                  </Button>
+                </Stack>
+              </Grid>
+              {/* </div> */}
+              {/* end profile pic div */}
             </Grid>
           </Container>
         </Box>
-        <Container sx={{ py: 8, bgcolor: "#531c28" }} maxWidth="md">
+        <Container sx={{ py: 8, bgcolor: "transparent" }} maxWidth="lg">
           <Typography
             component="h1"
             variant="h3"
             align="center"
             gutterBottom
-            style={{ color: "white", fontFamily: "Helvetica Neue" }}
+            style={{ color: "black", fontFamily: "Helvetica Neue" }}
           >
             Your Collection
             <Button
@@ -159,6 +170,13 @@ export default function Profile() {
               onClick={() => setCollectedComics([...userData.comics])}
             >
               View
+            </Button>
+            <Button
+              variant="contained"
+              sx={{ marginLeft: "10px" }}
+              onClick={() => setCollectedComics([])}
+            >
+              Hide
             </Button>
           </Typography>
 
@@ -181,7 +199,7 @@ export default function Profile() {
                 variant="h3"
                 align="center"
                 gutterBottom
-                style={{ color: "white", fontFamily: "Helvetica Neue" }}
+                style={{ color: "black", fontFamily: "Helvetica Neue" }}
               >
                 Your Wishlist
                 <Button
@@ -190,6 +208,13 @@ export default function Profile() {
                   onClick={() => setWishComics([...userData.wishlist])}
                 >
                   View
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{ marginLeft: "10px" }}
+                  onClick={() => setWishComics([])}
+                >
+                  Close
                 </Button>
               </Typography>
               <Grid

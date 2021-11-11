@@ -43,7 +43,7 @@ export default function RecipeReviewCard({ image, title, description }) {
         sx={{
           maxWidth: 345,
           marginBottom: "10px",
-          bgcolor: "#4f999d",
+          bgcolor: "#385059",
           color: "white",
         }}
       >
