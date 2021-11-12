@@ -53,7 +53,7 @@ function App() {
             {/* <Provider store={store}> */}
             <Nav />
             <Switch>
-              <Route exact path='/'>
+              <Route exact path='/tester'>
                 {Auth.loggedIn() ? <Tester /> : <Redirect to='/login' />}
               </Route>
               <Route exact path='/login'>
@@ -66,7 +66,7 @@ function App() {
                 {Auth.loggedIn() ? <Profile /> : <Redirect to='/login' />}
               </Route>
               {/* <Route exact path="/search" component={Search} /> */}
-              <Route exact path='/search'>
+              <Route exact path='/'>
                 {Auth.loggedIn() ? <SearchResults /> : <Redirect to='/login' />}
               </Route>
               <Route exact path='/listings'>
