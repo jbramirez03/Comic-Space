@@ -112,14 +112,7 @@ export const ADD_REPLY = gql`
 export const POST_COMIC = gql`
   mutation postComic($input: postedComic!){
     postComic(input: $input){
-      _id
       email
-      comics{
-        comicId
-        title
-        description
-        image
-      }
     }
   }
 `;

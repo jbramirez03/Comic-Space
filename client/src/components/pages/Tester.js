@@ -18,6 +18,7 @@ import Stack from '@mui/material/Stack';
 // }
 
 import React from 'react'
+// import { prependOnceListener } from '../../../../server/models/Order';
 
 const Tester = () => {
     const PRIV_KEY = "b62c40680e3ea3090a2462bc3021628651c2d45f";
@@ -32,37 +33,15 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
-    const [postForm, setPostForm] = useState({ comicId: '', title: '', description: '', image: '', tradeable: false, price: '' });
+    // const [postForm, setPostForm] = useState({ tradeable: false, price: '' });
+    const [price, setPrice] = useState('');
+    const [tradeable, setTradeable] = useState(false);
     const [saveComic] = useMutation(POST_COMIC);
-    // const { loading, data } = useQuery(QUERY_ME);
-    // const userData = data?.me || [];
+    const { loading, data } = useQuery(QUERY_ME);
+    const userData = data?.me || [];
     // const [removeComic] = useMutation(REMOVE_COMIC);
     // const [checked, setChecked] = useState(false);
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        if (name === 'tradeable') {
-            setPostForm({ ...postForm, tradeable: value.checked })
-        }
-        setPostForm({ ...postForm, [name]: value });
-
-        // setPostForm({ ...postForm, tradeable: checked })
-    };
-
-    const handleCheck = (event) => {
-        // const { name, value } = event.target.checked;
-        // setChecked(event.currentTarget.checked);
-        setPostForm({ ...postForm, tradeable: event.target.checked })
-    }
-
-    const posting = async (e) => {
-        e.preventDefault();
-        console.log(postForm);
-        await saveComic({
-            variables: { input: postForm }
-        })
-        setPostForm({ comicId: '', title: '', description: '', image: '', tradeable: '', price: '' });
-    }
 
     // const handleDeleteComic = async (comicId) => {
 
@@ -83,29 +62,29 @@ const Tester = () => {
     // };
 
 
-    // const handleComicSave = async (comic) => {
+    const handleComicSave = async (comic) => {
 
-    //     // const comicToSave = comics.find((comic) => comic.comicId === comicId);
-    //     // console.log(comicToSave)
-    //     const comicToPost = { comicId: comic.comicId, title: comic.title, description: comic.description, image: comic.image };
-    //     console.log(comicToPost)
-    //     // get token
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+        // const comicToSave = comics.find((comic) => comic.comicId === comicId);
+        // console.log(comicToSave)
+        const comicToPost = { comicId: comic.comicId, title: comic.title, description: comic.description, image: comic.image, tradeable: false, price: price };
+        console.log(comicToPost)
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    //     if (!token) {
-    //         return false;
-    //     }
-    //     // Add the input for the mutation save_book in a variable object set to bookToSave
-    //     try {
-    //         await saveComic({
-    //             variables: { input: comicToPost },
-    //         });
+        if (!token) {
+            return false;
+        }
+        // Add the input for the mutation save_book in a variable object set to bookToSave
+        try {
+            await saveComic({
+                variables: { input: comicToPost },
+            });
 
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
+        } catch (err) {
+            console.error(err);
+        }
 
-    // }
+    }
 
 
 
@@ -180,9 +159,9 @@ const Tester = () => {
         buttons = [];
     }
 
-    // if (loading) {
-    //     return <h2>LOADING...</h2>;
-    // }
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    }
     return (
         <div>
             <form action="submit" onSubmit={onSubmit}>
@@ -191,7 +170,7 @@ const Tester = () => {
             </form>
             {/* <button onClick={() => console.log(userData)}>CHeck data</button>
             <button onClick={() => console.log(userData.comics)}>See saved comics</button> */}
-            {/* {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
+            {userData.comics.length ? <div>Viewing your collection</div> : 'you have no saved comics'}
             {userData.comics.length ? userData.comics.map(comic => {
                 return (
                     <div key={comic.comicId}>
@@ -201,15 +180,15 @@ const Tester = () => {
                         <button onClick={() => handleComicSave(comic)}>Delete comic</button>
                     </div>
                 )
-            }) : 'No comics to view from user'} */}
-            <form action='submit' onSubmit={posting}>
-                <input type="number" placeholder='comicId' name='comicId' value={postForm.comicId} onChange={handleInputChange} />
+            }) : 'No comics to view from user'}
+            <form action='submit'>
+                {/* <input type="number" placeholder='comicId' name='comicId' value={postForm.comicId} onChange={handleInputChange} />
                 <input type="text" placeholder='title' name='title' value={postForm.title} onChange={handleInputChange} />
                 <input type="text" placeholder='description' name='description' value={postForm.description} onChange={handleInputChange} />
-                <input type="text" placeholder='image' name='image' value={postForm.image} onChange={handleInputChange} />
-                <input type="checkbox" checked={postForm.tradeable} name='tradeable' value={postForm.checked} onChange={handleCheck} />
-                <input type="number" placeholder='price' name='price' value={postForm.price} onChange={handleInputChange} />
-                <button type='submit'>Submit</button>
+                <input type="text" placeholder='image' name='image' value={postForm.image} onChange={handleInputChange} /> */}
+                <input type="checkbox" checked={tradeable} name='tradeable' value={tradeable} onChange={e => setTradeable(e.currentTarget.checked)} />
+                <input type="number" placeholder='price' name='price' value={price} onChange={e => setPrice(parseInt(e.target.value))} />
+                {/* <button type='submit'>Submit</button> */}
             </form>
             {comics.length >= 1 ? comics.map(
                 (comic) => {
