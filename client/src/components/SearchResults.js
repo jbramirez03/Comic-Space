@@ -16,6 +16,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Card from "@mui/material/Card";
 import Pagination from "@mui/material/Pagination";
 // import Cards from "../components/Cards";
+import Shadow from "../components/Shadow";
 
 const cardStyle = {
   frontSide: {
@@ -54,7 +55,7 @@ const Tester = () => {
 
   const [saveComic] = useMutation(SAVE_COMIC);
   const [wishComic] = useMutation(WISH_COMIC);
-
+  let shadowArray = [];
   const handleComicSave = async (comicId) => {
     const comicToSave = comics.find((comic) => comic.comicId === comicId);
 
@@ -136,6 +137,7 @@ const Tester = () => {
       description: comic.description || "No description available",
       image: `${comic.thumbnail.path}.${comic.thumbnail.extension}` || "",
     }));
+    shadowArray = [];
     setComics(comicData);
   };
 
@@ -160,6 +162,7 @@ const Tester = () => {
       window.alert("Character not found");
       return;
     }
+    shadowArray = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     const p = Math.ceil(response.data.data.total / 20);
     createButtons(p);
     setTest([...buttons]);
@@ -208,6 +211,11 @@ const Tester = () => {
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
         </Grid>
+        {shadowArray.length >= 1
+          ? shadowArray.map((shadow) => {
+              return <Shadow key={shadow} />;
+            })
+          : ""}
         {comics.length >= 1
           ? comics.map((comic) => {
               return (
