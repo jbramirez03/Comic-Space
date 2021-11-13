@@ -1,18 +1,24 @@
 import React from "react";
-import Dictaphone from './components/pages/Dictaphone'
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import Dictaphone from "./components/pages/Dictaphone";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
-import Contributors from './components/pages/Contributors'
+import Contributors from "./components/pages/Contributors";
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import "./App.css";
 import store from "./utils/store";
 import SignInSide from "./components/SignInSide";
+import UpdateProfile from "./components/UpdateProfile";
 import SignUp from "./components/SignUp";
 import Nav from "./components/Nav";
 import SearchResults from "./components/SearchResults";
@@ -21,9 +27,8 @@ import Search from "./components/pages/Search";
 import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 // import SignUpTest from './components/pages/SignUpTest';
-import Forum from './components/pages/Forum'
-import Auth from './utils/auth';
-
+import Forum from "./components/pages/Forum";
+import Auth from "./utils/auth";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -53,24 +58,27 @@ function App() {
             {/* <Provider store={store}> */}
             <Nav />
             <Switch>
-              <Route exact path='/tester'>
-                {Auth.loggedIn() ? <Tester /> : <Redirect to='/login' />}
+              <Route exact path="/tester">
+                {Auth.loggedIn() ? <Tester /> : <Redirect to="/login" />}
               </Route>
-              <Route exact path='/login'>
-                {Auth.loggedIn() ? <Redirect to='/' /> : <SignInSide />}
+              <Route exact path="/login">
+                {Auth.loggedIn() ? <Redirect to="/" /> : <SignInSide />}
               </Route>
-              <Route exact path='/signup'>
-                {Auth.loggedIn() ? <Redirect to='/' /> : <SignUp />}
+              <Route exact path="/signup">
+                {Auth.loggedIn() ? <Redirect to="/" /> : <SignUp />}
               </Route>
-              <Route exact path='/profile'>
-                {Auth.loggedIn() ? <Profile /> : <Redirect to='/profile' />}
+              <Route exact path="/profile">
+                {Auth.loggedIn() ? <Profile /> : <Redirect to="/login" />}
+              </Route>
+              <Route exact path="/update">
+                {Auth.loggedIn() ? <UpdateProfile /> : <Redirect to="/login" />}
               </Route>
               {/* <Route exact path="/search" component={Search} /> */}
-              <Route exact path='/'>
-                {Auth.loggedIn() ? <SearchResults /> : <Redirect to='/searchresults' />}
+              <Route exact path="/">
+                {Auth.loggedIn() ? <SearchResults /> : <Redirect to="/login" />}
               </Route>
-              <Route exact path='/listings'>
-                {Auth.loggedIn() ? <Listings /> : <Redirect to='/login' />}
+              <Route exact path="/listings">
+                {Auth.loggedIn() ? <Listings /> : <Redirect to="/login" />}
               </Route>
               <Route exact path="/results" component={SearchResults} />
               <Route exact path="/contributors" component={Contributors} />
