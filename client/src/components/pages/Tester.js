@@ -32,11 +32,37 @@ const Tester = () => {
     const [searchedUrl, setSearchedUrl] = useState('');
     let buttons = [];
     const [test, setTest] = useState([]);
-    // const [saveComic] = useMutation(POST_COMIC);
+    const [postForm, setPostForm] = useState({ comicId: '', title: '', description: '', image: '', tradeable: false, price: '' });
+    const [saveComic] = useMutation(POST_COMIC);
     // const { loading, data } = useQuery(QUERY_ME);
     // const userData = data?.me || [];
     // const [removeComic] = useMutation(REMOVE_COMIC);
+    // const [checked, setChecked] = useState(false);
 
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        if (name === 'tradeable') {
+            setPostForm({ ...postForm, tradeable: value.checked })
+        }
+        setPostForm({ ...postForm, [name]: value });
+
+        // setPostForm({ ...postForm, tradeable: checked })
+    };
+
+    const handleCheck = (event) => {
+        // const { name, value } = event.target.checked;
+        // setChecked(event.currentTarget.checked);
+        setPostForm({ ...postForm, tradeable: event.target.checked })
+    }
+
+    const posting = async (e) => {
+        e.preventDefault();
+        console.log(postForm);
+        await saveComic({
+            variables: { input: postForm }
+        })
+        setPostForm({ comicId: '', title: '', description: '', image: '', tradeable: '', price: '' });
+    }
 
     // const handleDeleteComic = async (comicId) => {
 
@@ -157,7 +183,6 @@ const Tester = () => {
     // if (loading) {
     //     return <h2>LOADING...</h2>;
     // }
-
     return (
         <div>
             <form action="submit" onSubmit={onSubmit}>
@@ -177,6 +202,15 @@ const Tester = () => {
                     </div>
                 )
             }) : 'No comics to view from user'} */}
+            <form action='submit' onSubmit={posting}>
+                <input type="number" placeholder='comicId' name='comicId' value={postForm.comicId} onChange={handleInputChange} />
+                <input type="text" placeholder='title' name='title' value={postForm.title} onChange={handleInputChange} />
+                <input type="text" placeholder='description' name='description' value={postForm.description} onChange={handleInputChange} />
+                <input type="text" placeholder='image' name='image' value={postForm.image} onChange={handleInputChange} />
+                <input type="checkbox" checked={postForm.tradeable} name='tradeable' value={postForm.checked} onChange={handleCheck} />
+                <input type="number" placeholder='price' name='price' value={postForm.price} onChange={handleInputChange} />
+                <button type='submit'>Submit</button>
+            </form>
             {comics.length >= 1 ? comics.map(
                 (comic) => {
                     return (
