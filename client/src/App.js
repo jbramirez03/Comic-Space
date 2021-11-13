@@ -63,11 +63,11 @@ function App() {
                 {Auth.loggedIn() ? <Redirect to='/' /> : <SignUp />}
               </Route>
               <Route exact path='/profile'>
-                {Auth.loggedIn() ? <Profile /> : <Redirect to='/login' />}
+                {Auth.loggedIn() ? <Profile /> : <Redirect to='/profile' />}
               </Route>
               {/* <Route exact path="/search" component={Search} /> */}
               <Route exact path='/'>
-                {Auth.loggedIn() ? <SearchResults /> : <Redirect to='/login' />}
+                {Auth.loggedIn() ? <SearchResults /> : <Redirect to='/searchresults' />}
               </Route>
               <Route exact path='/listings'>
                 {Auth.loggedIn() ? <Listings /> : <Redirect to='/login' />}
