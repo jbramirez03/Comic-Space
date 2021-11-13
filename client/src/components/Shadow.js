@@ -7,8 +7,8 @@ import Skeleton from "@mui/material/Skeleton";
 const cardStyle = {
   frontSide: {
     backgroundColor: "transparent",
-    border: "2px solid #531c28",
-    borderRadius: "5px",
+    // border: "2px solid #531c28",
+    // borderRadius: "5px",
     boxShadow: "3px 3px 4px grey",
     height: "100%",
     width: "100%",
