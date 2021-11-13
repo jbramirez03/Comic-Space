@@ -89,6 +89,8 @@ query me {
         description
         title
         image
+        tradeable
+        price
       }
   }
 }
