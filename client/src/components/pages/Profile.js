@@ -13,7 +13,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import { Avatar } from "@mui/material";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -21,6 +21,7 @@ import ComicCard from "../ComicCard";
 import WishlistCard from "../WishlistCard";
 import ComicSpaceLogo from "../../images/ComicSpace.png";
 import ComicSpaceBIG from "../../images/ComicSpaceBIG.png";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -144,7 +145,15 @@ export default function Profile() {
                   spacing={2}
                   justifyContent="center"
                 >
-                  <Button variant="contained">Message Me</Button>
+                  <Button
+                    variant="contained"
+                    align="center"
+                    component={Link}
+                    to="/update"
+                  >
+                    Update Profile
+                  </Button>
+                  <Button variant="contained">DM</Button>
                   <Button variant="outlined" style={{ color: "white" }}>
                     Add Friend
                   </Button>
