@@ -23,38 +23,30 @@ const inputName = {
 }
 
 const ThreadReply = () => {
-const [ reply, setReply] = useState('')
-const [ name, setName] = useState('')
-const handleSubmit =(e) => {
-    e.preventDefault()
 
-    if (name && reply) {
-        console.log( name, reply)
-    }
-}
     return (
  <div >
-     <Thread name={ name } reply={ reply } />
+     <Thread />
 <Container style={forumReply}> 
  <form>
 <TextField 
-onChange={(e) => setReply(e.target.value)}
+
 fullWidth
 id="outlined-multiline-static reply"
-label=""
+label="Reply to this thread"
 multiline
 rows={1.5}
-defaultValue="Reply to this thread..."
+
 >
 </TextField>
 <TextField
-onChange={(e) => setName(e.target.value)}
-    label="Required"
-    defaultValue="Your name"
+
+    label="Your name"
+    
     size="small"
     style={inputName}></TextField>
 
-<Box style={replyButton} onClick={handleSubmit}><Button variant="contained">Submit</Button>
+<Box style={replyButton}><Button variant="contained">Submit</Button>
 </Box>
 </form>
 </Container> 
