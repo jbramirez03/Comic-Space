@@ -17,14 +17,6 @@ const comicSchema = new Schema({
   image: {
     type: String
   },
-  price: {
-    type: Number,
-  },
-  quantity: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
 });
 
 const Comic = mongoose.model('Comic', comicSchema);
