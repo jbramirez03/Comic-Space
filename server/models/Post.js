@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-require('mongoose-currency').loadType(mongoose);
-const Currency = Schema.Types.Currency;
+// require('mongoose-currency').loadType(mongoose);
+// const Currency = Schema.Types.Currency;
 
 const postSchema = new Schema({
     comicId: {
@@ -21,10 +21,9 @@ const postSchema = new Schema({
     },
     tradeable: {
         type: Boolean,
-        default: false
     },
     price: {
-        type: Currency
+        type: Number
     }
 });
 

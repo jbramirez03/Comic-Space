@@ -102,6 +102,12 @@ const resolvers = {
 
       return { session: session.id };
     },
+    posts: async (parents, args, context) => {
+      const posts = await Post.find({});
+
+      return posts;
+    }
+
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -196,7 +202,7 @@ const resolvers = {
           { new: true, runValidators: true }
         );
         return updatedUser;
-
+        // return post;
       }
 
       throw new AuthenticationError("You need to be logged in!");

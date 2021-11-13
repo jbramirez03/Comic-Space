@@ -77,6 +77,7 @@ const typeDefs = gql`
     categories: [Category]
     comics: [Comic]
     comic(_id: ID!): Comic
+    posts: [Post]
     user: User
     order(_id: ID!): Order
     checkout(comics: [ID]!): Checkout
