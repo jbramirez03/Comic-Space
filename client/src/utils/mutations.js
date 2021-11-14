@@ -118,12 +118,14 @@ export const POST_COMIC = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation updateUser($firstName: String, $lastName: String, $email: String, $image: String) {
-    updateUser(firstName: $firstName, lastName: $lastName, email: $email, image: $image) {
+  mutation updateUser($firstName: String, $lastName: String, $email: String, $image: String, $about: String, $favorite: String) {
+    updateUser(firstName: $firstName, lastName: $lastName, email: $email, image: $image, about: $about, favorite: $favorite) {
       image
       firstName
       lastName
       email
+      about
+      favorite
     }
   }
 `;
