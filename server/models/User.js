@@ -27,6 +27,9 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  image: {
+    type: String
+  },
   comics: [Comic.schema],
   orders: [Order.schema],
   wishlist: [Comic.schema],
