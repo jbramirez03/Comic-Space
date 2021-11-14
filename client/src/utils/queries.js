@@ -73,6 +73,8 @@ query me {
       lastName
       email
       image
+      about
+      favorite
       comics {
           comicId
           description

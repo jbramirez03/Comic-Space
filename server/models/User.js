@@ -30,6 +30,12 @@ const userSchema = new Schema({
   image: {
     type: String
   },
+  about: {
+    type: String
+  },
+  favorite: {
+    type: String
+  },
   comics: [Comic.schema],
   orders: [Order.schema],
   wishlist: [Comic.schema],
