@@ -126,10 +126,10 @@ export default function UpdateProfile() {
               multiline="true"
               required
               fullWidth
-              name="bio"
-              label="Bio"
-              type="bio"
-              id="bio"
+              name="about"
+              label="About Me"
+              type="about"
+              id="about"
               autoComplete="current-bio"
             />
             <TextField
