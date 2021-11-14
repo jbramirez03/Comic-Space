@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -14,13 +14,13 @@ import Container from "@mui/material/Container";
 import Input from "@mui/material/Input";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
-import { UPDATE_USER } from '../utils/mutations';
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
+import { UPDATE_USER } from "../utils/mutations";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import Axios from "axios";
 import { Image } from "cloudinary-react";
-
 
 function Copyright(props) {
   return (
@@ -52,9 +52,10 @@ export default function UpdateProfile() {
     event.preventDefault();
     const { data } = await updateUser({
       variables: {
-        ...updateForm
-      }
+        ...updateForm,
+      },
     });
+    window.location.href = "/profile";
   };
   const [image, setImage] = React.useState();
   const [url, setUrl] = React.useState("");
@@ -66,10 +67,15 @@ export default function UpdateProfile() {
   React.useEffect(() => {
     console.log(userData);
     if (!loading) {
-      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: 'rgewerg' });
+      setUpdateForm({
+        email: userData.email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        about: userData.about,
+        image: "something",
+      });
     }
-  }, [userData])
-
+  }, [userData]);
 
   const uploadImage = async () => {
     const response = await Axios.post(
@@ -80,9 +86,7 @@ export default function UpdateProfile() {
     console.log(response);
   };
   if (loading) {
-    return (
-      <div>LOADING...</div>
-    )
+    return <div>LOADING...</div>;
   }
   return (
     <ThemeProvider theme={theme}>
@@ -113,7 +117,9 @@ export default function UpdateProfile() {
               required
               fullWidth
               id="email"
-              onChange={(e) => setUpdateForm({ ...updateForm, email: e.target.value })}
+              onChange={(e) =>
+                setUpdateForm({ ...updateForm, email: e.target.value })
+              }
               // label={updateForm.email}
               value={updateForm.email}
               name="email"
@@ -126,11 +132,13 @@ export default function UpdateProfile() {
               fullWidth
               value={updateForm.firstName}
               name="firstName"
-              onChange={(e) => setUpdateForm({ ...updateForm, firstName: e.target.value })}
+              onChange={(e) =>
+                setUpdateForm({ ...updateForm, firstName: e.target.value })
+              }
               // label=
               type="firstName"
               id="firstName"
-            // autoComplete="current-password"
+              // autoComplete="current-password"
             />
             <TextField
               margin="normal"
@@ -138,23 +146,28 @@ export default function UpdateProfile() {
               fullWidth
               name="lastName"
               // label=
-              onChange={(e) => setUpdateForm({ ...updateForm, lastName: e.target.value })}
+              onChange={(e) =>
+                setUpdateForm({ ...updateForm, lastName: e.target.value })
+              }
               value={updateForm.lastName}
               type="lastName"
               id="lastName"
-            // autoComplete="current-username"
+              // autoComplete="current-username"
             />
-            {/* <TextField
+            <TextField
               margin="normal"
-              // multiline={false}
+              multiline={true}
               required
               fullWidth
-              name="image"
+              name="about"
               // label="image"
-              type="image"
-              id="image"
-            // autoComplete="current-bio"
-            /> */}
+              type="text"
+              id="about"
+              // autoComplete="current-bio"
+              onChange={(e) =>
+                setUpdateForm({ ...updateForm, about: e.target.value })
+              }
+            />
             {/* <TextField
               margin="normal"
               multiline="true"

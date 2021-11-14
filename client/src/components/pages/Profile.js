@@ -71,6 +71,21 @@ export default function Profile() {
   const userData = data?.me || [];
   const [collectedComics, setCollectedComics] = React.useState([]);
   const [wishComics, setWishComics] = React.useState([]);
+  const [user, setUser] = React.useState({});
+
+  React.useEffect(() => {
+    console.log(userData);
+    if (!loading) {
+      setUser({
+        email: userData.email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        about: userData.about,
+        image: userData.image,
+      });
+    }
+  }, [userData]);
+
   if (loading) {
     return <div>LOADING...</div>;
   }
@@ -101,7 +116,7 @@ export default function Profile() {
                     borderRadius: "10px",
                   }}
                 >
-                  <img src={ComicSpaceLogo} alt="avatar" />
+                  <img src={user.image} alt="profile-image" />
                 </Avatar>
                 <Grid item xs={12} sm={6} md={4}>
                   <Typography
@@ -114,7 +129,8 @@ export default function Profile() {
                       bgcolor: "transparent",
                     }}
                   >
-                    UserName
+                    {user.firstName}
+                    {user.lastName}
                   </Typography>
                 </Grid>
               </Grid>
@@ -127,7 +143,7 @@ export default function Profile() {
                   align="center"
                   sx={{ textAlign: "center", marginTop: "5px" }}
                 >
-                  About Me:
+                  About Me: {userData.about}
                 </Typography>
                 <Typography
                   variant="h4"
