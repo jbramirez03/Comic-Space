@@ -68,7 +68,12 @@ export default function UpdateProfile() {
   React.useEffect(() => {
     console.log(userData);
     if (!loading) {
-      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: userData.image });
+      setUpdateForm({
+        email: userData.email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        image: userData.image,
+      });
     }
   }, [userData]);
 
@@ -133,7 +138,7 @@ export default function UpdateProfile() {
               // label=
               type="firstName"
               id="firstName"
-            // autoComplete="current-password"
+              // autoComplete="current-password"
             />
             <TextField
               margin="normal"
@@ -147,15 +152,14 @@ export default function UpdateProfile() {
               value={updateForm.lastName}
               type="lastName"
               id="lastName"
-            // autoComplete="current-username"
+              // autoComplete="current-username"
             />
             <TextField
               margin="normal"
               multiline={true}
-              required
               fullWidth
               name="about"
-              // label="image"
+              label="About..."
               type="text"
               id="about"
               // autoComplete="current-bio"
@@ -163,17 +167,19 @@ export default function UpdateProfile() {
                 setUpdateForm({ ...updateForm, about: e.target.value })
               }
             />
-            {/* <TextField
+            <TextField
               margin="normal"
               multiline="true"
-              required
               fullWidth
               name="favoriteChar"
-              label="Favoritce Characters"
+              label="Favorite Characters"
               type="favoriteChar"
               id="favoriteChar"
-              autoComplete="current-favoriteChar"
-            /> */}
+              //   autoComplete="current-favoriteChar"
+              onChange={(e) =>
+                setUpdateForm({ ...updateForm, favorite: e.target.value })
+              }
+            />
             <Typography
               variant="h6"
               align="center"
