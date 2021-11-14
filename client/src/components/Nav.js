@@ -110,7 +110,7 @@ export default function PrimarySearchAppBar() {
         Profile
       </MenuItem>
 
-      <MenuItem onClick={handleMenuClose} component={Link} to="/search">
+      <MenuItem onClick={handleMenuClose} component={Link} to="/">
         Search for Comics
       </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
