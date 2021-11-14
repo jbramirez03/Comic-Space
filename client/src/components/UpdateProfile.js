@@ -14,10 +14,13 @@ import Container from "@mui/material/Container";
 import Input from "@mui/material/Input";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
+import { UPDATE_USER } from '../utils/mutations';
 
-// import { useState } from 'react'
 import Axios from "axios";
 import { Image } from "cloudinary-react";
+
 
 function Copyright(props) {
   return (
@@ -40,16 +43,17 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function UpdateProfile() {
-  const handleSubmit = (event) => {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || [];
+  const [updateUser] = useMutation(UPDATE_USER);
+  const [updateForm, setUpdateForm] = React.useState({});
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      username: data.get("username"),
-      bio: data.get("bio"),
-      favoriteChar: data.get("favoriteChar"),
+    const { data } = await updateUser({
+      variables: {
+        ...updateForm
+      }
     });
   };
   const [image, setImage] = React.useState();
@@ -59,6 +63,14 @@ export default function UpdateProfile() {
   formData.append("file", image);
   formData.append("upload_preset", "bx4wrv2o");
 
+  React.useEffect(() => {
+    console.log(userData);
+    if (!loading) {
+      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: 'rgewerg' });
+    }
+  }, [userData])
+
+
   const uploadImage = async () => {
     const response = await Axios.post(
       "https://api.cloudinary.com/v1_1/dfqlw4w2v/image/upload",
@@ -67,6 +79,11 @@ export default function UpdateProfile() {
     setUrl(response.data.url);
     console.log(response);
   };
+  if (loading) {
+    return (
+      <div>LOADING...</div>
+    )
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -96,7 +113,9 @@ export default function UpdateProfile() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              onChange={(e) => setUpdateForm({ ...updateForm, email: e.target.value })}
+              // label={updateForm.email}
+              value={updateForm.email}
               name="email"
               autoComplete="email"
               autoFocus
@@ -105,34 +124,38 @@ export default function UpdateProfile() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              value={updateForm.firstName}
+              name="firstName"
+              onChange={(e) => setUpdateForm({ ...updateForm, firstName: e.target.value })}
+              // label=
+              type="firstName"
+              id="firstName"
+            // autoComplete="current-password"
             />
             <TextField
               margin="normal"
               required
               fullWidth
-              name="username"
-              label="Username"
-              type="username"
-              id="username"
-              autoComplete="current-username"
+              name="lastName"
+              // label=
+              onChange={(e) => setUpdateForm({ ...updateForm, lastName: e.target.value })}
+              value={updateForm.lastName}
+              type="lastName"
+              id="lastName"
+            // autoComplete="current-username"
             />
-            <TextField
+            {/* <TextField
               margin="normal"
-              multiline="true"
+              // multiline={false}
               required
               fullWidth
-              name="about"
-              label="About Me"
-              type="about"
-              id="about"
-              autoComplete="current-bio"
-            />
-            <TextField
+              name="image"
+              // label="image"
+              type="image"
+              id="image"
+            // autoComplete="current-bio"
+            /> */}
+            {/* <TextField
               margin="normal"
               multiline="true"
               required
@@ -142,7 +165,7 @@ export default function UpdateProfile() {
               type="favoriteChar"
               id="favoriteChar"
               autoComplete="current-favoriteChar"
-            />
+            /> */}
             <Typography
               variant="h6"
               align="center"
@@ -154,7 +177,7 @@ export default function UpdateProfile() {
               Update Profile Image
             </Typography>
             <Input
-              disableUnderline="true"
+              disableUnderline={true}
               color="primary"
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
