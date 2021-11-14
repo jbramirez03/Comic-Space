@@ -72,6 +72,7 @@ query me {
       firstName
       lastName
       email
+      image
       comics {
           comicId
           description
