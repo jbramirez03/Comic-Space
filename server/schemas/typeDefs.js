@@ -39,6 +39,7 @@ const typeDefs = gql`
     orders: [Order]
     wishlist: [Comic]
     posts: [Post]
+    image: String
   }
 
   type Checkout {
@@ -87,7 +88,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!,password: String!): Auth
     addOrder(comics: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateUser(firstName: String, lastName: String, email: String, image: String): User
     login(email: String!, password: String!): Auth
     saveComic(input: savedComic!): User
     wishComic(input: wishedComic!): User
