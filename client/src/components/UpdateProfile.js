@@ -50,6 +50,7 @@ export default function UpdateProfile() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(updateForm);
     const { data } = await updateUser({
       variables: {
         ...updateForm
@@ -57,7 +58,7 @@ export default function UpdateProfile() {
     });
   };
   const [image, setImage] = React.useState();
-  const [url, setUrl] = React.useState("");
+  // const [url, setUrl] = React.useState("");
   // const formData = { file: image, upload_preset: "bx4wrv2o" };
   const formData = new FormData();
   formData.append("file", image);
@@ -66,7 +67,7 @@ export default function UpdateProfile() {
   React.useEffect(() => {
     console.log(userData);
     if (!loading) {
-      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: 'rgewerg' });
+      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: '' });
     }
   }, [userData])
 
@@ -76,7 +77,7 @@ export default function UpdateProfile() {
       "https://api.cloudinary.com/v1_1/dfqlw4w2v/image/upload",
       formData
     );
-    setUrl(response.data.url);
+    setUpdateForm({ ...updateForm, image: response.data.url });
     console.log(response);
   };
   if (loading) {
