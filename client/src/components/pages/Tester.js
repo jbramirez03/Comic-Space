@@ -7,6 +7,8 @@ import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { useAlert } from 'react-alert'
+
 
 // export default function PaginationRounded() {
 //     return (
@@ -39,6 +41,7 @@ const Tester = () => {
     const [saveComic] = useMutation(POST_COMIC);
     const { loading, data } = useQuery(QUERY_ME);
     const userData = data?.me || [];
+    const alert = useAlert();
     // const [removeComic] = useMutation(REMOVE_COMIC);
     // const [checked, setChecked] = useState(false);
 
@@ -149,7 +152,7 @@ const Tester = () => {
         e.preventDefault();
         const response = await search();
         if (response === undefined) {
-            window.alert('Character not found')
+            alert.show('Character not found')
             return;
         }
         const p = Math.ceil(response.data.data.total / 20);
