@@ -17,7 +17,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import Grid from "@mui/material/Grid";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
-import ComicSpaceLogo from "../images/ComicSpace.png";
+// import ComicSpaceLogo from "../images/ComicSpace.png";
+import ComicSpaceLogo from "../images/ComicSpaceLogo.png";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -38,7 +39,7 @@ export default function RecipeReviewCard({ image, title, description }) {
   };
 
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid item xs={12} sm={6} md={3}>
       <Card
         sx={{
           maxWidth: 345,

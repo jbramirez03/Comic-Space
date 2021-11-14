@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
+import ComicSpaceLogo from "../images/ComicSpaceLogo.png";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -119,10 +120,10 @@ export default function PrimarySearchAppBar() {
         Comics For Sale
       </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/contributors">
-      Contributors
+        Contributors
       </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/dictaphone">
-      Note Taking
+        Note Taking
       </MenuItem>
     </Menu>
   );
@@ -197,7 +198,8 @@ export default function PrimarySearchAppBar() {
             variant="h6"
             noWrap
             component={Link}
-            to="/"
+            image={ComicSpaceLogo}
+            to="/results"
             sx={{
               textDecortaion: "none",
               border: "none",
@@ -205,9 +207,18 @@ export default function PrimarySearchAppBar() {
               display: { xs: "none", sm: "block" },
             }}
           >
-            COMIC SPACE
+            <img
+              src={ComicSpaceLogo}
+              style={{
+                height: "25%",
+                width: "25%",
+                marginTop: "5px",
+                borderRadius: "5px",
+                boxShadow: "2px 2px 4px black",
+              }}
+            ></img>
           </Typography>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -215,7 +226,7 @@ export default function PrimarySearchAppBar() {
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
             />
-          </Search>
+          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -223,7 +234,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={0} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -232,7 +243,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={0} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>

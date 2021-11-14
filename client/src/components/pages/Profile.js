@@ -19,8 +19,8 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import WishlistCard from "../WishlistCard";
-import ComicSpaceLogo from "../../images/ComicSpace.png";
-import ComicSpaceBIG from "../../images/ComicSpaceBIG.png";
+import ComicSpaceLogo from "../../images/ComicSpaceLogo.png";
+// import ComicSpaceBIG from "../../images/ComicSpaceBIG.png";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { QUERY_ME } from "../../utils/queries";
@@ -101,7 +101,7 @@ export default function Profile() {
                     borderRadius: "10px",
                   }}
                 >
-                  <img src={ComicSpaceBIG} alt="avatar" />
+                  <img src={ComicSpaceLogo} alt="avatar" />
                 </Avatar>
                 <Grid item xs={12} sm={6} md={4}>
                   <Typography
@@ -175,21 +175,21 @@ export default function Profile() {
             Your Collection
             <Button
               variant="contained"
-              sx={{ marginLeft: "10px" }}
+              sx={{ marginLeft: "10px", bgcolor: "#4f999d" }}
               onClick={() => setCollectedComics([...userData.comics])}
             >
               View
             </Button>
             <Button
               variant="contained"
-              sx={{ marginLeft: "10px" }}
+              sx={{ marginLeft: "10px", bgcolor: "#d23954" }}
               onClick={() => setCollectedComics([])}
             >
               Hide
             </Button>
           </Typography>
 
-          <Grid container spacing={4} direction="row" alignItems="flex-start">
+          <Grid container spacing={2} direction="row" alignItems="flex-start">
             {collectedComics.length > 1
               ? collectedComics.map((comic) => {
                   return (
@@ -202,7 +202,7 @@ export default function Profile() {
                   );
                 })
               : ""}
-            <Container sx={{ py: 8 }} maxWidth="md">
+            <Container sx={{ py: 8 }} maxWidth="lg">
               <Typography
                 component="h1"
                 variant="h3"
@@ -213,22 +213,22 @@ export default function Profile() {
                 Your Wishlist
                 <Button
                   variant="contained"
-                  sx={{ marginLeft: "10px" }}
+                  sx={{ marginLeft: "10px", bgcolor: "#4f999d" }}
                   onClick={() => setWishComics([...userData.wishlist])}
                 >
                   View
                 </Button>
                 <Button
                   variant="contained"
-                  sx={{ marginLeft: "10px" }}
+                  sx={{ marginLeft: "10px", bgcolor: "#d23954" }}
                   onClick={() => setWishComics([])}
                 >
-                  Close
+                  Hide
                 </Button>
               </Typography>
               <Grid
                 container
-                spacing={4}
+                spacing={2}
                 direction="row"
                 alignItems="flex-start"
               >
