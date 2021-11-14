@@ -68,17 +68,7 @@ export default function UpdateProfile() {
   React.useEffect(() => {
     console.log(userData);
     if (!loading) {
-<<<<<<< HEAD
-      setUpdateForm({
-        email: userData.email,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        about: userData.about,
-        image: "something",
-      });
-=======
-      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: '' });
->>>>>>> main
+      setUpdateForm({ email: userData.email, firstName: userData.firstName, lastName: userData.lastName, image: userData.image });
     }
   }, [userData]);
 
@@ -143,7 +133,7 @@ export default function UpdateProfile() {
               // label=
               type="firstName"
               id="firstName"
-              // autoComplete="current-password"
+            // autoComplete="current-password"
             />
             <TextField
               margin="normal"
@@ -157,7 +147,7 @@ export default function UpdateProfile() {
               value={updateForm.lastName}
               type="lastName"
               id="lastName"
-              // autoComplete="current-username"
+            // autoComplete="current-username"
             />
             <TextField
               margin="normal"
