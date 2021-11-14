@@ -81,6 +81,7 @@ export default function Profile() {
         firstName: userData.firstName,
         lastName: userData.lastName,
         about: userData.about,
+        favorite: userData.favorite,
         image: userData.image,
       });
     }
@@ -103,7 +104,7 @@ export default function Profile() {
             pb: 6,
           }}
         >
-          <Container maxWidth="md" spacing={2}>
+          <Container maxWidth="lg" spacing={4}>
             <Grid container spacing={0}>
               <Grid item xs={12} sm={6} md={4}>
                 <Avatar
@@ -138,23 +139,47 @@ export default function Profile() {
 
               <Grid item xs={12} sm={6} md={8}>
                 <Typography
-                  variant="h4"
+                  variant="h3"
                   color="white"
                   align="center"
                   sx={{ textAlign: "center", marginTop: "5px" }}
                 >
-                  About Me: {userData.about}
+                  About Me:
                 </Typography>
                 <Typography
                   variant="h4"
                   color="white"
                   align="center"
-                  sx={{ textAlign: "center", marginTop: "5px" }}
+                  sx={{
+                    textAlign: "center",
+                    marginTop: "5px",
+                    color: "#d7c5b7",
+                  }}
+                >
+                  {userData.about}
+                </Typography>
+                <Typography
+                  variant="h3"
+                  color="white"
+                  align="center"
+                  sx={{ textAlign: "center", marginTop: "15px" }}
                 >
                   Favorite Characters:
                 </Typography>
+                <Typography
+                  variant="h4"
+                  color="white"
+                  align="center"
+                  sx={{
+                    textAlign: "center",
+                    marginTop: "5px",
+                    color: "#d7c5b7",
+                  }}
+                >
+                  {userData.favorite}
+                </Typography>
               </Grid>
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={12} md={12}>
                 <Stack
                   sx={{ pt: 4 }}
                   direction="row"
