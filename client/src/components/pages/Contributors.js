@@ -18,7 +18,7 @@ const Contributors = () => {
   };
 
   return (
-    <HTMLFlipBook width={350} height={450} drawShadow={true} style={styles}>
+    <HTMLFlipBook width={650} height={800} drawShadow={true} style={styles} >
       <div className="demoPage">
         <div className="info">
           <h1>Comic-Space</h1>
@@ -44,7 +44,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -56,7 +56,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -68,7 +68,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
@@ -97,7 +97,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -109,7 +109,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -121,7 +121,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
@@ -149,7 +149,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -161,7 +161,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -173,7 +173,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
@@ -205,7 +205,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -217,7 +217,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -229,7 +229,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
