@@ -17,6 +17,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import Grid from "@mui/material/Grid";
+import Button from '@mui/material/Button';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,7 +30,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({ image, title, description }) {
+export default function RecipeReviewCard({ image, title, description, handleRemove, comicId }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -92,6 +93,7 @@ export default function RecipeReviewCard({ image, title, description }) {
             <Typography paragraph>
               <strong>Synopsis:</strong> {description}
             </Typography>
+            <Button onClick={() => handleRemove(comicId)} variant='contained'>Remove</Button>
             {/* <Typography paragraph>Price:{}</Typography> */}
             {/* <Typography paragraph>Open to Trades:</Typography> */}
           </CardContent>
