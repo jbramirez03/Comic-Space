@@ -95,6 +95,7 @@ const typeDefs = gql`
     saveComic(input: savedComic!): User
     wishComic(input: wishedComic!): User
     removeComic(comicId: Int!): User
+    removeWish(comicId: Int!): User
     postComic(input: postedComic!): User
   }
 `;
