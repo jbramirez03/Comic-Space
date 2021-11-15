@@ -25,11 +25,15 @@
 }
 
 .button {
+  margin: 10px;
   background-color: white;
   border: none;
   color: white;
   text-decoration: none;
   cursor: pointer;
+  width: 100px;
+  height: 30px;
+  font-size: medium;
 }
 
 .a {
