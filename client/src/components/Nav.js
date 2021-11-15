@@ -199,7 +199,7 @@ export default function PrimarySearchAppBar() {
             noWrap
             component={Link}
             image={ComicSpaceLogo}
-            to="/results"
+            to="/"
             sx={{
               textDecortaion: "none",
               border: "none",
