@@ -18,6 +18,9 @@ import Pagination from "@mui/material/Pagination";
 // import Cards from "../components/Cards";
 import Shadow from "../components/Shadow";
 import { useAlert } from 'react-alert'
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
 
 
 const cardStyle = {
@@ -55,6 +58,9 @@ const Tester = () => {
   let buttons = [];
   const [test, setTest] = useState([]);
   const alert = useAlert();
+  const [autos, setAutos] = useState([]);
+  let startsWith = [];
+
 
 
   const [saveComic] = useMutation(SAVE_COMIC);
@@ -101,6 +107,21 @@ const Tester = () => {
       console.error(err);
     }
   };
+
+  const createAutoComplete = async () => {
+    if (character.length >= 4) {
+      const returnedValue = await axios.get(`${characterUrl}${params}&nameStartsWith=${character}`);
+      if (returnedValue.data.data.results.length > 0) {
+        returnedValue.data.data.results.map(auto => startsWith.push(auto.name))
+        setAutos([...startsWith]);
+      }
+      console.log(returnedValue);
+    } else {
+      setAutos([]);
+      startsWith = [];
+    }
+  }
+
 
   const getCharacterId = () => {
     return axios.get(`${characterUrl}${params}&name=${character}`);
@@ -182,7 +203,7 @@ const Tester = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} sx={{ margin: " auto" }}>
           <form action="submit" onSubmit={onSubmit}>
-            <input
+            {/* <input
               placeholder="Search by character..."
               type="text"
               style={{
@@ -195,6 +216,25 @@ const Tester = () => {
               }}
               value={character}
               onChange={(e) => setCharacter(e.target.value)}
+            /> */}
+            <Autocomplete
+              freeSolo
+              id="free-solo-2-demo"
+              disableClearable
+              options={autos}
+              renderInput={(params) => (
+                <TextField
+                  value={character}
+                  onSelect={e => setCharacter(e.target.value)}
+                  onChange={e => { setCharacter(e.target.value); createAutoComplete() }}
+                  {...params}
+                  label="Search"
+                  InputProps={{
+                    ...params.InputProps,
+                    type: 'search',
+                  }}
+                />
+              )}
             />
             <button
               style={{
