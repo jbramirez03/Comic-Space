@@ -63,7 +63,7 @@ const user = {
 const profilePic = {
   // height: "100%",
   // width: "100%",
-  objectFit: "contain",
+  // objectFit: "contain",
 };
 
 export default function Profile() {

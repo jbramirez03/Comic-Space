@@ -12,11 +12,16 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
 
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
+import Boom from "../images/boom.jpeg";
+import Spines from "../images/collectionSpines.jpeg";
+import Halo from "../images/collectionHalo.jpeg";
+import Thor from "../images/thor.jpeg";
+import Parker from "../images/parker.jpeg";
 
 function Copyright(props) {
   return (
@@ -39,7 +44,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -48,7 +58,6 @@ export default function SignUp() {
 
   const [addUser] = useMutation(ADD_USER);
 
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -56,19 +65,18 @@ export default function SignUp() {
         variables: { ...userFormData },
       });
 
-
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
 
     setUserFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
     });
-  }
+  };
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -87,6 +95,10 @@ export default function SignUp() {
         <Box
           sx={{
             marginTop: 8,
+            backgroundColor: "white",
+            border: "2px solid #531c28",
+            borderRadius: "8px",
+            padding: "15px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -109,6 +121,7 @@ export default function SignUp() {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
+                  color="warning"
                   required
                   fullWidth
                   id="firstName"
@@ -125,6 +138,7 @@ export default function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
+                  color="warning"
                   value={userFormData.lastName}
                   onChange={handleInputChange}
                   autoComplete="family-name"
@@ -137,6 +151,7 @@ export default function SignUp() {
                   id="email"
                   label="Email Address"
                   name="email"
+                  color="warning"
                   value={userFormData.email}
                   onChange={handleInputChange}
                   autoComplete="email"
@@ -150,6 +165,7 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
+                  color="warning"
                   value={userFormData.password}
                   onChange={handleInputChange}
                   autoComplete="new-password"
@@ -166,7 +182,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/signin" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

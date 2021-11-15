@@ -12,12 +12,16 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
 
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
-
+import { LOGIN } from "../utils/mutations";
+import Auth from "../utils/auth";
+import Boom from "../images/boom.jpeg";
+import Spines from "../images/collectionSpines.jpeg";
+import Halo from "../images/collectionHalo.jpeg";
+import Thor from "../images/thor.jpeg";
+import Parker from "../images/parker.jpeg";
 
 function Copyright(props) {
   return (
@@ -40,9 +44,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [loginUser] = useMutation(LOGIN);
-
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -54,7 +57,7 @@ export default function SignInSide() {
 
     try {
       const { data } = await loginUser({
-        variables: { ...userFormData }
+        variables: { ...userFormData },
       });
 
       Auth.login(data.login.token);
@@ -63,8 +66,8 @@ export default function SignInSide() {
     }
 
     setUserFormData({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
@@ -78,8 +81,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              "url(https://media.istockphoto.com/photos/comic-books-background-texture-picture-id526834648)",
+            backgroundImage: `url(${Halo})`,
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
