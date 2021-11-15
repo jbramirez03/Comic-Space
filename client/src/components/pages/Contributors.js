@@ -18,9 +18,9 @@ const Contributors = () => {
   };
 
   return (
-    <HTMLFlipBook width={350} height={450} drawShadow={true} style={styles}>
+    <HTMLFlipBook width={650} height={800} drawShadow={true} style={styles} >
       <div className="demoPage">
-        <div className="info">
+        <div className="info1">
           <h1>Comic-Space</h1>
           <h1>Book</h1>
           <h1>Store</h1>
@@ -36,7 +36,7 @@ const Contributors = () => {
       <div className="demoPage">
         <div className="info">
           <img className="avatar" src={chris} alt="chris" />
-          <h3>Chris Mattix</h3>
+          <h1>Chris Mattix</h1>
           <button className="button">
             <a
               className="a"
@@ -44,7 +44,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -56,7 +56,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -68,27 +68,53 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
-            Hello and thanks for checking out my portfolio! My name is Chris
-            Mattix and I am currently a student in the UNC Full Stack Developer
-            Bootcamp.
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
+Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
+          <p>
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
+          </p>
         </div>
       </div>
 
       <div className="demoPage">
         <div className="info">
           <img className="avatar" src={jammy} alt="jammy" />
-          <h3>James Simpson</h3>
+          <h1>James Simpson</h1>
 
           <button className="button">
             <a
@@ -97,7 +123,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -109,7 +135,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -121,20 +147,46 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
-            I am from Raleigh, North Carolina. I am looking for a career change
-            into software development. I am currently enrolled in UNC Coding
-            Bootcamp expected to graduate November 20th, 2021.
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
+Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
+          <p>
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
+          </p>
         </div>
       </div>
 
@@ -149,7 +201,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -161,7 +213,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -173,30 +225,52 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
-            Full-Stack Web Developer, a graduate of `The Coding Bootcamp At
-            UNC-Chapel Hill` with a special appreciation for back-end projects
-            and a life-long dedication to learning. Determined to improve in all
-            aspects of life and known amongst peers for having an eye for detail
-            and being skilled at problem-solving no matter the complexity of the
-            project.
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
+          <p>
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
+          </p>
         </div>
       </div>
 
       <div className="demoPage">
         <div className="info">
           <img className="avatar" src={qabas} alt="qabas" />
-          <h3>Qabas Al Ani</h3>
+          <h1>Qabas Al Ani</h1>
 
           <button className="button">
             <a
@@ -205,7 +279,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My GitHub
+              My GitHub
             </a>
           </button>
           <br />
@@ -217,7 +291,7 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My LinkedIn
+              My LinkedIn
             </a>
           </button>
           <br />
@@ -229,20 +303,45 @@ const Contributors = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-             My Portfolio
+              My Portfolio
             </a>
           </button>
         </div>
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
-            Full Stack Web Developer, love developing apps and websites with a
-            focus on mobile-first design & graduate of the UNC Chapel Hill
-            Coding Boot Camp
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
+          <p>
+          Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and 
+typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a 
+type specimen book. It has survived not only five centuries, 
+but also the leap into electronic typesetting, 
+remaining essentially unchanged. 
+          </p>
         </div>
       </div>
     </HTMLFlipBook>
