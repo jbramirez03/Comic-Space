@@ -19,6 +19,8 @@ import Grid from "@mui/material/Grid";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 // import ComicSpaceLogo from "../images/ComicSpace.png";
 import ComicSpaceLogo from "../images/ComicSpaceLogo.png";
+import Button from '@mui/material/Button';
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,7 +33,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({ image, title, description }) {
+export default function RecipeReviewCard({ image, title, description, comicId, handleWish }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -97,6 +99,7 @@ export default function RecipeReviewCard({ image, title, description }) {
             <Typography paragraph>
               <strong>Synopsis:</strong> {description}
             </Typography>
+            <Button onClick={() => handleWish(comicId)} variant='contained'>Remove</Button>
           </CardContent>
         </Collapse>
       </Card>

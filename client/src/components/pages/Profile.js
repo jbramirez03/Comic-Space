@@ -24,7 +24,7 @@ import ComicSpaceLogo from "../../images/ComicSpaceLogo.png";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Auth from '../../utils/auth';
 import { QUERY_ME } from "../../utils/queries";
-import { REMOVE_COMIC } from '../../utils/mutations';
+import { REMOVE_COMIC, REMOVE_WISH } from '../../utils/mutations';
 import { useQuery, useMutation } from "@apollo/client";
 
 function Copyright() {
@@ -74,6 +74,7 @@ export default function Profile() {
   const [wishComics, setWishComics] = React.useState([]);
   const [user, setUser] = React.useState({});
   const [removeComic] = useMutation(REMOVE_COMIC);
+  const [removeWish] = useMutation(REMOVE_WISH);
 
 
   React.useEffect(() => {
@@ -106,6 +107,25 @@ export default function Profile() {
         variables: { comicId }
       });
       setCollectedComics([]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleRemoveWish = async (comicId) => {
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      // pass in the id for the desired book to be removed
+      await removeWish({
+        variables: { comicId }
+      });
+      setWishComics([]);
     } catch (err) {
       console.error(err);
     }
@@ -308,6 +328,8 @@ export default function Profile() {
                         title={comic.title}
                         description={comic.description}
                         image={comic.image}
+                        comicId={comic.comicId}
+                        handleWish={handleRemoveWish}
                       />
                     );
                   })

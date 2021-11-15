@@ -206,7 +206,21 @@ const resolvers = {
       }
 
       throw new AuthenticationError("You need to be logged in!");
-    }
+    },
+    removeWish: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+
+          { $pull: { wishlist: { comicId: args.comicId } } },
+
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+      throw new AuthenticationError("Please login in!");
+    },
   },
 };
 

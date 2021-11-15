@@ -129,3 +129,24 @@ export const UPDATE_USER = gql`
     }
   }
 `;
+
+export const REMOVE_WISH = gql`
+mutation removeWish($comicId: Int!){
+    removeWish(comicId: $comicId){
+        _id
+        email
+        comics {
+            comicId
+            description
+            image
+            title
+        }
+        wishlist {
+          comicId
+          description
+          image
+          title
+        }
+    }
+}
+`;
