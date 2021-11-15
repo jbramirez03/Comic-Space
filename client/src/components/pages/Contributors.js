@@ -20,7 +20,7 @@ const Contributors = () => {
   return (
     <HTMLFlipBook width={650} height={800} drawShadow={true} style={styles} >
       <div className="demoPage">
-        <div className="info">
+        <div className="info1">
           <h1>Comic-Space</h1>
           <h1>Book</h1>
           <h1>Store</h1>
