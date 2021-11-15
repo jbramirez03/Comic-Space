@@ -36,7 +36,7 @@ const Contributors = () => {
       <div className="demoPage">
         <div className="info">
           <img className="avatar" src={chris} alt="chris" />
-          <h3>Chris Mattix</h3>
+          <h1>Chris Mattix</h1>
           <button className="button">
             <a
               className="a"
@@ -75,7 +75,7 @@ const Contributors = () => {
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -92,7 +92,7 @@ type specimen book. It has survived not only five centuries,
 but also the leap into electronic typesetting, 
 remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -114,7 +114,7 @@ remaining essentially unchanged.
       <div className="demoPage">
         <div className="info">
           <img className="avatar" src={jammy} alt="jammy" />
-          <h3>James Simpson</h3>
+          <h1>James Simpson</h1>
 
           <button className="button">
             <a
@@ -154,7 +154,7 @@ remaining essentially unchanged.
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -171,7 +171,7 @@ type specimen book. It has survived not only five centuries,
 but also the leap into electronic typesetting, 
 remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -232,7 +232,7 @@ remaining essentially unchanged.
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -248,7 +248,7 @@ type specimen book. It has survived not only five centuries,
 but also the leap into electronic typesetting, 
 remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -270,7 +270,7 @@ remaining essentially unchanged.
       <div className="demoPage">
         <div className="info">
           <img className="avatar" src={qabas} alt="qabas" />
-          <h3>Qabas Al Ani</h3>
+          <h1>Qabas Al Ani</h1>
 
           <button className="button">
             <a
@@ -310,7 +310,7 @@ remaining essentially unchanged.
       </div>
       <div className="demoPage">
         <div className="info">
-          <h3>About Me</h3>
+          <h1>About Me</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
@@ -326,7 +326,7 @@ type specimen book. It has survived not only five centuries,
 but also the leap into electronic typesetting, 
 remaining essentially unchanged. 
           </p>
-          <h3>My Role:</h3>
+          <h1>My Role:</h1>
           <p>
           Lorem Ipsum is simply dummy text of the printing and 
 typesetting industry. Lorem Ipsum has been the industry's 
