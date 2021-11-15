@@ -22,9 +22,9 @@ import WishlistCard from "../WishlistCard";
 import ComicSpaceLogo from "../../images/ComicSpaceLogo.png";
 // import ComicSpaceBIG from "../../images/ComicSpaceBIG.png";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 import { QUERY_ME } from "../../utils/queries";
-import { REMOVE_COMIC, REMOVE_WISH } from '../../utils/mutations';
+import { REMOVE_COMIC, REMOVE_WISH } from "../../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 
 function Copyright() {
@@ -61,11 +61,13 @@ const user = {
 //   fontSize: "1rem",
 // };
 
-const profilePic = {
-  // height: "100%",
-  // width: "100%",
-  // objectFit: "contain",
-};
+// const profilePic = {
+//   image: {
+//     height: "100%",
+//     width: "100%",
+//     objectFit: "scale-down",
+//   },
+// };
 
 export default function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
@@ -75,7 +77,6 @@ export default function Profile() {
   const [user, setUser] = React.useState({});
   const [removeComic] = useMutation(REMOVE_COMIC);
   const [removeWish] = useMutation(REMOVE_WISH);
-
 
   React.useEffect(() => {
     console.log(userData);
@@ -94,7 +95,6 @@ export default function Profile() {
   }, [data]);
 
   const handleDeleteComic = async (comicId) => {
-
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -104,7 +104,7 @@ export default function Profile() {
     try {
       // pass in the id for the desired book to be removed
       await removeComic({
-        variables: { comicId }
+        variables: { comicId },
       });
       setCollectedComics([]);
     } catch (err) {
@@ -113,7 +113,6 @@ export default function Profile() {
   };
 
   const handleRemoveWish = async (comicId) => {
-
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -123,14 +122,13 @@ export default function Profile() {
     try {
       // pass in the id for the desired book to be removed
       await removeWish({
-        variables: { comicId }
+        variables: { comicId },
       });
       setWishComics([]);
     } catch (err) {
       console.error(err);
     }
   };
-
 
   if (loading) {
     return <div>LOADING...</div>;
@@ -156,13 +154,13 @@ export default function Profile() {
                   sx={{
                     bgcolor: "transparent",
                     margin: "auto",
-                    textAlign: "center",
-                    width: 180,
-                    height: 180,
+                    width: 200,
+                    height: 200,
+                    objectFit: "scale-down",
                     borderRadius: "10px",
                   }}
                 >
-                  <img src={user.image} alt="profile-image" />
+                  <img src={user.image} alt="user avatar" />
                 </Avatar>
                 <Grid item xs={12} sm={6} md={4}>
                   <Typography
@@ -180,14 +178,16 @@ export default function Profile() {
                   </Typography>
                 </Grid>
               </Grid>
-              {/* <div style={picName}> */}
-
               <Grid item xs={12} sm={6} md={8}>
                 <Typography
                   variant="h3"
                   color="white"
                   align="center"
-                  sx={{ textAlign: "center", marginTop: "5px" }}
+                  sx={{
+                    textAlign: "center",
+                    marginTop: "5px",
+                    textShadow: "2px 2px 3px black",
+                  }}
                 >
                   About Me:
                 </Typography>
@@ -198,7 +198,7 @@ export default function Profile() {
                   sx={{
                     textAlign: "center",
                     marginTop: "5px",
-                    color: "#d7c5b7",
+                    color: "#f4d884",
                   }}
                 >
                   {userData.about}
@@ -207,7 +207,11 @@ export default function Profile() {
                   variant="h3"
                   color="white"
                   align="center"
-                  sx={{ textAlign: "center", marginTop: "15px" }}
+                  sx={{
+                    textAlign: "center",
+                    marginTop: "15px",
+                    textShadow: "2px 2px 3px black",
+                  }}
                 >
                   Favorite Characters:
                 </Typography>
@@ -218,7 +222,7 @@ export default function Profile() {
                   sx={{
                     textAlign: "center",
                     marginTop: "5px",
-                    color: "#d7c5b7",
+                    color: "#f4d884",
                   }}
                 >
                   {userData.favorite}
@@ -278,17 +282,17 @@ export default function Profile() {
           <Grid container spacing={2} direction="row" alignItems="flex-start">
             {collectedComics.length >= 1
               ? collectedComics.map((comic) => {
-                return (
-                  <ComicCard
-                    key={comic.comicId}
-                    title={comic.title}
-                    description={comic.description}
-                    image={comic.image}
-                    comicId={comic.comicId}
-                    handleRemove={handleDeleteComic}
-                  />
-                );
-              })
+                  return (
+                    <ComicCard
+                      key={comic.comicId}
+                      title={comic.title}
+                      description={comic.description}
+                      image={comic.image}
+                      comicId={comic.comicId}
+                      handleRemove={handleDeleteComic}
+                    />
+                  );
+                })
               : ""}
             <Container sx={{ py: 8 }} maxWidth="lg">
               <Typography
@@ -322,17 +326,17 @@ export default function Profile() {
               >
                 {wishComics.length >= 1
                   ? wishComics.map((comic) => {
-                    return (
-                      <WishlistCard
-                        key={comic.comicId}
-                        title={comic.title}
-                        description={comic.description}
-                        image={comic.image}
-                        comicId={comic.comicId}
-                        handleWish={handleRemoveWish}
-                      />
-                    );
-                  })
+                      return (
+                        <WishlistCard
+                          key={comic.comicId}
+                          title={comic.title}
+                          description={comic.description}
+                          image={comic.image}
+                          comicId={comic.comicId}
+                          handleWish={handleRemoveWish}
+                        />
+                      );
+                    })
                   : ""}
               </Grid>
             </Container>

@@ -98,6 +98,10 @@ export default function UpdateProfile() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            bgcolor: "white",
+            padding: "15px",
+            border: "2px solid #531c28",
+            borderRadius: "8px",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -124,10 +128,12 @@ export default function UpdateProfile() {
               value={updateForm.email}
               name="email"
               autoComplete="email"
+              color="warning"
               autoFocus
             />
             <TextField
               margin="normal"
+              color="warning"
               required
               fullWidth
               value={updateForm.firstName}
@@ -143,6 +149,7 @@ export default function UpdateProfile() {
             <TextField
               margin="normal"
               required
+              color="warning"
               fullWidth
               name="lastName"
               // label=
@@ -156,6 +163,7 @@ export default function UpdateProfile() {
             />
             <TextField
               margin="normal"
+              color="warning"
               multiline={true}
               fullWidth
               name="about"
@@ -171,6 +179,7 @@ export default function UpdateProfile() {
               margin="normal"
               multiline="true"
               fullWidth
+              color="warning"
               name="favoriteChar"
               label="Favorite Characters"
               type="favoriteChar"
