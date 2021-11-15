@@ -17,6 +17,8 @@ import Card from "@mui/material/Card";
 import Pagination from "@mui/material/Pagination";
 // import Cards from "../components/Cards";
 import Shadow from "../components/Shadow";
+import { useAlert } from 'react-alert'
+
 
 const cardStyle = {
   frontSide: {
@@ -52,6 +54,8 @@ const Tester = () => {
   const [searchedUrl, setSearchedUrl] = useState("");
   let buttons = [];
   const [test, setTest] = useState([]);
+  const alert = useAlert();
+
 
   const [saveComic] = useMutation(SAVE_COMIC);
   const [wishComic] = useMutation(WISH_COMIC);
@@ -159,7 +163,7 @@ const Tester = () => {
     e.preventDefault();
     const response = await search();
     if (response === undefined) {
-      window.alert("Character not found");
+      alert.show("Character not found");
       return;
     }
     shadowArray = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
@@ -213,48 +217,48 @@ const Tester = () => {
         </Grid>
         {shadowArray.length >= 1
           ? shadowArray.map((shadow) => {
-              return <Shadow key={shadow} />;
-            })
+            return <Shadow key={shadow} />;
+          })
           : ""}
         {comics.length >= 1
           ? comics.map((comic) => {
-              return (
-                <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
-                  <Flippy
-                    style={cardStyle.frontSide}
-                    className="flipCard"
-                    flipOnClick={true}
-                    flipDirection="horizontal"
-                  >
-                    <FrontSide>
-                      <img src={comic.image} alt="comic" style={imgStyle} />
-                    </FrontSide>
-                    <BackSide style={cardStyle.backSide}>
-                      <h3>{comic.title}</h3>
-                      <p>{comic.description}</p>
-                      {Auth.loggedIn && (
-                        <Button
-                          sx={{ marginBottom: "5px" }}
-                          color="success"
-                          variant="contained"
-                          onClick={() => handleComicSave(comic.comicId)}
-                        >
-                          Save to Collection
-                        </Button>
-                      )}
-                      {Auth.loggedIn && (
-                        <Button
-                          variant="contained"
-                          onClick={() => handleComicWish(comic.comicId)}
-                        >
-                          Add to Wishlist
-                        </Button>
-                      )}
-                    </BackSide>
-                  </Flippy>
-                </Grid>
-              );
-            })
+            return (
+              <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
+                <Flippy
+                  style={cardStyle.frontSide}
+                  className="flipCard"
+                  flipOnClick={true}
+                  flipDirection="horizontal"
+                >
+                  <FrontSide>
+                    <img src={comic.image} alt="comic" style={imgStyle} />
+                  </FrontSide>
+                  <BackSide style={cardStyle.backSide}>
+                    <h3>{comic.title}</h3>
+                    <p>{comic.description}</p>
+                    {Auth.loggedIn && (
+                      <Button
+                        sx={{ marginBottom: "5px" }}
+                        color="success"
+                        variant="contained"
+                        onClick={() => handleComicSave(comic.comicId)}
+                      >
+                        Save to Collection
+                      </Button>
+                    )}
+                    {Auth.loggedIn && (
+                      <Button
+                        variant="contained"
+                        onClick={() => handleComicWish(comic.comicId)}
+                      >
+                        Add to Wishlist
+                      </Button>
+                    )}
+                  </BackSide>
+                </Flippy>
+              </Grid>
+            );
+          })
           : ""}
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
