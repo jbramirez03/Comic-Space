@@ -151,6 +151,7 @@ export default function Profile() {
             <Grid container spacing={0}>
               <Grid item xs={12} sm={6} md={4}>
                 <Avatar
+                  src={user.image}
                   sx={{
                     bgcolor: "transparent",
                     margin: "auto",
@@ -160,7 +161,7 @@ export default function Profile() {
                     borderRadius: "10px",
                   }}
                 >
-                  <img src={user.image} alt="user avatar" />
+                  {/* <img src={user.image} alt="user avatar" /> */}
                 </Avatar>
                 <Grid item xs={12} sm={6} md={4}>
                   <Typography
