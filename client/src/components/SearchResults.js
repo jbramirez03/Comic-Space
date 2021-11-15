@@ -17,11 +17,9 @@ import Card from "@mui/material/Card";
 import Pagination from "@mui/material/Pagination";
 // import Cards from "../components/Cards";
 import Shadow from "../components/Shadow";
-import { useAlert } from 'react-alert'
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-
-
+import { useAlert } from "react-alert";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 const cardStyle = {
   frontSide: {
@@ -60,8 +58,6 @@ const Tester = () => {
   const alert = useAlert();
   const [autos, setAutos] = useState([]);
   let startsWith = [];
-
-
 
   const [saveComic] = useMutation(SAVE_COMIC);
   const [wishComic] = useMutation(WISH_COMIC);
@@ -110,9 +106,13 @@ const Tester = () => {
 
   const createAutoComplete = async () => {
     if (character.length >= 4) {
-      const returnedValue = await axios.get(`${characterUrl}${params}&nameStartsWith=${character}`);
+      const returnedValue = await axios.get(
+        `${characterUrl}${params}&nameStartsWith=${character}`
+      );
       if (returnedValue.data.data.results.length > 0) {
-        returnedValue.data.data.results.map(auto => startsWith.push(auto.name))
+        returnedValue.data.data.results.map((auto) =>
+          startsWith.push(auto.name)
+        );
         setAutos([...startsWith]);
       }
       console.log(returnedValue);
@@ -120,8 +120,7 @@ const Tester = () => {
       setAutos([]);
       startsWith = [];
     }
-  }
-
+  };
 
   const getCharacterId = () => {
     return axios.get(`${characterUrl}${params}&name=${character}`);
@@ -225,13 +224,17 @@ const Tester = () => {
               renderInput={(params) => (
                 <TextField
                   value={character}
-                  onSelect={e => setCharacter(e.target.value)}
-                  onChange={e => { setCharacter(e.target.value); createAutoComplete() }}
+                  onSelect={(e) => setCharacter(e.target.value)}
+                  onChange={(e) => {
+                    setCharacter(e.target.value);
+                    createAutoComplete();
+                  }}
                   {...params}
                   label="Search"
+                  sx={{ bgcolor: "white", borderRadius: "5px" }}
                   InputProps={{
                     ...params.InputProps,
-                    type: 'search',
+                    type: "search",
                   }}
                 />
               )}
@@ -257,48 +260,48 @@ const Tester = () => {
         </Grid>
         {shadowArray.length >= 1
           ? shadowArray.map((shadow) => {
-            return <Shadow key={shadow} />;
-          })
+              return <Shadow key={shadow} />;
+            })
           : ""}
         {comics.length >= 1
           ? comics.map((comic) => {
-            return (
-              <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
-                <Flippy
-                  style={cardStyle.frontSide}
-                  className="flipCard"
-                  flipOnClick={true}
-                  flipDirection="horizontal"
-                >
-                  <FrontSide>
-                    <img src={comic.image} alt="comic" style={imgStyle} />
-                  </FrontSide>
-                  <BackSide style={cardStyle.backSide}>
-                    <h3>{comic.title}</h3>
-                    <p>{comic.description}</p>
-                    {Auth.loggedIn && (
-                      <Button
-                        sx={{ marginBottom: "5px" }}
-                        color="success"
-                        variant="contained"
-                        onClick={() => handleComicSave(comic.comicId)}
-                      >
-                        Save to Collection
-                      </Button>
-                    )}
-                    {Auth.loggedIn && (
-                      <Button
-                        variant="contained"
-                        onClick={() => handleComicWish(comic.comicId)}
-                      >
-                        Add to Wishlist
-                      </Button>
-                    )}
-                  </BackSide>
-                </Flippy>
-              </Grid>
-            );
-          })
+              return (
+                <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
+                  <Flippy
+                    style={cardStyle.frontSide}
+                    className="flipCard"
+                    flipOnClick={true}
+                    flipDirection="horizontal"
+                  >
+                    <FrontSide>
+                      <img src={comic.image} alt="comic" style={imgStyle} />
+                    </FrontSide>
+                    <BackSide style={cardStyle.backSide}>
+                      <h3>{comic.title}</h3>
+                      <p>{comic.description}</p>
+                      {Auth.loggedIn && (
+                        <Button
+                          sx={{ marginBottom: "5px" }}
+                          color="success"
+                          variant="contained"
+                          onClick={() => handleComicSave(comic.comicId)}
+                        >
+                          Save to Collection
+                        </Button>
+                      )}
+                      {Auth.loggedIn && (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleComicWish(comic.comicId)}
+                        >
+                          Add to Wishlist
+                        </Button>
+                      )}
+                    </BackSide>
+                  </Flippy>
+                </Grid>
+              );
+            })
           : ""}
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
