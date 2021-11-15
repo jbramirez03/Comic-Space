@@ -232,7 +232,7 @@ export default function Profile() {
 
           <Grid container spacing={2} direction="row" alignItems="flex-start">
             {collectedComics.length > 1
-              ? collectedComics.map((comic) => {
+              ? collectedComics.map(comic => {
                   return (
                     <ComicCard
                       key={comic.comicId}
@@ -274,7 +274,7 @@ export default function Profile() {
                 alignItems="flex-start"
               >
                 {wishComics.length > 1
-                  ? wishComics.map((comic) => {
+                  ? wishComics.map(comic => {
                       return (
                         <WishlistCard
                           key={comic.comicId}
