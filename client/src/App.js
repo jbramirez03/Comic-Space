@@ -33,6 +33,7 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Main from './components/pages/Main'
 
 
 
@@ -98,6 +99,7 @@ function App() {
                 <Route exact path="/results" component={SearchResults} />
                 <Route exact path="/contributors" component={Contributors} />
                 <Route exact path="/dictaphone" component={Dictaphone} />
+                <Route exact path="/main" component={Main} />
                 <Route exact path="/forum" component={Forum} />
               </Switch>
             </div>
