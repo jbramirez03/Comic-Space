@@ -118,7 +118,7 @@ export default function PrimarySearchAppBar() {
         Profile
       </MenuItem>
 
-      <MenuItem onClick={handleMenuClose} component={Link} to="/">
+      <MenuItem onClick={handleMenuClose} component={Link} to="/search">
         Search for Comics
       </MenuItem>
 
@@ -239,7 +239,7 @@ export default function PrimarySearchAppBar() {
                 borderRadius: "5px",
                 boxShadow: "2px 2px 4px black",
               }}
-             ></img>
+            ></img>
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
