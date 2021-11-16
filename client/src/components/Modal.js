@@ -6,6 +6,10 @@ import Modal from "@mui/material/Modal";
 import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
+import { POST_COMIC } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+
 // import CardHeader from "@mui/material/CardHeader";
 // import CardMedia from "@mui/material/CardMedia";
 
@@ -24,10 +28,32 @@ const style = {
   },
 };
 
-export default function BasicModal() {
+export default function BasicModal({ title, description, image, comicId }) {
+  const [price, setPrice] = React.useState('');
+  const [check, setCheck] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [postComic] = useMutation(POST_COMIC);
+
+  const handleSubmit = async () => {
+    const comicToPost = { comicId, title, description, image, tradeable: check, price };
+    // console.log(comicToPost);
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+    // Add the input for the mutation save_book in a variable object set to bookToSave
+    try {
+      await postComic({
+        variables: { input: comicToPost },
+      });
+
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
     <div>
@@ -57,9 +83,11 @@ export default function BasicModal() {
               fullWidth
               name="price"
               label="Price"
-              type="text"
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+              type="string"
               id="price"
-              // autoComplete="current-password"
+            // autoComplete="current-password"
             />
             <Typography
               id="modal-modal-description"
@@ -68,8 +96,9 @@ export default function BasicModal() {
             >
               Open to Trades:
             </Typography>
-            <Checkbox />
+            <Checkbox type='checkbox' value={check} onChange={e => setCheck(e.currentTarget.checked)} />
           </Card>
+          <Button onClick={handleSubmit}>Submit</Button>
         </Box>
       </Modal>
     </div>

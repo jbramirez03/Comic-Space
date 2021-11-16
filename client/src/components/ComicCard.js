@@ -100,7 +100,7 @@ export default function RecipeReviewCard({
             <Typography paragraph>
               <strong>Synopsis:</strong> {description}
             </Typography>
-            <BasicModal />
+            <BasicModal image={image} title={title} description={description} comicId={comicId} />
             <Button onClick={() => handleRemove(comicId)} variant="contained">
               Remove
             </Button>

@@ -27,7 +27,7 @@ const typeDefs = gql`
     description: String
     image: String
     tradeable: Boolean
-    price: Int
+    price: String
   }
 
   type User {
@@ -68,7 +68,7 @@ const typeDefs = gql`
     description: String
     image: String
     tradeable: Boolean
-    price: Int
+    price: String
   }
 
   type Auth {
