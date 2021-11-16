@@ -36,6 +36,12 @@
   font-size: medium;
 }
 
+.firstPage {
+  justify-content: center;
+  margin: 200px;
+}
+
+
 .a {
   text-decoration: none;
   color: black;
