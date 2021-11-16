@@ -241,7 +241,7 @@ export default function PrimarySearchAppBar() {
                 borderRadius: "5px",
                 boxShadow: "2px 2px 4px black",
               }}
-            alt="pic"></img>
+            alt="comic"></img>
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
