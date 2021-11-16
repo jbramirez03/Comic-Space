@@ -64,12 +64,16 @@ const Tester = () => {
   const [saveComic] = useMutation(SAVE_COMIC);
   const [wishComic] = useMutation(WISH_COMIC);
   const { loading, data } = useQuery(QUERY_ME);
+  const [collection, setCollection] = useState([]);
   const userData = data?.me || [];
   let shadowArray = [];
 
   React.useEffect(() => {
+    if (!loading) {
+      setCollection([...userData.comics]);
+    }
+  }, [userData]);
 
-  }, []);
 
 
   const handleComicSave = async (comicId) => {
@@ -204,6 +208,12 @@ const Tester = () => {
     buttons = [];
   };
 
+  if (loading) {
+    return (
+      <div>LOADING...</div>
+    )
+  }
+
   return (
     <Container sx={{ py: 8, bgcolor: "transparent" }} maxWidth="lg">
       <Typography variant="h2" align="center" color="black">
@@ -211,6 +221,7 @@ const Tester = () => {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} sx={{ margin: " auto" }}>
+          {/* <button onClick={() => console.log(collection)}>click</button> */}
           <form action="submit" onSubmit={onSubmit}>
             {/* <input
               placeholder="Search by character..."
@@ -294,6 +305,8 @@ const Tester = () => {
                         sx={{ marginBottom: "5px" }}
                         color="success"
                         variant="contained"
+                        disabled={collection.some(collected => collected.comicId === comic.comicId)}
+                        // disabled={}
                         onClick={() => handleComicSave(comic.comicId)}
                       >
                         Save to Collection
@@ -334,7 +347,7 @@ const Tester = () => {
           ""
         )}
       </Grid>
-    </Container>
+    </Container >
   );
 };
 
