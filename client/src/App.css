@@ -41,6 +41,16 @@
   margin: 200px;
 }
 
+.mainOne {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 600px;
+  height: 400px;
+
+}
+
 
 .a {
   text-decoration: none;
