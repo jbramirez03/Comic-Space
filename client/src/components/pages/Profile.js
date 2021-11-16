@@ -13,8 +13,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-// import Link from "@mui/material/Link";
 import { Avatar } from "@mui/material";
+
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
