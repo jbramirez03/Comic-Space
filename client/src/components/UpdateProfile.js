@@ -18,6 +18,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { UPDATE_USER } from "../utils/mutations";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 
 import Axios from "axios";
 import { Image } from "cloudinary-react";
@@ -144,7 +145,7 @@ export default function UpdateProfile() {
               // label=
               type="firstName"
               id="firstName"
-              // autoComplete="current-password"
+            // autoComplete="current-password"
             />
             <TextField
               margin="normal"
@@ -159,7 +160,7 @@ export default function UpdateProfile() {
               value={updateForm.lastName}
               type="lastName"
               id="lastName"
-              // autoComplete="current-username"
+            // autoComplete="current-username"
             />
             <TextField
               margin="normal"
@@ -199,16 +200,27 @@ export default function UpdateProfile() {
             >
               Update Profile Image
             </Typography>
-            <Input
+            {/* <Input
               disableUnderline={true}
               color="primary"
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
-            />
+            /> */}
+            <Button
+              variant="contained"
+              component="label"
+              startIcon={<CloudUploadOutlinedIcon />}
+            >
+              Choose a file...
+              <input
+                type="file"
+                hidden
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+            </Button>
             <Button variant="contained" onClick={uploadImage}>
               Upload image
             </Button>
-
             <Button
               type="submit"
               fullWidth
