@@ -75,6 +75,7 @@ const Tester = () => {
   }, [userData]);
 
 
+
   const handleComicSave = async (comicId) => {
     const comicToSave = comics.find((comic) => comic.comicId === comicId);
 
@@ -220,6 +221,7 @@ const Tester = () => {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} sx={{ margin: " auto" }}>
+          {/* <button onClick={() => console.log(collection)}>click</button> */}
           <form action="submit" onSubmit={onSubmit}>
             {/* <input
               placeholder="Search by character..."
@@ -303,6 +305,8 @@ const Tester = () => {
                         sx={{ marginBottom: "5px" }}
                         color="success"
                         variant="contained"
+                        disabled={collection.some(collected => collected.comicId === comic.comicId)}
+                        // disabled={}
                         onClick={() => handleComicSave(comic.comicId)}
                       >
                         Save to Collection
@@ -343,7 +347,7 @@ const Tester = () => {
           ""
         )}
       </Grid>
-    </Container>
+    </Container >
   );
 };
 
