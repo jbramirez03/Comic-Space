@@ -92,6 +92,12 @@ mutation wishComic($input: wishedComic!){
       description
       image
     }
+    wishlist {
+      comicId
+      title
+      description
+      image
+    }
   }
 }
 `;
