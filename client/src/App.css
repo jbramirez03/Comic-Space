@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Poppins&display=swap");
+
 .App {
   text-align: center;
 }
@@ -17,13 +19,15 @@
   box-shadow: inset 0 0 10px #5a5454;
 }
 
-
 .avatar1 {
   width: 600px;
   margin: auto;
   height: 750px;
 }
 
+.welcomeText {
+  font-family: "Poppins", sans-serif;
+}
 .button {
   margin: 10px;
   background-color: white;
@@ -40,30 +44,62 @@
   justify-content: center;
   margin: 200px;
 }
-
+.mainHeader {
+  font-family: "Bangers", cursive;
+  letter-spacing: 0.25rem;
+  color: #2b3d44;
+  text-shadow: 2px 2px 2px #4f999d;
+}
 .mainOne {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
-  width: 600px;
-  height: 400px;
-
+  margin-top: 20px;
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
-.text1{
+
+.mainTwo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 300px;
+  height: 380px;
+  border: 2px solid #4f999d;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.808);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.text1 {
   text-align: center;
-  font-size:xx-large;
+  font-size: xx-large;
+}
+.howHeaderMain {
+  font-family: "Bangers", cursive;
+  color: #531c28;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 2px white;
+}
+.howHeader {
+  color: #2b3d44;
+  text-shadow: 2px 1px 3px white;
+  font-weight: bold;
+  font-family: "Bangers", cursive;
 }
 
-.button1{
+.button1 {
   background-color: rgb(211, 211, 229);
   width: 180px;
   height: 50px;
+  margin: auto;
+  margin-bottom: 20px;
   color: white;
   text-decoration: none;
-  
 }
-
 
 .a {
   text-decoration: none;
@@ -77,9 +113,7 @@
   margin: auto;
 }
 
-
 .info {
-
   padding: 20px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   text-align: center;
@@ -89,7 +123,6 @@
   padding: 90px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   text-align: center;
-
 }
 
 .App-header {
