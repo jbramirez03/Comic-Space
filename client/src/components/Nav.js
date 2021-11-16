@@ -18,7 +18,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import ComicSpaceLogo from "../images/ComicSpaceLogo.png";
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,7 +67,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -80,7 +80,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -104,13 +104,18 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose} component={Link} to="/">
         Home
       </MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/main">
+        Main
+      </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
         Comics For Sale
       </MenuItem>
 
-      {!Auth.loggedIn() && <MenuItem onClick={handleMenuClose} component={Link} to="/login">
-        Sign In
-      </MenuItem>}
+      {!Auth.loggedIn() && (
+        <MenuItem onClick={handleMenuClose} component={Link} to="/login">
+          Sign In
+        </MenuItem>
+      )}
       <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
         Profile
       </MenuItem>
@@ -119,9 +124,11 @@ export default function PrimarySearchAppBar() {
         Search for Comics
       </MenuItem>
 
-      {!Auth.loggedIn() && <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
-        Create an Acccount
-      </MenuItem>}
+      {!Auth.loggedIn() && (
+        <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
+          Create an Acccount
+        </MenuItem>
+      )}
       <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
         Comics For Sale
       </MenuItem>
@@ -131,9 +138,18 @@ export default function PrimarySearchAppBar() {
       {/* <MenuItem onClick={handleMenuClose} component={Link} to="/dictaphone">
         Note Taking
       </MenuItem> */}
-      {Auth.loggedIn() && <MenuItem onClick={() => { handleMenuClose(); Auth.logout(); }} component={Link} to="/dictaphone">
-        Logout
-      </MenuItem>}
+      {Auth.loggedIn() && (
+        <MenuItem
+          onClick={() => {
+            handleMenuClose();
+            Auth.logout();
+          }}
+          component={Link}
+          to="/dictaphone"
+        >
+          Logout
+        </MenuItem>
+      )}
     </Menu>
   );
 
@@ -225,7 +241,7 @@ export default function PrimarySearchAppBar() {
                 borderRadius: "5px",
                 boxShadow: "2px 2px 4px black",
               }}
-            ></img>
+            alt="pic"></img>
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
