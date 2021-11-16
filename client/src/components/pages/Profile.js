@@ -148,7 +148,7 @@ export default function Profile() {
           }}
         >
           <Container maxWidth="lg" spacing={4}>
-            <Grid container spacing={0}>
+            <Grid container spacing={0} align="center">
               <Grid item xs={12} sm={6} md={4}>
                 <Avatar
                   src={user.image}
@@ -163,18 +163,19 @@ export default function Profile() {
                 >
                   {/* <img src={user.image} alt="user avatar" /> */}
                 </Avatar>
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography
                     component="h1"
                     variant="h2"
                     gutterBottom
                     style={{
                       color: "white",
-                      textAlign: "center",
+
                       bgcolor: "transparent",
                     }}
                   >
                     {user.firstName}
+                    <br />
                     {user.lastName}
                   </Typography>
                 </Grid>
@@ -188,6 +189,7 @@ export default function Profile() {
                     textAlign: "center",
                     marginTop: "5px",
                     textShadow: "2px 2px 3px black",
+                    fontFamily: '"Helvetica Neue"',
                   }}
                 >
                   About Me:
@@ -199,7 +201,8 @@ export default function Profile() {
                   sx={{
                     textAlign: "center",
                     marginTop: "5px",
-                    color: "#f4d884",
+                    color: "white",
+                    fontFamily: "Roboto",
                   }}
                 >
                   {userData.about}
@@ -212,6 +215,7 @@ export default function Profile() {
                     textAlign: "center",
                     marginTop: "15px",
                     textShadow: "2px 2px 3px black",
+                    fontFamily: '"Helvetica Neue"',
                   }}
                 >
                   Favorite Characters:
@@ -223,7 +227,8 @@ export default function Profile() {
                   sx={{
                     textAlign: "center",
                     marginTop: "5px",
-                    color: "#f4d884",
+                    color: "white",
+                    fontFamily: "Roboto",
                   }}
                 >
                   {userData.favorite}
