@@ -6,7 +6,11 @@ const main = () => {
     <>
       <div className="firstPage">
           <div className="text1">
+          
       <h1>Comic Space Book</h1>
+      <button>
+      <a href="/" className="button1">Comic Space</a>
+      </button>
       </div>
       <img className="mainOne" src={heroes} alt="heroes" />
       
