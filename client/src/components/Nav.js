@@ -18,7 +18,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import ComicSpaceLogo from "../images/ComicSpaceLogo.png";
-import Auth from '../utils/auth';
+
+import Auth from "../utils/auth";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -105,9 +106,11 @@ export default function PrimarySearchAppBar() {
         Home
       </MenuItem>
 
-      {!Auth.loggedIn() && <MenuItem onClick={handleMenuClose} component={Link} to="/login">
-        Sign In
-      </MenuItem>}
+      {!Auth.loggedIn() && (
+        <MenuItem onClick={handleMenuClose} component={Link} to="/login">
+          Sign In
+        </MenuItem>
+      )}
       <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
         Profile
       </MenuItem>
@@ -116,9 +119,11 @@ export default function PrimarySearchAppBar() {
         Search for Comics
       </MenuItem>
 
-      {!Auth.loggedIn() && <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
-        Create an Acccount
-      </MenuItem>}
+      {!Auth.loggedIn() && (
+        <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
+          Create an Acccount
+        </MenuItem>
+      )}
       <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
         Comics For Sale
       </MenuItem>
@@ -128,9 +133,18 @@ export default function PrimarySearchAppBar() {
       {/* <MenuItem onClick={handleMenuClose} component={Link} to="/dictaphone">
         Note Taking
       </MenuItem> */}
-      {Auth.loggedIn() && <MenuItem onClick={() => { handleMenuClose(); Auth.logout(); }} component={Link} to="/dictaphone">
-        Logout
-      </MenuItem>}
+      {Auth.loggedIn() && (
+        <MenuItem
+          onClick={() => {
+            handleMenuClose();
+            Auth.logout();
+          }}
+          component={Link}
+          to="/dictaphone"
+        >
+          Logout
+        </MenuItem>
+      )}
     </Menu>
   );
 
@@ -263,7 +277,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Avatar sx={{ bgcolor: "#4f999d", textAlign: "center" }}>
-                CM
+                <MenuIcon />
               </Avatar>
             </IconButton>
           </Box>
