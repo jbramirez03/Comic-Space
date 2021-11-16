@@ -18,6 +18,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import ComicSpaceLogo from "../images/ComicSpaceLogo.png";
+
 import Auth from "../utils/auth";
 
 const Search = styled("div")(({ theme }) => ({
@@ -238,8 +239,7 @@ export default function PrimarySearchAppBar() {
                 borderRadius: "5px",
                 boxShadow: "2px 2px 4px black",
               }}
-              alt="comic"
-            ></img>
+             ></img>
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
@@ -280,7 +280,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Avatar sx={{ bgcolor: "#4f999d", textAlign: "center" }}>
-                CM
+                <MenuIcon />
               </Avatar>
             </IconButton>
           </Box>
