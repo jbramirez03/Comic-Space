@@ -23,7 +23,7 @@ const postSchema = new Schema({
         type: Boolean,
     },
     price: {
-        type: Number
+        type: String
     }
 });
 
