@@ -6,9 +6,9 @@ import Modal from "@mui/material/Modal";
 import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
-import { POST_COMIC } from '../utils/mutations';
-import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
+import { POST_COMIC } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
 
 // import CardHeader from "@mui/material/CardHeader";
 // import CardMedia from "@mui/material/CardMedia";
@@ -19,7 +19,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
+  bgcolor: "#385059",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
@@ -29,7 +29,7 @@ const style = {
 };
 
 export default function BasicModal({ title, description, image, comicId }) {
-  const [price, setPrice] = React.useState('');
+  const [price, setPrice] = React.useState("");
   const [check, setCheck] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -37,7 +37,14 @@ export default function BasicModal({ title, description, image, comicId }) {
   const [postComic] = useMutation(POST_COMIC);
 
   const handleSubmit = async () => {
-    const comicToPost = { comicId, title, description, image, tradeable: check, price };
+    const comicToPost = {
+      comicId,
+      title,
+      description,
+      image,
+      tradeable: check,
+      price,
+    };
     // console.log(comicToPost);
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -49,11 +56,10 @@ export default function BasicModal({ title, description, image, comicId }) {
       await postComic({
         variables: { input: comicToPost },
       });
-
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   return (
     <div>
@@ -70,6 +76,7 @@ export default function BasicModal({ title, description, image, comicId }) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        align="center"
       >
         <Box sx={style}>
           <Card align="center" sx={{ padding: "15px", bgcolor: "#ecdac8" }}>
@@ -84,10 +91,10 @@ export default function BasicModal({ title, description, image, comicId }) {
               name="price"
               label="Price"
               value={price}
-              onChange={e => setPrice(e.target.value)}
+              onChange={(e) => setPrice(e.target.value)}
               type="string"
               id="price"
-            // autoComplete="current-password"
+              // autoComplete="current-password"
             />
             <Typography
               id="modal-modal-description"
@@ -96,9 +103,15 @@ export default function BasicModal({ title, description, image, comicId }) {
             >
               Open to Trades:
             </Typography>
-            <Checkbox type='checkbox' value={check} onChange={e => setCheck(e.currentTarget.checked)} />
+            <Checkbox
+              type="checkbox"
+              value={check}
+              onChange={(e) => setCheck(e.currentTarget.checked)}
+            />
           </Card>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button variant="contained" onClick={handleSubmit}>
+            Submit
+          </Button>
         </Box>
       </Modal>
     </div>
