@@ -33,7 +33,7 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Main from './components/pages/Main'
+import Main from './components/pages/main'
 
 
 
@@ -90,16 +90,19 @@ function App() {
                 <Route exact path="/update">
                   {Auth.loggedIn() ? <UpdateProfile /> : <Redirect to="/login" />}
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/search">
                   {Auth.loggedIn() ? <SearchResults /> : <Redirect to="/login" />}
                 </Route>
                 <Route exact path="/listings">
                   {Auth.loggedIn() ? <Listings /> : <Redirect to="/login" />}
                 </Route>
-                <Route exact path="/results" component={SearchResults} />
+                <Route exact path="/">
+                  {Auth.loggedIn() ? <Main /> : <Redirect to="/login" />}
+                </Route>
+                {/* <Route exact path="/results" component={SearchResults} /> */}
                 <Route exact path="/contributors" component={Contributors} />
                 <Route exact path="/dictaphone" component={Dictaphone} />
-                <Route exact path="/main" component={Main} />
+                {/* <Route exact path="/" component={Main} /> */}
                 <Route exact path="/forum" component={Forum} />
               </Switch>
             </div>
