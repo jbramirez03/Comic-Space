@@ -65,12 +65,14 @@ const Tester = () => {
   const [wishComic] = useMutation(WISH_COMIC);
   const { loading, data } = useQuery(QUERY_ME);
   const [collection, setCollection] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const userData = data?.me || [];
   let shadowArray = [];
 
   React.useEffect(() => {
     if (!loading) {
       setCollection([...userData.comics]);
+      setWishlist([...userData.wishlist]);
     }
   }, [userData]);
 
@@ -316,6 +318,7 @@ const Tester = () => {
                       <Button
                         variant="contained"
                         onClick={() => handleComicWish(comic.comicId)}
+                        disabled={wishlist.some(wish => wish.comicId === comic.comicId)}
                       >
                         Add to Wishlist
                       </Button>
