@@ -64,12 +64,15 @@ const Tester = () => {
   const [saveComic] = useMutation(SAVE_COMIC);
   const [wishComic] = useMutation(WISH_COMIC);
   const { loading, data } = useQuery(QUERY_ME);
+  const [collection, setCollection] = useState([]);
   const userData = data?.me || [];
   let shadowArray = [];
 
   React.useEffect(() => {
-
-  }, []);
+    if (!loading) {
+      setCollection([...userData.comics]);
+    }
+  }, [userData]);
 
 
   const handleComicSave = async (comicId) => {
@@ -203,6 +206,12 @@ const Tester = () => {
     setResponse(response);
     buttons = [];
   };
+
+  if (loading) {
+    return (
+      <div>LOADING...</div>
+    )
+  }
 
   return (
     <Container sx={{ py: 8, bgcolor: "transparent" }} maxWidth="lg">

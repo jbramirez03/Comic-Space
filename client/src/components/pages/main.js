@@ -5,15 +5,15 @@ const main = () => {
   return (
     <>
       <div className="firstPage">
-          <div className="text1">
-          
-      <h1>Comic Space Book</h1>
-      <button className="button1">
-      <a href="/" >Comic Space</a>
-      </button>
-      </div>
-      <img className="mainOne" src={heroes} alt="heroes" />
-      
+        <div className="text1">
+
+          <h1>Comic Space Book</h1>
+          <button className="button1">
+            <a href="/search" >Comic Space</a>
+          </button>
+        </div>
+        <img className="mainOne" src={heroes} alt="heroes" />
+
         <p>
           {" "}
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -30,7 +30,7 @@ const main = () => {
         </p>
       </div>
       <div className="firstPage">
-      <img className="mainOne" src={heroes} alt="heroes" />
+        <img className="mainOne" src={heroes} alt="heroes" />
         <p>
           {" "}
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -47,7 +47,7 @@ const main = () => {
         </p>
       </div>
       <div className="firstPage">
-      <img className="mainOne" src={heroes} alt="heroes" />
+        <img className="mainOne" src={heroes} alt="heroes" />
         <p>
           {" "}
           Lorem Ipsum is simply dummy text of the printing and typesetting
