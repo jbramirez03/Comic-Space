@@ -7,6 +7,8 @@ import Spines from "../../images/collectionSpines.jpeg";
 import jammy from "../../images/jammy.jpeg";
 import jason from "../../images/jason.jpeg";
 import qabas from "../../images/qabas-photo.jpg";
+import ComicSpaceLogo from "../../images/ComicSpaceLogo.png";
+import Future from "../../images/futureDev.png";
 
 const Contributors = () => {
   const styles = {
@@ -27,10 +29,20 @@ const Contributors = () => {
       marginTop: "20px",
     },
     h1: {
-      fontFamily: "Roboto",
+      fontFamily: "Bangers",
+      textAlign: "center",
+      letterSpacing: "2px",
+    },
+    mainHeader: {
+      fontFamily: "Bangers",
+      textAlign: "center",
+      letterSpacing: "2px",
+      color: "#385059",
+      textShadow: "2px 2px 2px #f7d281",
     },
     h3: {
       fontFamily: "Roboto",
+      textAlign: "center",
     },
     button: {
       backgroundColor: "#385059",
@@ -52,14 +64,46 @@ const Contributors = () => {
       listStyleType: "none",
       fontFamily: "Roboto",
       fontSize: "1.25rem",
+      textAlign: "center",
+      marginRight: "20px",
+    },
+    ulContributors: {
+      listStyleType: "none",
+      fontFamily: "Roboto",
+      fontSize: "1.25rem",
+      textAlign: "left",
+      margin: "20px",
+      marginLeft: "50px",
     },
     column: {
       float: "left",
       width: "50%",
     },
+    column2: {
+      float: "left",
+      width: "50%",
+    },
     demoPageImg: {
-      height: "500px",
+      height: "550px",
       width: "600px",
+      border: "2px solid black",
+      borderRadius: "5px",
+    },
+    logo: {
+      marginTop: "20px",
+      height: "300px",
+      width: "300px",
+    },
+    row: {
+      ":after": {
+        content: "",
+        display: "table",
+        clear: "both",
+      },
+    },
+    futureDev: {
+      height: "425px",
+      width: "325px",
       border: "2px solid black",
       borderRadius: "5px",
     },
@@ -69,11 +113,22 @@ const Contributors = () => {
     <HTMLFlipBook width={650} height={800} drawShadow={true} style={styles}>
       <div className="demoPage">
         <div className="info1">
-          <h1 style={styles.h1}>COMIC SPACE</h1>
+          <h1 style={styles.mainHeader}>COMIC SPACE</h1>
           {/* <h1>Book</h1>
           <h1>Store</h1> */}
-          <h4 style={styles.h3}>About the Project</h4>
-          <h4 style={styles.h3}>Contributors</h4>
+          <h4 style={styles.h3}>
+            About Our Project:
+            <br /> pg. 2-7
+          </h4>
+          <h4 style={styles.h3}>
+            Contributors:
+            <ul style={styles.ulContributors}>
+              <li>Chris Mattix: ------------------ pg. 8-9</li>
+              <li>Jimmy Simpson: -------------- pg. 10-11</li>
+              <li>Jason Barrera-Ramirez: ---- pg. 12-13</li>
+              <li>Qabas Al-Ani: ----------------- pg. 14-15</li>
+            </ul>
+          </h4>
         </div>
       </div>
       <div className="demoPage">
@@ -97,7 +152,7 @@ const Contributors = () => {
             can discuss comics and discovers characters and series that I am
             unfarmiliar with.
           </p>
-          <img src={Boom} style={styles.img}></img>
+          <img src={Boom} style={styles.img} alt="boom page"></img>
         </div>
       </div>
       <div className="demoPage">
@@ -151,7 +206,78 @@ const Contributors = () => {
           </div>
         </div>
       </div>
-
+      <div className="demoPage">
+        <div className="info">
+          <h1 style={styles.h1}>Design Process</h1>
+          <p style={styles.p}>
+            For this application we chose Material UI as a design framework.
+            With Material UI we were able to create components that are designed
+            to be responsive, as well as offering a lot of effects that make the
+            site look and feel polished.
+            <br />
+            <br />
+            As with the implementation of any new technology, there was a
+            learning curve with Material UI. However, Material UI has great
+            documentation, which made adding components easy and relatively
+            painless. We initialliy created a list of pages to build, and from
+            there it was a matter of breaking up each page into components and
+            adding custom styles.
+          </p>
+          <img
+            src={ComicSpaceLogo}
+            style={styles.logo}
+            className="logo"
+            alt="comic space logo"
+          ></img>
+        </div>
+      </div>
+      <div className="demoPage">
+        <div className="info">
+          <div className="row">
+            <h1 style={styles.h1}>Tasks and Roles:</h1>
+            <div className="column" style={styles.column}>
+              <br />
+              <ul style={styles.ul}>
+                <strong>Jason</strong>
+                <li>Back-End Configuration</li>
+                <li>Authentication</li>
+                <li>API Calls</li>
+                <li>Front End JavaScript</li>
+              </ul>
+            </div>
+            <div className="column" style={styles.column}>
+              <ul style={styles.ul}>
+                <br />
+                <strong>Qabas</strong>
+                <li>Back-End Configuration</li>
+                <li>Chat Functionality</li>
+                <li>Contributors Page</li>
+                <li>Authentication</li>
+              </ul>
+            </div>
+            <div className="column2" style={styles.column2}>
+              <ul style={styles.ul}>
+                <br />
+                <strong>Chris</strong>
+                <li>Front End Design</li>
+                <li>Front End JavaScript</li>
+                <li>Application Structure</li>
+                <li>Material UI Implementation</li>
+                <li>Custom photos and Logo design</li>
+              </ul>
+            </div>
+            <div className="column2" style={styles.column2}>
+              <ul style={styles.ul}>
+                <br />
+                <strong>Jimmy</strong>
+                <li>Front End Design</li>
+                <li>Material UI Components</li>
+                <li>Front End JavaScript</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="demoPage">
         <div className="info">
           <h1 style={styles.h1}>DEMO</h1>
@@ -166,6 +292,26 @@ const Contributors = () => {
       <div className="demoPage">
         <div className="info">
           <h1 style={styles.h1}>Future Development</h1>
+          <p style={styles.p}>
+            We have a lot of plans for the future of this application. Because
+            of time constraints, there are a few pieces of functionality that we
+            weren't able to implement:
+            <ul>
+              <li>
+                Listings Comics for sale and using Stripe for transactions
+              </li>
+              <li>Web Forum</li>
+              <li>Live Chat between users</li>
+              <li>Direct Messages and Notifications</li>
+              <li>Additional APIs for DC Comics and Independent Publishers</li>
+            </ul>
+          </p>
+          <img
+            src={Future}
+            style={styles.futureDev}
+            className="futureDev"
+            alt="future development"
+          ></img>
         </div>
       </div>
 
