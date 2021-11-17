@@ -152,6 +152,7 @@ export default function Profile() {
               <Grid item xs={12} sm={6} md={4}>
                 <Avatar
                   src={user.image}
+                  alt="user avatar"
                   sx={{
                     bgcolor: "transparent",
                     margin: "auto",
@@ -266,7 +267,11 @@ export default function Profile() {
             variant="h3"
             align="center"
             gutterBottom
-            style={{ color: "black", fontFamily: "Helvetica Neue" }}
+            style={{
+              fontFamily: "Bangers",
+              color: "#2b3d44",
+              textShadow: "2px 1px 3px white",
+            }}
           >
             Your Collection
             <Button
@@ -306,7 +311,11 @@ export default function Profile() {
                 variant="h3"
                 align="center"
                 gutterBottom
-                style={{ color: "black", fontFamily: "Helvetica Neue" }}
+                style={{
+                  fontFamily: "Bangers",
+                  color: "#2b3d44",
+                  textShadow: "2px 1px 3px white",
+                }}
               >
                 Your Wishlist
                 <Button

@@ -20,8 +20,7 @@ import Shadow from "../components/Shadow";
 import { useAlert } from "react-alert";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { QUERY_ME } from '../utils/queries';
-
+import { QUERY_ME } from "../utils/queries";
 
 const cardStyle = {
   frontSide: {
@@ -75,8 +74,6 @@ const Tester = () => {
       setWishlist([...userData.wishlist]);
     }
   }, [userData]);
-
-
 
   const handleComicSave = async (comicId) => {
     const comicToSave = comics.find((comic) => comic.comicId === comicId);
@@ -211,14 +208,21 @@ const Tester = () => {
   };
 
   if (loading) {
-    return (
-      <div>LOADING...</div>
-    )
+    return <div>LOADING...</div>;
   }
 
   return (
     <Container sx={{ py: 8, bgcolor: "transparent" }} maxWidth="lg">
-      <Typography variant="h2" align="center" color="black">
+      <Typography
+        variant="h2"
+        align="center"
+        color="black"
+        sx={{
+          fontFamily: "Bangers",
+          color: "#2b3d44",
+          textShadow: "2px 1px 3px white",
+        }}
+      >
         Comic Search
       </Typography>
       <Grid container spacing={2}>
@@ -283,51 +287,55 @@ const Tester = () => {
         </Grid>
         {shadowArray.length >= 1
           ? shadowArray.map((shadow) => {
-            return <Shadow key={shadow} />;
-          })
+              return <Shadow key={shadow} />;
+            })
           : ""}
         {comics.length >= 1
           ? comics.map((comic) => {
-            return (
-              <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
-                <Flippy
-                  style={cardStyle.frontSide}
-                  className="flipCard"
-                  flipOnClick={true}
-                  flipDirection="horizontal"
-                >
-                  <FrontSide>
-                    <img src={comic.image} alt="comic" style={imgStyle} />
-                  </FrontSide>
-                  <BackSide style={cardStyle.backSide}>
-                    <h3>{comic.title}</h3>
-                    <p>{comic.description}</p>
-                    {Auth.loggedIn && (
-                      <Button
-                        sx={{ marginBottom: "5px" }}
-                        color="success"
-                        variant="contained"
-                        disabled={collection.some(collected => collected.comicId === comic.comicId)}
-                        // disabled={}
-                        onClick={() => handleComicSave(comic.comicId)}
-                      >
-                        Save to Collection
-                      </Button>
-                    )}
-                    {Auth.loggedIn && (
-                      <Button
-                        variant="contained"
-                        onClick={() => handleComicWish(comic.comicId)}
-                        disabled={wishlist.some(wish => wish.comicId === comic.comicId)}
-                      >
-                        Add to Wishlist
-                      </Button>
-                    )}
-                  </BackSide>
-                </Flippy>
-              </Grid>
-            );
-          })
+              return (
+                <Grid item xs={12} sm={6} md={3} key={comic.comicId}>
+                  <Flippy
+                    style={cardStyle.frontSide}
+                    className="flipCard"
+                    flipOnClick={true}
+                    flipDirection="horizontal"
+                  >
+                    <FrontSide>
+                      <img src={comic.image} alt="comic" style={imgStyle} />
+                    </FrontSide>
+                    <BackSide style={cardStyle.backSide}>
+                      <h3>{comic.title}</h3>
+                      <p>{comic.description}</p>
+                      {Auth.loggedIn && (
+                        <Button
+                          sx={{ marginBottom: "5px" }}
+                          color="success"
+                          variant="contained"
+                          disabled={collection.some(
+                            (collected) => collected.comicId === comic.comicId
+                          )}
+                          // disabled={}
+                          onClick={() => handleComicSave(comic.comicId)}
+                        >
+                          Save to Collection
+                        </Button>
+                      )}
+                      {Auth.loggedIn && (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleComicWish(comic.comicId)}
+                          disabled={wishlist.some(
+                            (wish) => wish.comicId === comic.comicId
+                          )}
+                        >
+                          Add to Wishlist
+                        </Button>
+                      )}
+                    </BackSide>
+                  </Flippy>
+                </Grid>
+              );
+            })
           : ""}
         <Grid item xs={12}>
           <Divider orientation="vertical" flexItem />
@@ -350,7 +358,7 @@ const Tester = () => {
           ""
         )}
       </Grid>
-    </Container >
+    </Container>
   );
 };
 

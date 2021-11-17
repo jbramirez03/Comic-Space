@@ -68,7 +68,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
+  const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -81,7 +81,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
+  const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -104,9 +104,6 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose} component={Link} to="/">
         Home
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
-        Comics For Sale
       </MenuItem>
 
       {!Auth.loggedIn() && (
@@ -232,6 +229,7 @@ export default function PrimarySearchAppBar() {
           >
             <img
               src={ComicSpaceLogo}
+              alt="main logo"
               style={{
                 height: "25%",
                 width: "25%",
