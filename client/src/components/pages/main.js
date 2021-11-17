@@ -30,6 +30,7 @@ const main = () => {
                 gutterBottom
                 align="center"
                 className="mainHeader"
+                sx={{ fontFamily: "Bangers", letterSpacing: "2px" }}
               >
                 COMIC SPACE <br />
               </Typography>
@@ -78,7 +79,11 @@ const main = () => {
               align="center"
               gutterBottom
               className="howHeaderMain"
-              sx={{ marginTop: "20px" }}
+              sx={{
+                marginTop: "20px",
+                fontFamily: "Bangers",
+                letterSpacing: "2px",
+              }}
             >
               How it Works...
             </Typography>
@@ -92,6 +97,11 @@ const main = () => {
               align="center"
               gutterBottom
               className="howHeader"
+              sx={{
+                marginTop: "20px",
+                fontFamily: "Bangers",
+                letterSpacing: "2px",
+              }}
             >
               Create a Profile
             </Typography>
@@ -103,6 +113,11 @@ const main = () => {
               align="center"
               gutterBottom
               className="howHeader"
+              sx={{
+                marginTop: "20px",
+                fontFamily: "Bangers",
+                letterSpacing: "2px",
+              }}
             >
               Build Your Collection
             </Typography>
@@ -114,6 +129,11 @@ const main = () => {
               align="center"
               gutterBottom
               className="howHeader"
+              sx={{
+                marginTop: "20px",
+                fontFamily: "Bangers",
+                letterSpacing: "2px",
+              }}
             >
               Create a Wishlist
             </Typography>
@@ -125,6 +145,11 @@ const main = () => {
               align="center"
               gutterBottom
               className="howHeader"
+              sx={{
+                marginTop: "20px",
+                fontFamily: "Bangers",
+                letterSpacing: "2px",
+              }}
             >
               Buy, Sell, or Trade
             </Typography>
