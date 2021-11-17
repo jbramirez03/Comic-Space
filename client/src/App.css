@@ -121,7 +121,7 @@
 .info1 {
   font-size: xx-large;
   padding: 90px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  /* font-family: "Comic Sans MS", cursive, sans-serif; */
   text-align: center;
 }
 
