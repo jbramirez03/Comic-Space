@@ -515,31 +515,11 @@ const Contributors = () => {
         <div className="info">
           <h1 style={styles.h1}>About Me</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+            Full-Stack Web Developer, a graduate of `The Coding Bootcamp At UNC-Chapel Hill` with a special appreciation for back-end projects and a life-long dedication to learning. Determined to improve in all aspects of life and known amongst peers for having an eye for detail and being skilled at problem-solving no matter the complexity of the project.
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+            My role in this application was focused on functionality and handling queries and mutations made with graphql that are handled through resolvers in the backend. I also set up the functionality for how api calls and data from those calls should render as well as the pagination for any given character search. I also helped implement the profile functionality for viewing your current information as well as having the ability to update your info.
           </p>
         </div>
       </div>
