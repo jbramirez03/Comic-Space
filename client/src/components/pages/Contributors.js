@@ -107,6 +107,12 @@ const Contributors = () => {
       border: "2px solid black",
       borderRadius: "5px",
     },
+    mattix: {
+      height: "400px",
+      width: "300px",
+      border: "2px double black",
+      borderRadius: "5px",
+    },
   };
 
   return (
@@ -317,7 +323,12 @@ const Contributors = () => {
 
       <div className="demoPage">
         <div className="info">
-          <img className="avatar" src={chris} alt="chris" />
+          <img
+            className="mattix"
+            src={chris}
+            alt="chris mattix"
+            style={styles.mattix}
+          />
           <h1 style={styles.h1}>Chris Mattix</h1>
           <button className="button" style={styles.button}>
             <a
@@ -362,31 +373,24 @@ const Contributors = () => {
         <div className="info">
           <h1 style={styles.h1}>About Me</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+            Full Stack Web Developer with a background in Education and
+            Communications. Graduate of the Full Stack Developer Boot Camp at
+            UNC Chapel Hill. Independently motivated by the act of learning.
+            Enjoys working in collaborative environments, and is known for
+            possessing excellent written and verbal communication skills. Works
+            well under pressure and is accustomed to deadlines. Possesses a keen
+            eye for design, with accessibility and as a design standard.
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+            My role in this application focused on front-end design and
+            functionality. I created the front-end structure and designed the
+            components using Material UI and custom CSS. I created the visual
+            style of the application and used my own photographs throughout the
+            site. Additionaly, I implemented the state management for showing
+            and hiding components. I also set up the React Router and worked
+            closely with the back-end programmers to implement the Collection
+            and Wishlist features.
           </p>
         </div>
       </div>
@@ -515,11 +519,22 @@ const Contributors = () => {
         <div className="info">
           <h1 style={styles.h1}>About Me</h1>
           <p style={styles.p}>
-            Full-Stack Web Developer, a graduate of `The Coding Bootcamp At UNC-Chapel Hill` with a special appreciation for back-end projects and a life-long dedication to learning. Determined to improve in all aspects of life and known amongst peers for having an eye for detail and being skilled at problem-solving no matter the complexity of the project.
+            Full-Stack Web Developer, a graduate of `The Coding Bootcamp At
+            UNC-Chapel Hill` with a special appreciation for back-end projects
+            and a life-long dedication to learning. Determined to improve in all
+            aspects of life and known amongst peers for having an eye for detail
+            and being skilled at problem-solving no matter the complexity of the
+            project.
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-            My role in this application was focused on functionality and handling queries and mutations made with graphql that are handled through resolvers in the backend. I also set up the functionality for how api calls and data from those calls should render as well as the pagination for any given character search. I also helped implement the profile functionality for viewing your current information as well as having the ability to update your info.
+            My role in this application was focused on functionality and
+            handling queries and mutations made with graphql that are handled
+            through resolvers in the backend. I also set up the functionality
+            for how api calls and data from those calls should render as well as
+            the pagination for any given character search. I also helped
+            implement the profile functionality for viewing your current
+            information as well as having the ability to update your info.
           </p>
         </div>
       </div>
