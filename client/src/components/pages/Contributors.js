@@ -165,7 +165,7 @@ const Contributors = () => {
         <div className="info">
           <h1 style={styles.h1}>Concept</h1>
           <p style={styles.p}>
-            Comic Space is a social media application that leverages the Mavel
+            Comic Space is a social media application that leverages the Marvel
             Comics API to help users create a digital comic book collection, and
             wishlist. It also includes and e-commerce marketplace, so users can
             buy, sell, and trade comics.
@@ -589,21 +589,14 @@ const Contributors = () => {
           <p style={styles.p}>
             Full Stack Web Developer, love developing apps and websites with a
             focus on mobile-first design & graduate of the UNC Chapel Hill
-            Coding Boot Camp
+            Coding Boot Camp.
+            I have nurtured a keen interest in Computer Science. I find it fascinating along with Communications and Media.When I was a child, I was engrossed by computer games which later developed into a passion for programming. I love problem solving, Math and Physics and that is why I chose web development as my future career because of its flexibility, innovativeness, and challenging nature.
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+          My role in this application was focused on functionality and
+            handling queries and mutations made with graphql that are handled
+            through resolvers and setting up the starter code base in the backend. I also in the front end i added the Contributor page that contain all the info about all fo u
           </p>
         </div>
       </div>
