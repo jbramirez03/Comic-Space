@@ -443,31 +443,20 @@ const Contributors = () => {
         <div className="info">
           <h1 style={styles.h1}>About Me</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+          A new full stack web developer with a background in managing people. Graduate 
+          of the Full Stack Developer Boot Camp at UNC Chapel Hill. Passionate about 
+          solving complex problems with creative thinking.  Lover of sports and games - 
+          really anything that can be analyzed and evaluated in creative ways.   
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
+            My role for this application was front-end design and javascript.
+             I helped with the creation of the front-end structure and 
+             utilized unique material UI concepts to add extra UI features to 
+             the app. I also started working on future development ideas such as
+             a public forum as well as a discover page to find other users, so that
+             people can interact with each other.  
+            
           </p>
         </div>
       </div>
