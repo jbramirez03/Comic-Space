@@ -594,9 +594,9 @@ const Contributors = () => {
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-          My role in this application was focused on functionality and
+            My role in this application was focused on functionality and
             handling queries and mutations made with graphql that are handled
-            through resolvers and setting up the starter code base in the backend. I also in the front end i added the Contributor page that contain all the info about all fo u
+            through resolvers and setting up the starter code base in the backend. I also in the front end i added the Contributor page that contain all the info about all of us, and i added the realtime chat in the front-end and helped setting up some functionality in front-end as well.
           </p>
         </div>
       </div>
