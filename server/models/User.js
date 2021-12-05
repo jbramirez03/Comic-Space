@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+import Order from './Order.js';
+import Comic from './Comic.js';
+import Post from './Post.js';
 
 const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
-const Order = require('./Order');
-const Comic = require('./Comic');
-const Post = require('./Post');
 
 const userSchema = new Schema({
   firstName: {
@@ -59,4 +59,4 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+export default User;

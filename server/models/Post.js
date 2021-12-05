@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 // require('mongoose-currency').loadType(mongoose);
@@ -29,4 +29,4 @@ const postSchema = new Schema({
 
 const Post = mongoose.model('Post', postSchema);
 
-module.exports = Post;
+export default Post;
