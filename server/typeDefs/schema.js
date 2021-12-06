@@ -1,8 +1,4 @@
 const schema = `
-  type Category {
-    _id: ID
-    name: String
-  }
 
   type Comic {
     _id: ID
@@ -10,12 +6,6 @@ const schema = `
     title: String
     description: String
     image: String
-  }
-
-  type Order {
-    _id: ID
-    purchaseDate: String
-    comics: [Comic]
   }
 
   type Post {
@@ -40,10 +30,6 @@ const schema = `
     image: String
     about: String
     favorite: String
-  }
-
-  type Checkout {
-    session: ID
   }
 
   input savedComic {
@@ -75,19 +61,15 @@ const schema = `
   }
 
   type Query {
-    categories: [Category]
     comics: [Comic]
     comic(_id: ID!): Comic
     posts: [Post]
     user: User
-    order(_id: ID!): Order
-    checkout(comics: [ID]!): Checkout
     me: User
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!,password: String!): Auth
-    addOrder(comics: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, image: String, about: String, favorite: String): User
     login(email: String!, password: String!): Auth
     saveComic(input: savedComic!): User
