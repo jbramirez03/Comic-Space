@@ -1,7 +1,8 @@
-const User = require('./User');
-const Comic = require('./Comic');
-const Category = require('./Category');
-const Order = require('./Order');
-const Post = require('./Post');
+import User from './User.js';
+import Comic from './Comic.js';
+import Category from './Category.js';
+import Order from './Order.js';
+import Post from './Post.js';
 
-module.exports = { User, Comic, Category, Order, Post };
+
+export default { User: User, Comic: Comic, Category: Category, Order: Order, Post: Post };
