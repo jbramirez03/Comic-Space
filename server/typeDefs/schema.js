@@ -24,7 +24,6 @@ const schema = `
     lastName: String
     email: String
     comics: [Comic]
-    orders: [Order]
     wishlist: [Comic]
     posts: [Post]
     image: String

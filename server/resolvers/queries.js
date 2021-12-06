@@ -1,5 +1,5 @@
 import { AuthenticationError } from 'apollo-server-express';
-import { User, Comic, Post } from '../models/index.js';
+import db from '../models/index.js';
 
 const queries = {
     Query: {
@@ -8,7 +8,7 @@ const queries = {
         // },
         me: async (parent, args, context) => {
             if (context.user) {
-                const userData = await User.findOne({ _id: context.user._id })
+                const userData = await db.User.findOne({ _id: context.user._id })
                     .select("-__v -password")
                     .populate("comics");
 
@@ -30,14 +30,14 @@ const queries = {
             //     };
             // }
 
-            return await Comic.find(params);
+            return await db.Comic.find(params);
         },
         comic: async (parent, { _id }) => {
-            return await Comic.findById(_id);
+            return await db.Comic.findById(_id);
         },
         user: async (parent, args, context) => {
             if (context.user) {
-                const user = await User.findById(context.user._id)
+                const user = await db.User.findById(context.user._id)
                 // .populate({
                 //   path: "orders.comics",
                 //   populate: "category",
@@ -100,7 +100,7 @@ const queries = {
         //     return { session: session.id };
         // },
         posts: async (parents, args, context) => {
-            const posts = await Post.find({});
+            const posts = await db.Post.find({});
 
             return posts;
         }
