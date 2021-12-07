@@ -121,7 +121,7 @@ export default function PrimarySearchAppBar() {
 
       {!Auth.loggedIn() && (
         <MenuItem onClick={handleMenuClose} component={Link} to="/signup">
-          Create an Acccount
+          Create an Account
         </MenuItem>
       )}
       <MenuItem onClick={handleMenuClose} component={Link} to="/listings">
