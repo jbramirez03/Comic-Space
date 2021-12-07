@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
+import { Link as Route } from 'react-router-dom';
 
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -159,7 +160,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/signup" variant="body2">
+                  <Link component={Route} to="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
