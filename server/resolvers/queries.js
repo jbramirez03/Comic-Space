@@ -103,6 +103,11 @@ const queries = {
             const posts = await db.Post.find({});
 
             return posts;
+        },
+        messages: async (parent, args, context) => {
+            const messages = await db.Message.find({});
+
+            return messages;
         }
 
     }
