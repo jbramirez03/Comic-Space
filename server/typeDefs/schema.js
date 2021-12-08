@@ -18,6 +18,12 @@ const schema = `
     price: String
   }
 
+  type Message {
+    _id: ID
+    author: String
+    content: String
+  }
+
   type User {
     _id: ID
     firstName: String
@@ -65,6 +71,7 @@ const schema = `
     posts: [Post]
     user: User
     me: User
+    messages: [Message]
   }
 
   type Mutation {
@@ -76,6 +83,11 @@ const schema = `
     removeComic(comicId: Int!): User
     removeWish(comicId: Int!): User
     postComic(input: postedComic!): User
+    addMessage(author: String!, content: String!): Message
+  }
+
+  type Subscription {
+    newMessage: Message
   }
 `;
 
