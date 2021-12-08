@@ -1,6 +1,7 @@
 import { AuthenticationError } from 'apollo-server-express';
 import db from '../models/index.js';
 import auth from '../utils/auth.js';
+import { pubsub } from '../server.js';
 
 const mutations = {
     Mutation: {
@@ -115,6 +116,15 @@ const mutations = {
             }
             throw new AuthenticationError("Please login in!");
         },
+        addMessage: async (parent, args, context) => {
+            const newMessage = await db.Message.create(args);
+            pubsub.publish('POST_MESSAGE', {
+                newMessage: newMessage,
+            });
+
+            return newMessage;
+
+        }
     }
 }
 
