@@ -7,12 +7,25 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { split, HttpLink } from '@apollo/client';
+import { getMainDefinition } from '@apollo/client/utilities';
+import { WebSocketLink } from '@apollo/client/link/ws';
 
-const httpLink = createHttpLink({
-  uri: "/graphql",
+const wsLink = new WebSocketLink({
+  uri: process.env.NODE_ENV === 'production'
+    ? 'wss://young-hollows-20691.herokuapp.com/graphql'
+    : 'ws://localhost:3001/graphql',
+  options: {
+    reconnect: true
+  }
+});
+
+const httpLink = new HttpLink({
+  uri: process.env.NODE_ENV === 'production'
+    ? 'https://young-hollows-20691.herokuapp.com/graphql'
+    : 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -25,8 +38,21 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+
+const splitLink = split(
+  ({ query }) => {
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === 'OperationDefinition' &&
+      definition.operation === 'subscription'
+    );
+  },
+  wsLink,
+  authLink.concat(httpLink)
+);
+
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: splitLink,
   cache: new InMemoryCache(),
 });
 

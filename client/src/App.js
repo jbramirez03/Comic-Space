@@ -6,24 +6,14 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-// import {
-//   ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider,
-//   createHttpLink,
-// } from "@apollo/client";
 import Contributors from "./components/pages/Contributors";
-// import { setContext } from "@apollo/client/link/context";
-// import { Provider } from "react-redux";
 import "./App.css";
-// import store from "./utils/store";
 import SignInSide from "./components/SignInSide";
 import UpdateProfile from "./components/UpdateProfile";
 import SignUp from "./components/SignUp";
 import Nav from "./components/Nav";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/pages/Profile";
-// import Search from "./components/pages/Search";
 import Listings from "./components/pages/Listings";
 import Tester from "./components/pages/Tester";
 import Forum from "./components/pages/Forum";
@@ -47,29 +37,9 @@ const AlertTemplate = ({ style, options, message, close }) => (
 )
 
 
-// const httpLink = createHttpLink({
-//   uri: "/graphql",
-// });
-
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem("id_token");
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : "",
-//     },
-//   };
-// });
-
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// });
-
 function App() {
   return (
     <>
-      {/* <ApolloProvider client={client}> */}
       <Router>
         <AlertProvider template={AlertTemplate}>
           <div>
@@ -99,11 +69,9 @@ function App() {
               <Route exact path="/">
                 {Auth.loggedIn() ? <Main /> : <Redirect to="/login" />}
               </Route>
-              {/* <Route exact path="/results" component={SearchResults} /> */}
               <Route exact path="/contributors" component={Contributors} />
-              <Route exact path="/dictaphone" component={Dictaphone} />
-              {/* <Route exact path="/" component={Main} /> */}
-              <Route exact path="/forum" component={Forum} />
+              {/* <Route exact path="/dictaphone" component={Dictaphone} /> */}
+              {/* <Route exact path="/forum" component={Forum} /> */}
             </Switch>
           </div>
         </AlertProvider>
