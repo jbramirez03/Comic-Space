@@ -110,3 +110,12 @@ export const QUERY_THOUGHTS = gql`
     }
   }
 `;
+
+export const MESSAGES = gql`
+  query Messages {
+    messages {
+      content
+      author
+    }
+  }
+`;
