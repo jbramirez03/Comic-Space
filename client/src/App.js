@@ -71,7 +71,7 @@ function App() {
                 {Auth.loggedIn() ? <Main /> : <Redirect to="/login" />}
               </Route>
               <Route exact path="/contributors" component={Contributors} />
-              {/* <Route exact path="/dictaphone" component={TestChat} /> */}
+              <Route exact path="/dictaphone" component={TestChat} />
               {/* <Route exact path="/forum" component={Forum} /> */}
             </Switch>
           </div>
