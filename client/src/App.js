@@ -47,7 +47,7 @@ function App() {
             <Nav />
             <Switch>
               <Route exact path="/tester">
-                {Auth.loggedIn() ? <Tester /> : <Redirect to="/login" />}
+                {Auth.loggedIn() ? <TestChat /> : <Redirect to="/login" />}
               </Route>
               <Route exact path="/login">
                 {Auth.loggedIn() ? <Redirect to="/" /> : <SignInSide />}
@@ -71,7 +71,7 @@ function App() {
                 {Auth.loggedIn() ? <Main /> : <Redirect to="/login" />}
               </Route>
               <Route exact path="/contributors" component={Contributors} />
-              <Route exact path="/dictaphone" component={TestChat} />
+              {/* <Route exact path="/dictaphone" component={TestChat} /> */}
               {/* <Route exact path="/forum" component={Forum} /> */}
             </Switch>
           </div>
