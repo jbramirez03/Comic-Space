@@ -37,7 +37,7 @@ const TestChat = () => {
                 if (!subscriptionData.data) return prev;
                 const newFeedItem = subscriptionData.data.newMessage;
                 return Object.assign({}, prev, {
-                    posts: [...prev.posts, newFeedItem],
+                    messages: [...prev.messages, newFeedItem],
                 });
             },
         });
@@ -50,7 +50,7 @@ const TestChat = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         handlePost();
-        console.log(message);
+        // console.log(message);
     };
 
     if (loading) {
@@ -62,7 +62,18 @@ const TestChat = () => {
 
     return (
         <div>
-
+            <form action="submit" onSubmit={onSubmit}>
+                <input type="text" placeholder='content' value={content} onChange={e => setContent(e.target.value)} />
+                <input type="text" placeholder='author' value={author} onChange={e => setAuthor(e.target.value)} />
+                <button action='submit'>Send</button>
+            </form>
+            <div>
+                {messages.map((message, i) => {
+                    return (
+                        <div key={i}>{message.content} {message.author}</div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
