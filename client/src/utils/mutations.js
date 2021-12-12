@@ -156,3 +156,12 @@ mutation removeWish($comicId: Int!){
     }
 }
 `;
+
+export const POST_MESSAGE = gql`
+mutation AddMessage($content: String!, $author: String!){
+    addmessage(content: $content, author: $author){
+        author
+        content
+    }
+}
+`;
