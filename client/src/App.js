@@ -1,7 +1,7 @@
 import React from "react";
 import Dictaphone from "./components/pages/Dictaphone";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Navigate,
   Routes,
