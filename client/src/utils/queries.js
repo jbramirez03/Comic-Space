@@ -119,3 +119,16 @@ export const MESSAGES = gql`
     }
   }
 `;
+
+export const LISTINGS = gql`
+  query Posts {
+    posts {
+    comicId
+    title
+    description
+    image
+    tradeable
+    price
+    }
+  }
+`;
