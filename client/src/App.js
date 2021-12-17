@@ -3,8 +3,8 @@ import Dictaphone from "./components/pages/Dictaphone";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect,
+  Navigate,
+  Routes,
 } from "react-router-dom";
 import Contributors from "./components/pages/Contributors";
 import "./App.css";
@@ -45,39 +45,22 @@ function App() {
         <AlertProvider template={AlertTemplate}>
           <div>
             <Nav />
-            <Switch>
-              <Route exact path="/tester">
-                {Auth.loggedIn() ? <TestChat /> : <Redirect to="/login" />}
-              </Route>
-              <Route exact path="/login">
-                {Auth.loggedIn() ? <Redirect to="/" /> : <SignInSide />}
-              </Route>
-              <Route exact path="/signup">
-                {Auth.loggedIn() ? <Redirect to="/" /> : <SignUp />}
-              </Route>
-              <Route exact path="/profile">
-                {Auth.loggedIn() ? <Profile /> : <Redirect to="/login" />}
-              </Route>
-              <Route exact path="/update">
-                {Auth.loggedIn() ? <UpdateProfile /> : <Redirect to="/login" />}
-              </Route>
-              <Route exact path="/search">
-                {Auth.loggedIn() ? <SearchResults /> : <Redirect to="/login" />}
-              </Route>
-              <Route exact path="/listings">
-                {Auth.loggedIn() ? <Listings /> : <Redirect to="/login" />}
-              </Route>
-              <Route exact path="/">
-                {Auth.loggedIn() ? <Main /> : <Redirect to="/login" />}
-              </Route>
-              <Route exact path="/contributors" component={Contributors} />
-              {/* <Route exact path="/dictaphone" component={TestChat} /> */}
+            <Routes>
+              <Route path="/tester" element={<>{Auth.loggedIn() ? <TestChat /> : <Navigate to="/login" />}</>} />
+              <Route path="/login" element={<>{Auth.loggedIn() ? <Navigate to="/" /> : <SignInSide />}</>} />
+              <Route path="/signup" element={<> {Auth.loggedIn() ? <Navigate to="/" /> : <SignUp />}</>} />
+              <Route path="/profile" element={<>{Auth.loggedIn() ? <Profile /> : <Navigate to="/login" />}</>} />
+              <Route path="/update" element={<>{Auth.loggedIn() ? <UpdateProfile /> : <Navigate to="/login" />}</>} />
+              <Route path="/search" element={<>{Auth.loggedIn() ? <SearchResults /> : <Navigate to="/login" />}</>} />
+              <Route path="/listings" element={<>{Auth.loggedIn() ? <Listings /> : <Navigate to="/login" />}</>} />
+              <Route path="/" element={<>{Auth.loggedIn() ? <Main /> : <Navigate to="/login" />}</>} />
+              <Route path="/contributors" element={<Contributors />} />
+              <Route path="/dictaphone" element={<TestChat />} />
               {/* <Route exact path="/forum" component={Forum} /> */}
-            </Switch>
+            </Routes>
           </div>
         </AlertProvider>
       </Router>
-      {/* </ApolloProvider> */}
     </>
   );
 }
