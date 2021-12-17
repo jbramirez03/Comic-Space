@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -15,6 +15,8 @@ import Link from "@mui/material/Link";
 import ImageGrid from "../ImageGrid";
 import MainImage from "../MainImage";
 import Info from "../Info";
+import { useQuery } from '@apollo/client';
+import { LISTINGS } from '../../utils/queries';
 
 const images = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cd7DRs9mD27SGqwah_h6jxbEoDcw_BWJdw&usqp=CAU",
@@ -32,7 +34,15 @@ const comic = {
 };
 
 export default function Listings() {
+  const { loading, data } = useQuery(LISTINGS);
   const [selectedImage, setSelectedImage] = useState(0);
+
+  if (loading) {
+    return (
+      <div>LOADING...</div>
+    )
+  }
+
   return (
     <div>
       <Grid
@@ -54,6 +64,19 @@ export default function Listings() {
           <Info {...comic} />
         </Grid>
       </Grid>
+      {!loading ? data.posts.map((post, i) => {
+        return (
+          <div key={i}>
+            <p>{post.title}</p>
+            <p>{post.comicId}</p>
+            <p>{post.description}</p>
+            <p>{post.image}</p>
+            <p>{post.price}</p>
+            <p>{post.tradeable ? 'true' : 'false'}</p>
+          </div>
+        )
+      }) : ''}
+      <button onClick={() => console.log(data)}>Check</button>
     </div>
   );
 }
