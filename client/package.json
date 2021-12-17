@@ -28,7 +28,7 @@
     "react-mic": "^12.4.6",
     "react-pageflip": "^2.0.3",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^5.3.0",
+    "react-router-dom": "^6.1.1",
     "react-scripts": "4.0.3",
     "react-speech-recognition": "^3.9.0",
     "redux": "^4.1.2",
