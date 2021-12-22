@@ -7,6 +7,7 @@ function ImageGrid({ images = [], onSelect, selectedImage }) {
       {images.map((image, index) => (
         <img
           src={image}
+          key={index}
           height={100}
           alt="listing"
           onClick={() => onSelect(index)}
