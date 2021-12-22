@@ -17,11 +17,11 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import Boom from "../images/boom.jpeg";
-import Spines from "../images/collectionSpines.jpeg";
-import Halo from "../images/collectionHalo.jpeg";
-import Thor from "../images/thor.jpeg";
-import Parker from "../images/parker.jpeg";
+// import Boom from "../images/boom.jpeg";
+// import Spines from "../images/collectionSpines.jpeg";
+// import Halo from "../images/collectionHalo.jpeg";
+// import Thor from "../images/thor.jpeg";
+// import Parker from "../images/parker.jpeg";
 
 function Copyright(props) {
   return (

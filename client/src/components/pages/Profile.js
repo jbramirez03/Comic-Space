@@ -1,25 +1,18 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 // import CameraIcon from "@mui/icons-material/PhotoCamera";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Avatar } from "@mui/material";
 
-import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ComicCard from "../ComicCard";
 import WishlistCard from "../WishlistCard";
-import ComicSpaceLogo from "../../images/ComicSpaceLogo.png";
 // import ComicSpaceBIG from "../../images/ComicSpaceBIG.png";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Auth from "../../utils/auth";
@@ -293,17 +286,17 @@ export default function Profile() {
           <Grid container spacing={2} direction="row" alignItems="flex-start">
             {collectedComics.length >= 1
               ? collectedComics.map((comic) => {
-                  return (
-                    <ComicCard
-                      key={comic.comicId}
-                      title={comic.title}
-                      description={comic.description}
-                      image={comic.image}
-                      comicId={comic.comicId}
-                      handleRemove={handleDeleteComic}
-                    />
-                  );
-                })
+                return (
+                  <ComicCard
+                    key={comic.comicId}
+                    title={comic.title}
+                    description={comic.description}
+                    image={comic.image}
+                    comicId={comic.comicId}
+                    handleRemove={handleDeleteComic}
+                  />
+                );
+              })
               : ""}
             <Container sx={{ py: 8 }} maxWidth="lg">
               <Typography
@@ -341,17 +334,17 @@ export default function Profile() {
               >
                 {wishComics.length >= 1
                   ? wishComics.map((comic) => {
-                      return (
-                        <WishlistCard
-                          key={comic.comicId}
-                          title={comic.title}
-                          description={comic.description}
-                          image={comic.image}
-                          comicId={comic.comicId}
-                          handleWish={handleRemoveWish}
-                        />
-                      );
-                    })
+                    return (
+                      <WishlistCard
+                        key={comic.comicId}
+                        title={comic.title}
+                        description={comic.description}
+                        image={comic.image}
+                        comicId={comic.comicId}
+                        handleWish={handleRemoveWish}
+                      />
+                    );
+                  })
                   : ""}
               </Grid>
             </Container>

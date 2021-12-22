@@ -3,22 +3,14 @@ import React from "react";
 
 function Info({
   title,
-  issueNo,
   description,
-  publishedYear,
   price,
-  category,
-  forSale,
 }) {
   return (
     <Grid container direction="column" style={{ height: "100%" }}>
-      <Typography variant="subtitle1">{category}</Typography>
       <Divider />
       <Box mt={2}>
         <Typography variant="h4">{title}</Typography>
-        <Typography variant="h5">
-          Issue # {issueNo} ({publishedYear})
-        </Typography>
         <Typography variant="subtitle1">{description}</Typography>
         <Typography variant="h5">${price}</Typography>
       </Box>
