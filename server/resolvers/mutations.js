@@ -117,13 +117,16 @@ const mutations = {
             throw new AuthenticationError("Please login in!");
         },
         addMessage: async (parent, args, context) => {
-            const postedMessage = await db.Message.create(args);
-            pubsub.publish('POST_MESSAGE', {
-                newMessage: postedMessage,
-            });
+            if (context.user) {
+                const postedMessage = await db.Message.create(args);
+                pubsub.publish('POST_MESSAGE', {
+                    newMessage: postedMessage,
+                });
 
-            return postedMessage;
+                return postedMessage;
+            }
 
+            throw new AuthenticationError("Please login in!");
         }
     }
 }
