@@ -4,7 +4,7 @@ import { POST_MESSAGE } from '../../utils/mutations';
 import { MESSAGES } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
 
-const TestChat = () => {
+const Discussion = () => {
     const [content, setContent] = React.useState('');
     const [author, setAuthor] = React.useState('');
     const [newPost] = useMutation(POST_MESSAGE);
@@ -78,4 +78,4 @@ const TestChat = () => {
     )
 }
 
-export default TestChat
+export default Discussion;

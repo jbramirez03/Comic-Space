@@ -24,7 +24,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Main from './components/pages/main'
-import TestChat from './components/pages/TestChat';
+import Discussion from './components/pages/Discussion';
 
 
 
@@ -46,7 +46,7 @@ function App() {
           <div>
             <Nav />
             <Routes>
-              <Route path="/tester" element={<>{Auth.loggedIn() ? <TestChat /> : <Navigate to="/login" />}</>} />
+              <Route path="/tester" element={<>{Auth.loggedIn() ? <Discussion /> : <Navigate to="/login" />}</>} />
               <Route path="/login" element={<>{Auth.loggedIn() ? <Navigate to="/" /> : <SignInSide />}</>} />
               <Route path="/signup" element={<> {Auth.loggedIn() ? <Navigate to="/" /> : <SignUp />}</>} />
               <Route path="/profile" element={<>{Auth.loggedIn() ? <Profile /> : <Navigate to="/login" />}</>} />
@@ -55,7 +55,7 @@ function App() {
               <Route path="/listings" element={<>{Auth.loggedIn() ? <Listings /> : <Navigate to="/login" />}</>} />
               <Route path="/" element={<>{Auth.loggedIn() ? <Main /> : <Navigate to="/login" />}</>} />
               <Route path="/contributors" element={<Contributors />} />
-              <Route path="/dictaphone" element={<TestChat />} />
+              <Route path="/dictaphone" element={<Discussion />} />
               {/* <Route exact path="/forum" component={Forum} /> */}
             </Routes>
           </div>
