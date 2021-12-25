@@ -46,7 +46,7 @@ function App() {
           <div>
             <Nav />
             <Routes>
-              <Route path="/tester" element={<>{Auth.loggedIn() ? <Discussion /> : <Navigate to="/login" />}</>} />
+              <Route path="/discussion" element={<>{Auth.loggedIn() ? <Discussion /> : <Navigate to="/login" />}</>} />
               <Route path="/login" element={<>{Auth.loggedIn() ? <Navigate to="/" /> : <SignInSide />}</>} />
               <Route path="/signup" element={<> {Auth.loggedIn() ? <Navigate to="/" /> : <SignUp />}</>} />
               <Route path="/profile" element={<>{Auth.loggedIn() ? <Profile /> : <Navigate to="/login" />}</>} />

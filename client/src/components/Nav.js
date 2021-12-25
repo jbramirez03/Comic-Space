@@ -130,8 +130,8 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose} component={Link} to="/contributors">
         Contributors
       </MenuItem>
-      <MenuItem onClick={handleMenuClose} component={Link} to="/dictaphone">
-        Note Taking
+      <MenuItem onClick={handleMenuClose} component={Link} to="/discussion">
+        Join Discussion
       </MenuItem>
       {Auth.loggedIn() && (
         <MenuItem
@@ -140,7 +140,7 @@ export default function PrimarySearchAppBar() {
             Auth.logout();
           }}
           component={Link}
-          to="/dictaphone"
+          to="/"
         >
           Logout
         </MenuItem>
