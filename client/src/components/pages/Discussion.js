@@ -3,6 +3,8 @@ import { useMutation, useQuery, useSubscription } from '@apollo/client';
 import { POST_MESSAGE } from '../../utils/mutations';
 import { MESSAGES, QUERY_ME } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
+import { Container, Typography } from '@mui/material';
+
 
 const Discussion = () => {
     const [content, setContent] = React.useState('');
@@ -29,6 +31,7 @@ const Discussion = () => {
         await newPost({
             variables: { content: content, author: `${userData.firstName} ${userData.lastName}` }
         })
+        setContent('');
     };
 
     const subscribeToChat = React.useCallback(() => {
@@ -51,7 +54,6 @@ const Discussion = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         handlePost();
-        // console.log(message);
     };
 
     if (loading || userLoading) {
@@ -62,19 +64,19 @@ const Discussion = () => {
 
 
     return (
-        <div>
+        <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography component='div'>
+                {messages.map((message, i) => {
+                    return (
+                        <Typography sx={{ display: 'flex', justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}>{message.content} {message.author}</Typography>
+                    )
+                })}
+            </Typography>
             <form action="submit" onSubmit={onSubmit}>
                 <input type="text" placeholder='content' value={content} onChange={e => setContent(e.target.value)} />
                 <button action='submit'>Send</button>
             </form>
-            <div>
-                {messages.map((message, i) => {
-                    return (
-                        <div key={i}>{message.content} {message.author}</div>
-                    )
-                })}
-            </div>
-        </div>
+        </Container>
     )
 }
 
