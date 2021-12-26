@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap");
 
 .App {
   text-align: center;
@@ -153,11 +157,13 @@
   display: inline-block;
   position: relative;
   padding: 20px 30px;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 3px solid black;
   background: white;
   clear: both;
   overflow-wrap: break-word;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
 }
 
 .bubble.left:before {
@@ -190,4 +196,9 @@
   box-shadow: 2px -2px 0 0 #000 inset, 15px 0 0 0 #fff inset,
     17px -2px 0 0 #000 inset;
   right: 0;
+}
+
+.font {
+  font-family: "Expletus Sans", cursive;
+  font-size: medium;
 }
