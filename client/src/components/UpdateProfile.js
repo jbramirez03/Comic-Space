@@ -32,7 +32,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="/profile">
+      <Link color="inherit" to="/profile">
         View Your Profile
       </Link>{" "}
       {new Date().getFullYear()}
@@ -178,7 +178,7 @@ export default function UpdateProfile() {
             />
             <TextField
               margin="normal"
-              multiline="true"
+              multiline={true}
               fullWidth
               color="warning"
               name="favoriteChar"

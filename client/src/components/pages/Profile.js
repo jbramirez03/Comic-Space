@@ -243,6 +243,7 @@ export default function Profile() {
                   >
                     Update Profile
                   </Button>
+
                   <Button variant="contained">DM</Button>
                   <Button variant="outlined" style={{ color: "white" }}>
                     Add Friend
