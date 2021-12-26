@@ -64,11 +64,11 @@ const Discussion = () => {
 
 
     return (
-        <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', border: 1, marginTop: '3rem', padding: '3rem', borderColor: 'grey', borderRadius: '.5rem' }}>
+        <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', border: 1, marginTop: '3rem', padding: '3rem', borderColor: 'grey', borderRadius: '.5rem', }}>
             <Typography component='div'>
                 {messages.map((message, i) => {
                     return (
-                        <Typography className={message.author === `${userData.firstName} ${userData.lastName}` ? 'bubble right' : 'bubble left'} sx={{ display: 'flex', justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}>{message.content} <br /> Posted by: {message.author}</Typography>
+                        <Typography className={message.author === `${userData.firstName} ${userData.lastName}` ? 'bubble right' : 'bubble left'} sx={{ display: 'flex', justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}>{message.content} <span className='font'> <br />Posted by: {message.author}</span></Typography>
                     )
                 })}
             </Typography>
