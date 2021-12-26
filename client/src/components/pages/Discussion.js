@@ -1,13 +1,14 @@
 import React from 'react'
 import { useMutation, useQuery, useSubscription } from '@apollo/client';
 import { POST_MESSAGE } from '../../utils/mutations';
-import { MESSAGES } from '../../utils/queries';
+import { MESSAGES, QUERY_ME } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
 
 const Discussion = () => {
     const [content, setContent] = React.useState('');
-    const [author, setAuthor] = React.useState('');
     const [newPost] = useMutation(POST_MESSAGE);
+    const { userLoading, data } = useQuery(QUERY_ME);
+    const userData = data?.me || [];
     const {
         subscribeToMore,
         loading,
@@ -26,7 +27,7 @@ const Discussion = () => {
 
     const handlePost = async () => {
         await newPost({
-            variables: { content: content, author: author }
+            variables: { content: content, author: `${userData.firstName} ${userData.lastName}` }
         })
     };
 
@@ -53,7 +54,7 @@ const Discussion = () => {
         // console.log(message);
     };
 
-    if (loading) {
+    if (loading || userLoading) {
         return (
             <div>loading...</div>
         )
@@ -64,7 +65,6 @@ const Discussion = () => {
         <div>
             <form action="submit" onSubmit={onSubmit}>
                 <input type="text" placeholder='content' value={content} onChange={e => setContent(e.target.value)} />
-                <input type="text" placeholder='author' value={author} onChange={e => setAuthor(e.target.value)} />
                 <button action='submit'>Send</button>
             </form>
             <div>
