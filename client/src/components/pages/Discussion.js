@@ -4,6 +4,7 @@ import { POST_MESSAGE } from '../../utils/mutations';
 import { MESSAGES, QUERY_ME } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
 import { Container, Typography, Paper } from '@mui/material';
+import Auth from '../../utils/auth';
 
 
 const Discussion = () => {
