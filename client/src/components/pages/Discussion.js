@@ -5,6 +5,12 @@ import { MESSAGES, QUERY_ME } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
 import { Container, Typography, Paper } from '@mui/material';
 
+const styles = {
+    bubble: {
+        display: 'flex',
+        marginBottom: '15px'
+    }
+}
 
 const Discussion = () => {
     const [content, setContent] = React.useState('');
@@ -68,7 +74,7 @@ const Discussion = () => {
             <Typography component='div'>
                 {messages.map((message, i) => {
                     return (
-                        <Typography sx={{ display: 'flex', marginBottom: '15px', justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}><Paper sx={{ padding: '.5rem' }} elevation={4}>{message.content}<br />Posted by: {message.author}</Paper></Typography>
+                        <Typography sx={{ ...styles.bubble, justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}><Paper sx={{ padding: '.5rem', backgroundColor: `${message.author === `${userData.firstName} ${userData.lastName}` ? '#E0E0E0' : '#B0BEC5'}` }} elevation={4}>{message.content}<br />Posted by: {message.author}</Paper></Typography>
                     )
                 })}
             </Typography>
