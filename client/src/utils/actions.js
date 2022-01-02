@@ -1,16 +1,11 @@
-export const CHANGE_PAGE = "CHANGE_PAGE";
-export const CHANGE_URL = "CHANGE_URL";
-
-
-
 export const UPDATE_COMICS = "UPDATE_COMICS";
-
-export const ADD_TO_CART = "ADD_TO_CART";
-export const ADD_MULTIPLE_TO_CART = "ADD_MULTIPLE_TO_CART";
-export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
-export const CLEAR_CART = "CLEAR_CART";
-export const UPDATE_CART_QUANTITY = "UPDATE_CART_QUANTITY";
-export const TOGGLE_CART = "TOGGLE_CART";
-
-export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";
-export const UPDATE_CURRENT_CATEGORY = "UPDATE_CURRENT_CATEGORY";
+export const REMOVE_COMIC = "REMOVE_COMICS";
+export const UPDATE_SAVED = "UPDATE_SAVED";
+export const UPDATE_WISHLIST = "UPDATE_WISHLIST";
+export const REMOVE_SAVED = "REMOVE_SAVED";
+export const REMOVE_WISHED = "REMOVE_WISHED";
+export const POSTS = "POSTS";
+export const UPDATE_POSTS = "POSTS";
+export const COMICS = "COMICS";
+export const SAVED = "SAVED";
+export const WISHED = "WISHED";
