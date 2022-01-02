@@ -9,3 +9,4 @@ export const UPDATE_POSTS = "POSTS";
 export const COMICS = "COMICS";
 export const SAVED = "SAVED";
 export const WISHED = "WISHED";
+export const ADD_COMIC = "ADD_COMIC";

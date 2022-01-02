@@ -1,21 +1,20 @@
 import {
   UPDATE_COMICS,
-  ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
-  REMOVE_FROM_CART,
-  ADD_MULTIPLE_TO_CART,
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
-  CLEAR_CART,
-  TOGGLE_CART,
+  UPDATE_POSTS,
+  UPDATE_SAVED,
+  UPDATE_WISHLIST,
+  REMOVE_COMIC,
+  REMOVE_SAVED,
+  REMOVE_WISHED,
+  POSTS,
+  ADD_COMIC
 } from "./actions";
 // comment for chris to get changes
 const initialState = {
   comics: [],
-  categories: [],
-  currentCategory: "",
-  cart: [],
-  cartOpen: false,
+  posts: [],
+  wishlist: [],
+  saved: [],
 };
 
 export const reducers = (state = initialState, action) => {
@@ -26,17 +25,19 @@ export const reducers = (state = initialState, action) => {
         comics: [...action.comics],
       };
 
-    case ADD_TO_CART:
+    case ADD_COMIC:
+      const newComic = { ...action.payload };
       return {
         ...state,
-        cartOpen: true,
-        cart: [...state.cart, action.comic],
+        comics: [...state.comics, newComic],
       };
 
-    case ADD_MULTIPLE_TO_CART:
+    case REMOVE_SAVED:
+      const comicToRemove = state.comics.findIndex(comic => comic.id === action.payload);
+      const updatedComics = state.comics.filter(comic => comic.id !== comicToRemove);
       return {
         ...state,
-        cart: [...state.cart, ...action.comics],
+        comics: [...updatedComics],
       };
 
     case UPDATE_CART_QUANTITY:
