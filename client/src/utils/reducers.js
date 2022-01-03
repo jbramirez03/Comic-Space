@@ -38,19 +38,40 @@ export const reducers = (state = initialState, action) => {
       return {
         ...state,
         saved: [...action.saved],
-      }
+      };
 
     case UPDATE_WISHLIST:
       return {
         ...state,
         wishlist: [...action.wishlist],
-      }
+      };
 
     case ADD_COMIC:
       const newComic = { ...action.payload };
       return {
         ...state,
         comics: [...state.comics, newComic],
+      };
+
+    case ADD_SAVED:
+      const newSaved = { ...action.payload };
+      return {
+        ...state,
+        saved: [...state.saved, newSaved],
+      }
+
+    case ADD_WISHLIST:
+      const newWish = { ...action.payload };
+      return {
+        ...state,
+        wishlist: [...state.wishlist, newWish]
+      };
+
+    case ADD_POST:
+      const newPost = { ...action.payload };
+      return {
+        ...state,
+        posts: [...state.posts, newPost]
       };
 
     case REMOVE_SAVED:
