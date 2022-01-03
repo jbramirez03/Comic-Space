@@ -33,8 +33,7 @@ export const reducers = (state = initialState, action) => {
       };
 
     case REMOVE_SAVED:
-      const comicToRemove = state.comics.findIndex(comic => comic.id === action.payload);
-      const updatedComics = state.comics.filter(comic => comic.id !== comicToRemove);
+      const updatedComics = state.comics.filter(comic => comic.id !== action.payload);
       return {
         ...state,
         comics: [...updatedComics],
