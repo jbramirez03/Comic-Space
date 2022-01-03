@@ -12,6 +12,8 @@ import { setContext } from "@apollo/client/link/context";
 import { split, HttpLink } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { WebSocketLink } from '@apollo/client/link/ws';
+import { Provider } from 'react-redux';
+import store from '../src/utils/store';
 
 const wsLink = new WebSocketLink({
   uri: process.env.NODE_ENV === 'production'
@@ -59,7 +61,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <>
     <ApolloProvider client={client}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ApolloProvider>
   </>,
   document.getElementById('root')
