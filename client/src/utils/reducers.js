@@ -11,7 +11,6 @@ import {
   ADD_WISHLIST,
   ADD_POST,
   REMOVE_POST,
-  REMOVE_SAVED
 } from "./actions";
 // comment for chris to get changes
 const initialState = {
@@ -76,24 +75,24 @@ export const reducers = (state = initialState, action) => {
       };
 
     case REMOVE_SAVED:
-      const updatedComics = state.saved.filter(saved => saved.id !== action.payload);
+      const updatedSaved = state.saved.filter(saved => saved.id !== action.payload);
       return {
         ...state,
-        comics: [...updatedComics],
+        comics: [...updatedSaved],
       };
 
     case REMOVE_WISHED:
-      const updatedComics = state.wishlist.filter(wish => wish.id !== action.payload);
+      const updatedWished = state.wishlist.filter(wish => wish.id !== action.payload);
       return {
         ...state,
-        wishlist: [...updatedComics],
+        wishlist: [...updatedWished],
       }
 
     case REMOVE_POST:
-      const updatedComics = state.posts.filter(post => post.id !== action.payload);
+      const updatedPosts = state.posts.filter(post => post.id !== action.payload);
       return {
         ...state,
-        posts: [...updatedComics],
+        posts: [...updatedPosts],
       }
 
     case REMOVE_COMIC:
