@@ -7,7 +7,10 @@ import {
   REMOVE_SAVED,
   REMOVE_WISHED,
   POSTS,
-  ADD_COMIC
+  ADD_COMIC,
+  ADD_SAVED,
+  ADD_WISHLIST,
+  ADD_POST
 } from "./actions";
 // comment for chris to get changes
 const initialState = {
@@ -24,6 +27,24 @@ export const reducers = (state = initialState, action) => {
         ...state,
         comics: [...action.comics],
       };
+
+    case UPDATE_POSTS:
+      return {
+        ...state,
+        posts: [...action.posts],
+      };
+
+    case UPDATE_SAVED:
+      return {
+        ...state,
+        saved: [...action.saved],
+      }
+
+    case UPDATE_WISHLIST:
+      return {
+        ...state,
+        wishlist: [...action.wishlist],
+      }
 
     case ADD_COMIC:
       const newComic = { ...action.payload };

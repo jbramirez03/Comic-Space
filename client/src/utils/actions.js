@@ -10,3 +10,7 @@ export const COMICS = "COMICS";
 export const SAVED = "SAVED";
 export const WISHED = "WISHED";
 export const ADD_COMIC = "ADD_COMIC";
+export const ADD_SAVED = "ADD_SAVED";
+export const ADD_WISHLIST = "ADD_WISHLIST";
+export const ADD_POST = "ADD_POST";
+
