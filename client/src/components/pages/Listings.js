@@ -5,6 +5,8 @@ import MainImage from "../MainImage";
 import Info from "../Info";
 import { useQuery } from '@apollo/client';
 import { LISTINGS } from '../../utils/queries';
+import { UPDATE_POSTS } from '../../utils/actions';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 export default function Listings() {
