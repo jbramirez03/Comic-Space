@@ -6,11 +6,12 @@ import {
   REMOVE_COMIC,
   REMOVE_SAVED,
   REMOVE_WISHED,
-  POSTS,
   ADD_COMIC,
   ADD_SAVED,
   ADD_WISHLIST,
-  ADD_POST
+  ADD_POST,
+  REMOVE_POST,
+  REMOVE_SAVED
 } from "./actions";
 // comment for chris to get changes
 const initialState = {
@@ -75,59 +76,32 @@ export const reducers = (state = initialState, action) => {
       };
 
     case REMOVE_SAVED:
-      const updatedComics = state.comics.filter(comic => comic.id !== action.payload);
+      const updatedComics = state.saved.filter(saved => saved.id !== action.payload);
       return {
         ...state,
         comics: [...updatedComics],
       };
 
-    case UPDATE_CART_QUANTITY:
+    case REMOVE_WISHED:
+      const updatedComics = state.wishlist.filter(wish => wish.id !== action.payload);
       return {
         ...state,
-        cartOpen: true,
-        cart: state.cart.map(comic => {
-          if (action._id === comic._id) {
-            comic.purchaseQuantity = action.purchaseQuantity;
-          }
-          return comic;
-        }),
-      };
+        wishlist: [...updatedComics],
+      }
 
-    case REMOVE_FROM_CART:
-      let newState = state.cart.filter(comic => {
-        return comic._id !== action._id;
-      });
-
+    case REMOVE_POST:
+      const updatedComics = state.posts.filter(post => post.id !== action.payload);
       return {
         ...state,
-        cartOpen: newState.length > 0,
-        cart: newState,
-      };
+        posts: [...updatedComics],
+      }
 
-    case CLEAR_CART:
+    case REMOVE_COMIC:
+      const updatedComics = state.comics.filter(comic => comic.id !== action.payload);
       return {
         ...state,
-        cartOpen: false,
-        cart: [],
-      };
-
-    case TOGGLE_CART:
-      return {
-        ...state,
-        cartOpen: !state.cartOpen,
-      };
-
-    case UPDATE_CATEGORIES:
-      return {
-        ...state,
-        categories: [...action.categories],
-      };
-
-    case UPDATE_CURRENT_CATEGORY:
-      return {
-        ...state,
-        currentCategory: action.currentCategory,
-      };
+        comics: [...updatedComics],
+      }
 
     default:
       return state;

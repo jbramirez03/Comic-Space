@@ -13,4 +13,4 @@ export const ADD_COMIC = "ADD_COMIC";
 export const ADD_SAVED = "ADD_SAVED";
 export const ADD_WISHLIST = "ADD_WISHLIST";
 export const ADD_POST = "ADD_POST";
-
+export const REMOVE_POST = "REMOVE_POST";
