@@ -5,26 +5,26 @@ import MainImage from "../MainImage";
 import Info from "../Info";
 import { useQuery } from '@apollo/client';
 import { LISTINGS } from '../../utils/queries';
-import { UPDATE_POSTS } from '../../utils/actions';
+// import { UPDATE_POSTS } from '../../utils/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 
 export default function Listings() {
   const state = useSelector(state => state);
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const { loading, data } = useQuery(LISTINGS);
   const [selectedImage, setSelectedImage] = useState(0);
   const [comics, setComics] = useState([]);
   let images = [];
-  const { posts } = state;
+  // const { posts } = state;
   useEffect(() => {
     if (!loading) {
       console.log('not loading');
       setComics([...data.posts]);
-      dispatch({
-        type: UPDATE_POSTS,
-        posts: data.posts
-      });
+      // dispatch({
+      //   type: UPDATE_POSTS,
+      //   posts: data.posts
+      // });
     } else {
       console.log('still loading')
     }
@@ -61,7 +61,7 @@ export default function Listings() {
           <Info {...comics[selectedImage]} />
         </Grid>
       </Grid>
-      <button onClick={() => console.log(posts)}>check</button>
+      <button onClick={() => console.log(state)}>check</button>
     </div>
   );
 }

@@ -25,7 +25,10 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Main from './components/pages/main'
 import Discussion from './components/pages/Discussion';
-
+import { QUERY_ME, LISTINGS } from '../src/utils/queries';
+import { useQuery } from '@apollo/client';
+import { useSelector, useDispatch } from 'react-redux';
+import { UPDATE_WISHLIST, UPDATE_POSTS } from '../src/utils/actions';
 
 
 const AlertTemplate = ({ style, options, message, close }) => (
@@ -39,6 +42,31 @@ const AlertTemplate = ({ style, options, message, close }) => (
 
 
 function App() {
+  // const state = useSelector(state => state);
+  const dispatch = useDispatch()
+  const { loading, data } = useQuery(QUERY_ME);
+  const { loading: listingsLoading, data: listingsData } = useQuery(LISTINGS);
+  const userData = data?.me || [];
+
+  React.useEffect(() => {
+    if (Auth.loggedIn() && !loading) {
+      dispatch({
+        type: UPDATE_WISHLIST,
+        wishlist: userData.wishlist
+      });
+    }
+  }, [loading]);
+
+  React.useEffect(() => {
+    if (!listingsLoading) {
+      dispatch({
+        type: UPDATE_POSTS,
+        posts: listingsData.posts
+      });
+      console.log(listingsData)
+    }
+  }, [listingsLoading]);
+
   return (
     <>
       <Router>
