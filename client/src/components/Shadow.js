@@ -1,5 +1,5 @@
 import React from "react";
-import Flippy, { FrontSide, BackSide } from "react-flippy";
+import Flippy, { FrontSide } from "react-flippy";
 import Grid from "@mui/material/Grid";
 
 import Skeleton from "@mui/material/Skeleton";

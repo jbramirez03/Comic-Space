@@ -2,7 +2,7 @@ import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { SAVE_COMIC, REMOVE_COMIC, WISH_COMIC, POST_COMIC } from '../../utils/mutations';
+import { POST_COMIC } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { QUERY_ME } from '../../utils/queries'
 import Pagination from '@mui/material/Pagination';

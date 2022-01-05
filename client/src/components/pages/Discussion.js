@@ -3,7 +3,7 @@ import { useMutation, useQuery, useSubscription } from '@apollo/client';
 import { POST_MESSAGE } from '../../utils/mutations';
 import { MESSAGES, QUERY_ME } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
-import { Container, Typography, Paper, TextField, Button } from '@mui/material';
+import { Container, Typography, Paper, TextField } from '@mui/material';
 
 const styles = {
     bubble: {

@@ -1,6 +1,6 @@
 import HTMLFlipBook from "react-pageflip";
 import comic1 from "../../images/comic1.jpg";
-import comi from "../../images/comi.jpg";
+// import comi from "../../images/comi.jpg";
 import chris from "../../images/chris.jpg";
 import Boom from "../../images/boom.jpeg";
 import Spines from "../../images/collectionSpines.jpeg";

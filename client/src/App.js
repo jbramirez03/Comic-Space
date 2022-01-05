@@ -1,5 +1,5 @@
 import React from "react";
-import Dictaphone from "./components/pages/Dictaphone";
+// import Dictaphone from "./components/pages/Dictaphone";
 import {
   HashRouter as Router,
   Route,
@@ -15,8 +15,8 @@ import Nav from "./components/Nav";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/pages/Profile";
 import Listings from "./components/pages/Listings";
-import Tester from "./components/pages/Tester";
-import Forum from "./components/pages/Forum";
+// import Tester from "./components/pages/Tester";
+// import Forum from "./components/pages/Forum";
 import Auth from "./utils/auth";
 import { Provider as AlertProvider } from 'react-alert';
 import Alert from '@mui/material/Alert';

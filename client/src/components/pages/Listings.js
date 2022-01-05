@@ -6,7 +6,7 @@ import Info from "../Info";
 import { useQuery } from '@apollo/client';
 import { LISTINGS } from '../../utils/queries';
 // import { UPDATE_POSTS } from '../../utils/actions';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 export default function Listings() {
@@ -28,7 +28,7 @@ export default function Listings() {
     } else {
       console.log('still loading')
     }
-  }, [loading]);
+  }, [loading, data]);
 
   if (loading) {
     return (
