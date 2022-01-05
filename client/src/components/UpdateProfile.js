@@ -3,15 +3,15 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+// import FormControlLabel from "@mui/material/FormControlLabel";
+// import Checkbox from "@mui/material/Checkbox";
 // import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
+// import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Input from "@mui/material/Input";
+// import Input from "@mui/material/Input";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useQuery, useMutation } from "@apollo/client";
@@ -21,7 +21,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 
 import Axios from "axios";
-import { Image } from "cloudinary-react";
+// import { Image } from "cloudinary-react";
 
 function Copyright(props) {
   return (
