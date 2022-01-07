@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 import { LISTINGS } from '../../utils/queries';
 // import { UPDATE_POSTS } from '../../utils/actions';
 import { useSelector } from 'react-redux';
+// import notifier from 'node-notifier';
 
 
 export default function Listings() {

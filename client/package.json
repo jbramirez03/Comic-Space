@@ -19,6 +19,7 @@
     "crypto-js": "^4.1.1",
     "graphql": "^15.6.1",
     "jwt-decode": "^2.2.0",
+    "node-notifier": "^10.0.0",
     "react": "^17.0.2",
     "react-alert": "^7.0.3",
     "react-alert-template-mui": "^1.0.7",
