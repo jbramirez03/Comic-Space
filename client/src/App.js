@@ -69,7 +69,7 @@ function App() {
         wishlist: userData.wishlist
       });
 
-      checkListings();
+      // checkListings();
     }
   }, [loading]);
 
