@@ -48,12 +48,28 @@ function App() {
   const { loading: listingsLoading, data: listingsData } = useQuery(LISTINGS);
   const userData = data?.me || [];
 
+  const checkListings = () => {
+    let check = false;
+    for (let i = 0; i < userData.wishlist.length; i++) {
+      for (let k = 0; k < listingsData.posts.length; k++) {
+        if (userData.wishlist[i].comicId === listingsData.posts[k].comicId) {
+          check = true;
+          console.log(check);
+        } else {
+          console.log(check);
+        }
+      }
+    }
+  }
+
   React.useEffect(() => {
     if (Auth.loggedIn() && !loading) {
       dispatch({
         type: UPDATE_WISHLIST,
         wishlist: userData.wishlist
       });
+
+      checkListings();
     }
   }, [loading]);
 
@@ -66,6 +82,7 @@ function App() {
       console.log(listingsData)
     }
   }, [listingsLoading]);
+
 
   return (
     <>
