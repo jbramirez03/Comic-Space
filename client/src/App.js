@@ -29,6 +29,7 @@ import { QUERY_ME, LISTINGS } from '../src/utils/queries';
 import { useQuery } from '@apollo/client';
 import { useSelector, useDispatch } from 'react-redux';
 import { UPDATE_WISHLIST, UPDATE_POSTS } from '../src/utils/actions';
+import { Toaster } from 'react-hot-toast';
 
 
 const AlertTemplate = ({ style, options, message, close }) => (
@@ -88,6 +89,7 @@ function App() {
     <>
       <Router>
         <AlertProvider template={AlertTemplate}>
+          <Toaster />
           <div>
             <Nav />
             <Routes>
