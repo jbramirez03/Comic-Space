@@ -8,6 +8,8 @@ import { LISTINGS } from '../../utils/queries';
 // import { UPDATE_POSTS } from '../../utils/actions';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { RiCloseLine } from 'react-icons/ri';
+import { IconButton } from '@mui/material';
 
 
 export default function Listings() {
@@ -30,6 +32,7 @@ export default function Listings() {
       console.log('still loading')
     }
   }, [loading, data]);
+
 
   if (loading) {
     return (
@@ -63,7 +66,21 @@ export default function Listings() {
         </Grid>
       </Grid>
       <button onClick={() => console.log(state)}>check</button>
-      <button onClick={() => toast('hello world', { duration: 4000, position: 'top-center' })}>Notify</button>
+      <button onClick={() => {
+        toast(
+          (t) => (
+            <span>
+              Custom and <b>bold</b>
+              <IconButton sx={{ marginLeft: '15px' }} onClick={() => toast.dismiss(t.id)}><RiCloseLine /></IconButton>
+              <br />
+
+            </span>
+          ),
+          {
+            duration: 10000
+          }
+        );
+      }}>Notify</button>
     </div >
   );
 }
