@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/client';
 import { LISTINGS } from '../../utils/queries';
 // import { UPDATE_POSTS } from '../../utils/actions';
 import { useSelector } from 'react-redux';
-// import notifier from 'node-notifier';
+import toast from 'react-hot-toast';
 
 
 export default function Listings() {
@@ -63,6 +63,7 @@ export default function Listings() {
         </Grid>
       </Grid>
       <button onClick={() => console.log(state)}>check</button>
-    </div>
+      <button onClick={() => toast('hello world', { duration: 4000, position: 'top-center' })}>Notify</button>
+    </div >
   );
 }
