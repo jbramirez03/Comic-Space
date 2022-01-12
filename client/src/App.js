@@ -56,22 +56,24 @@ function App() {
       for (let k = 0; k < listingsData.posts.length; k++) {
         if (userData.wishlist[i].comicId === listingsData.posts[k].comicId) {
           check = true;
-          toast(
-            (t) => (
-              <p>
-                <IconButton sx={{ marginLeft: '17.5rem', marginTop: '-25px' }} onClick={() => toast.dismiss(t.id)}><RiCloseLine /></IconButton>
-                <br />
-
-                A comic you have on your wishlist has been posted for sale/trade!
-
-              </p>
-            ),
-            {
-              duration: 30000
-            }
-          );
         }
       }
+    }
+    if (check) {
+      toast(
+        (t) => (
+          <p>
+            <IconButton sx={{ marginLeft: '17.5rem', marginTop: '-25px' }} onClick={() => toast.dismiss(t.id)}><RiCloseLine /></IconButton>
+            <br />
+
+            A comic you have on your wishlist has been posted for sale/trade!
+
+          </p>
+        ),
+        {
+          duration: 30000
+        }
+      );
     }
   }
 
