@@ -52,16 +52,13 @@ function App() {
 
   const checkListings = () => {
     let check = false;
-    // if (!loading && !listingsLoading) {
     for (let i = 0; i < userData.wishlist.length; i++) {
       for (let k = 0; k < listingsData.posts.length; k++) {
         if (userData.wishlist[i].comicId === listingsData.posts[k].comicId) {
           check = true;
-          console.log(check);
           toast(
             (t) => (
               <p>
-                {/* Custom and <b>bold</b> */}
                 <IconButton sx={{ marginLeft: '17.5rem', marginTop: '-25px' }} onClick={() => toast.dismiss(t.id)}><RiCloseLine /></IconButton>
                 <br />
 
@@ -73,12 +70,9 @@ function App() {
               duration: 30000
             }
           );
-        } else {
-          console.log(check);
         }
       }
     }
-    // }
   }
 
   React.useEffect(() => {
@@ -87,8 +81,6 @@ function App() {
         type: UPDATE_WISHLIST,
         wishlist: userData.wishlist
       });
-
-      // checkListings();
     }
   }, [loading, data]);
 
