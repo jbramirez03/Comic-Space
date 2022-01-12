@@ -29,7 +29,8 @@ import { QUERY_ME, LISTINGS } from '../src/utils/queries';
 import { useQuery } from '@apollo/client';
 import { useSelector, useDispatch } from 'react-redux';
 import { UPDATE_WISHLIST, UPDATE_POSTS } from '../src/utils/actions';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
+import { RiCloseLine } from 'react-icons/ri';
 
 
 const AlertTemplate = ({ style, options, message, close }) => (
@@ -51,16 +52,33 @@ function App() {
 
   const checkListings = () => {
     let check = false;
+    // if (!loading && !listingsLoading) {
     for (let i = 0; i < userData.wishlist.length; i++) {
       for (let k = 0; k < listingsData.posts.length; k++) {
         if (userData.wishlist[i].comicId === listingsData.posts[k].comicId) {
           check = true;
           console.log(check);
+          toast(
+            (t) => (
+              <p>
+                {/* Custom and <b>bold</b> */}
+                <IconButton sx={{ marginLeft: '17.5rem', marginTop: '-25px' }} onClick={() => toast.dismiss(t.id)}><RiCloseLine /></IconButton>
+                <br />
+
+                A comic you have on your wishlist has been posted for sale/trade!
+
+              </p>
+            ),
+            {
+              duration: 30000
+            }
+          );
         } else {
           console.log(check);
         }
       }
     }
+    // }
   }
 
   React.useEffect(() => {
@@ -72,7 +90,7 @@ function App() {
 
       // checkListings();
     }
-  }, [loading]);
+  }, [loading, data]);
 
   React.useEffect(() => {
     if (!listingsLoading) {
@@ -82,7 +100,13 @@ function App() {
       });
       console.log(listingsData)
     }
-  }, [listingsLoading]);
+  }, [listingsLoading, listingsData]);
+
+  React.useEffect(() => {
+    if (!listingsLoading && !loading && Auth.loggedIn()) {
+      checkListings()
+    }
+  })
 
 
   return (
