@@ -3,7 +3,9 @@ import { useMutation, useQuery, useSubscription } from '@apollo/client';
 import { POST_MESSAGE } from '../../utils/mutations';
 import { MESSAGES, QUERY_ME } from '../../utils/queries';
 import { MESSAGES_SUBSCRIPTION } from '../../utils/subscriptions';
-import { Container, Typography, Paper, TextField } from '@mui/material';
+import { Container, Typography, Paper, TextField, IconButton } from '@mui/material';
+import { AiOutlineArrowUp } from 'react-icons/ai';
+import { useAlert } from 'react-alert';
 
 const styles = {
     bubble: {
@@ -17,6 +19,7 @@ const Discussion = () => {
     const [newPost] = useMutation(POST_MESSAGE);
     const { userLoading, data } = useQuery(QUERY_ME);
     const userData = data?.me || [];
+    const alert = useAlert();
     const {
         subscribeToMore,
         loading,
@@ -59,7 +62,13 @@ const Discussion = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        handlePost();
+        if (content === '') {
+            alert.show('Must type something before hitting send')
+            return;
+        } else {
+            handlePost();
+
+        }
     };
 
     if (loading || userLoading) {
@@ -87,7 +96,7 @@ const Discussion = () => {
                     onChange={e => setContent(e.target.value)}
                     label='Enter Text Here...'
                 />
-                <button action='submit'>Send</button>
+                <IconButton type='submit'><AiOutlineArrowUp>Send</AiOutlineArrowUp></IconButton>
 
             </form>
 
