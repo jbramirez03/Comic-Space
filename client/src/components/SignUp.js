@@ -14,13 +14,6 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import {
-  HashRouter as Router,
-  Route,
-  Navigate,
-  Routes,
-  Link
-} from "react-router-dom";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 // import Boom from "../images/boom.jpeg";
@@ -38,7 +31,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Mlink color="inherit" href="https://mui.com/">
+      <Mlink color="inherit" href="https://github.com/jbramirez03/Comic-Space">
         Comic Space
       </Mlink>{" "}
       {new Date().getFullYear()}
@@ -188,11 +181,10 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link to='/login'>
-                  {/* <Mlink href="/login" variant='body2'> */}
+
+                <Mlink href="#/login" variant='body2'>
                   Already have an account? Sign in
-                  {/* </Mlink> */}
-                </Link>
+                </Mlink>
               </Grid>
             </Grid>
           </Box>
