@@ -152,3 +152,8 @@
     transform: rotate(360deg);
   }
 }
+
+.submitBtn {
+  display: flex;
+  justify-content: flex-end;
+}
