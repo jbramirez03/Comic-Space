@@ -79,11 +79,11 @@ const Discussion = () => {
 
 
     return (
-        <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', border: 1, marginTop: '3rem', padding: '3rem', borderColor: 'grey', borderRadius: '.5rem', }}>
+        <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', border: 1, marginTop: '3rem', padding: '3rem', borderColor: 'grey', borderRadius: '.5rem', backgroundColor: '#fafafa' }}>
             <Typography component='div'>
                 {messages.map((message, i) => {
                     return (
-                        <Typography component='div' sx={{ ...styles.bubble, justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}><Paper sx={{ padding: '.5rem', backgroundColor: `${message.author === `${userData.firstName} ${userData.lastName}` ? '#E0E0E0' : '#B0BEC5'}` }} elevation={4}>{message.content}<br />Posted by: {message.author}</Paper></Typography>
+                        <Typography component='div' sx={{ ...styles.bubble, justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}><Paper sx={{ padding: '.5rem', backgroundColor: `${message.author === `${userData.firstName} ${userData.lastName}` ? '#bbdefb' : '#8aacc8'}` }} elevation={4}>{message.content}<br />Posted by: {message.author}</Paper></Typography>
                     )
                 })}
             </Typography>
@@ -96,8 +96,10 @@ const Discussion = () => {
                     onChange={e => setContent(e.target.value)}
                     label='Enter Text Here...'
                 />
-                <IconButton type='submit'><AiOutlineArrowUp>Send</AiOutlineArrowUp></IconButton>
+                <div className='submitBtn'>
+                    <IconButton type='submit'><AiOutlineArrowUp>Send</AiOutlineArrowUp></IconButton>
 
+                </div>
             </form>
 
         </Container>
