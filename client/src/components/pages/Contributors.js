@@ -203,10 +203,11 @@ const Contributors = () => {
                 <li>Material UI</li>
                 <li>Cloudinary</li>
                 <li>JWT Decode</li>
-                <li>Flippy</li>
-                <li>React Router</li>
-                <li>Axios</li>
+                <li>Flippy npm</li>
+
                 <li>Redux</li>
+                <li>React Alert</li>
+                <li>React-Hot-Toast</li>
               </ul>
             </div>
           </div>
@@ -272,7 +273,7 @@ const Contributors = () => {
                 <li>Custom photos and Logo design</li>
               </ul>
             </div>
-            <div className="column2" style={styles.column2}>
+            {/* <div className="column2" style={styles.column2}>
               <ul style={styles.ul}>
                 <br />
                 <strong>Jimmy</strong>
@@ -280,7 +281,7 @@ const Contributors = () => {
                 <li>Material UI Components</li>
                 <li>Front End JavaScript</li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -307,8 +308,8 @@ const Contributors = () => {
                 Listings Comics for sale and using Stripe for transactions
               </li>
               <li>Web Forum</li>
-              <li>Live Chat between users</li>
-              <li>Direct Messages and Notifications</li>
+              <li>Fine tune live chat feature to persist across all pages.</li>
+              <li>Direct Messages and Notifications between users.</li>
               <li>Additional APIs for DC Comics and Independent Publishers</li>
             </ul>
           </p>
@@ -443,20 +444,20 @@ const Contributors = () => {
         <div className="info">
           <h1 style={styles.h1}>About Me</h1>
           <p style={styles.p}>
-          A new full stack web developer with a background in managing people. Graduate 
-          of the Full Stack Developer Boot Camp at UNC Chapel Hill. Passionate about 
-          solving complex problems with creative thinking.  Lover of sports and games - 
-          really anything that can be analyzed and evaluated in creative ways.   
+            A new full stack web developer with a background in managing people.
+            Graduate of the Full Stack Developer Boot Camp at UNC Chapel Hill.
+            Passionate about solving complex problems with creative thinking.
+            Lover of sports and games - really anything that can be analyzed and
+            evaluated in creative ways.
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
-            My role for this application was front-end design and javascript.
-             I helped with the creation of the front-end structure and 
-             utilized unique material UI concepts to add extra UI features to 
-             the app. I also started working on future development ideas such as
-             a public forum as well as a discover page to find other users, so that
-             people can interact with each other.  
-            
+            My role for this application was front-end design and javascript. I
+            helped with the creation of the front-end structure and utilized
+            unique material UI concepts to add extra UI features to the app. I
+            also started working on future development ideas such as a public
+            forum as well as a discover page to find other users, so that people
+            can interact with each other.
           </p>
         </div>
       </div>
@@ -578,14 +579,23 @@ const Contributors = () => {
           <p style={styles.p}>
             Full Stack Web Developer, love developing apps and websites with a
             focus on mobile-first design & graduate of the UNC Chapel Hill
-            Coding Boot Camp.
-            I have nurtured a keen interest in Computer Science. I find it fascinating along with Communications and Media.When I was a child, I was engrossed by computer games which later developed into a passion for programming. I love problem solving, Math and Physics and that is why I chose web development as my future career because of its flexibility, innovativeness, and challenging nature.
+            Coding Boot Camp. I have nurtured a keen interest in Computer
+            Science. I find it fascinating along with Communications and
+            Media.When I was a child, I was engrossed by computer games which
+            later developed into a passion for programming. I love problem
+            solving, Math and Physics and that is why I chose web development as
+            my future career because of its flexibility, innovativeness, and
+            challenging nature.
           </p>
           <h1 style={styles.h1}>My Role:</h1>
           <p style={styles.p}>
             My role in this application was focused on functionality and
             handling queries and mutations made with graphql that are handled
-            through resolvers and setting up the starter code base in the backend. I also in the front end i added the Contributor page that contain all the info about all of us, and i added the realtime chat in the front-end and helped setting up some functionality in front-end as well.
+            through resolvers and setting up the starter code base in the
+            backend. I also in the front end i added the Contributor page that
+            contain all the info about all of us, and i added the realtime chat
+            in the front-end and helped setting up some functionality in
+            front-end as well.
           </p>
         </div>
       </div>
