@@ -81,6 +81,9 @@ const Discussion = () => {
     return (
         <Container maxWidth='xl' sx={{ display: 'flex', flexDirection: 'column', border: 1, marginTop: '3rem', padding: '3rem', borderColor: 'grey', borderRadius: '.5rem', backgroundColor: '#fafafa' }}>
             <Typography component='div'>
+                <Typography variant="h2" gutterBottom component="div" sx={{ textAlign: 'center', marginBottom: '5rem' }}>
+                    Who is your favorite Marvel character??
+                </Typography>
                 {messages.map((message, i) => {
                     return (
                         <Typography component='div' sx={{ ...styles.bubble, justifyContent: `${message.author === `${userData.firstName} ${userData.lastName}` ? 'flex-end' : 'flex-start'}` }} variant='body1' key={i}><Paper sx={{ padding: '.5rem', backgroundColor: `${message.author === `${userData.firstName} ${userData.lastName}` ? '#bbdefb' : '#8aacc8'}` }} elevation={4}>{message.content}<br />Posted by: {message.author}</Paper></Typography>
