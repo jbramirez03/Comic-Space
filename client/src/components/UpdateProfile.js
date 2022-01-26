@@ -57,7 +57,7 @@ export default function UpdateProfile() {
         ...updateForm,
       },
     });
-    window.location.href = "/profile";
+    window.location.href = "#/profile";
   };
   const [image, setImage] = React.useState();
   // const [url, setUrl] = React.useState("");
