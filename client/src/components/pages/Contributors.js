@@ -248,6 +248,8 @@ const Contributors = () => {
                 <strong>Jason</strong>
                 <li>Back-End Configuration</li>
                 <li>Authentication</li>
+                <li>Discussion Forum</li>
+                <li>Pagination/Autocomplete</li>
                 <li>API Calls</li>
                 <li>Front End JavaScript</li>
               </ul>
@@ -257,7 +259,6 @@ const Contributors = () => {
                 <br />
                 <strong>Qabas</strong>
                 <li>Back-End Configuration</li>
-                <li>Chat Functionality</li>
                 <li>Contributors Page</li>
                 <li>Authentication</li>
               </ul>
