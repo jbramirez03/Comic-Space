@@ -199,3 +199,4 @@ const startApolloServer = async () => {
 });
 
 startApolloServer();
+export { pubsub };
