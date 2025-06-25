@@ -120,11 +120,11 @@ import resolvers from "./resolvers/index.js";
 import auth from "./utils/auth.js";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { execute, subscribe } from "graphql";
-import { PubSub } from "graphql-subscriptions";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { createServer } from "http";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import pubsub from "./utils/pubsub.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -134,8 +134,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-const pubsub = new PubSub();
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -153,7 +151,6 @@ const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
 
-  // Serve React build in production
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/build")));
 
@@ -170,8 +167,7 @@ const startApolloServer = async () => {
       console.log(`GraphQL path: ${server.graphqlPath}`);
     });
 
-    // Set up WebSocket subscriptions
-    SubscriptionServer.create(
+    const subscriptionServer = SubscriptionServer.create(
       {
         schema,
         execute,
@@ -188,15 +184,14 @@ const startApolloServer = async () => {
         path: server.graphqlPath,
       }
     );
+
+    ["SIGINT", "SIGTERM"].forEach(signal => {
+      process.on(signal, () => {
+        console.log(`Received ${signal}, shutting down subscriptions`);
+        subscriptionServer.close();
+      });
+    });
   });
 };
 
-["SIGINT", "SIGTERM"].forEach(signal => {
-  process.on(signal, () => {
-    console.log(`Received ${signal}, shutting down subscriptions`);
-    subscriptionServer.close();
-  });
-});
-
 startApolloServer();
-export { pubsub };
