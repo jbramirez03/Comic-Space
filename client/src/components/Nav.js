@@ -202,7 +202,10 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "#141414", boxShadow: "none" }}
+      >
         <Toolbar>
           {/* <IconButton
             size="large"
@@ -277,7 +280,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <Avatar sx={{ bgcolor: "#4f999d", textAlign: "center" }}>
+              <Avatar sx={{ bgcolor: "#E50914", textAlign: "center" }}>
                 <MenuIcon />
               </Avatar>
             </IconButton>

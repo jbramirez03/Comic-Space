@@ -19,7 +19,7 @@ const Contributors = () => {
     marginTop: "2%",
     marginBottom: "auto",
     width: "40%",
-    backgroundColor: "white",
+    backgroundColor: "#181818",
     fontFamily: "Roboto",
     img: {
       height: "400px",
@@ -32,17 +32,19 @@ const Contributors = () => {
       fontFamily: "Bangers",
       textAlign: "center",
       letterSpacing: "2px",
+      color: "#ffffff",
     },
     mainHeader: {
       fontFamily: "Bangers",
       textAlign: "center",
       letterSpacing: "2px",
-      color: "#385059",
-      textShadow: "2px 2px 2px #f7d281",
+      color: "#ffffff",
+      textShadow: "2px 2px 4px #000000",
     },
     h3: {
       fontFamily: "Roboto",
       textAlign: "center",
+      color: "#ffffff",
     },
     button: {
       backgroundColor: "#385059",
@@ -55,10 +57,11 @@ const Contributors = () => {
       fontFamily: "Roboto",
       fontSize: "1.25rem",
       textAlign: "left",
-      border: "3px dotted #385059",
+      border: "3px dotted #E50914",
       padding: "5px",
       borderRadius: "5px",
       fontWeight: "bold",
+      color: "#ffffff",
     },
     ul: {
       listStyleType: "none",

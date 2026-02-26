@@ -10,6 +10,7 @@ import { getMainDefinition } from "@apollo/client/utilities";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { Provider } from "react-redux";
 import store from "../src/utils/store";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 // const wsLink = new WebSocketLink({
 //   uri: process.env.NODE_ENV === 'production'
@@ -26,14 +27,20 @@ import store from "../src/utils/store";
 //     : 'http://localhost:3001/graphql',
 // });
 
-// Replace '192.168.1.24' with your PC’s actual local IP if it's different
+// Use localhost for the GraphQL API in development, and Heroku in production
 const wsLink = new WebSocketLink({
-  uri: "ws://192.168.1.24:3001/graphql",
+  uri:
+    process.env.NODE_ENV === "production"
+      ? "wss://young-hollows-20691.herokuapp.com/graphql"
+      : "ws://localhost:3001/graphql",
   options: { reconnect: true },
 });
 
 const httpLink = new HttpLink({
-  uri: "http://192.168.1.24:3001/graphql",
+  uri:
+    process.env.NODE_ENV === "production"
+      ? "https://young-hollows-20691.herokuapp.com/graphql"
+      : "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -63,11 +70,25 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: { main: "#E50914" },
+    secondary: { main: "#B81D24" },
+    background: {
+      default: "#141414",
+      paper: "#181818",
+    },
+  },
+});
+
 ReactDOM.render(
   <>
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </Provider>
     </ApolloProvider>
   </>,
