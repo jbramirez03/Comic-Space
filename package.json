@@ -29,5 +29,8 @@
   "homepage": "https://github.com/jbramirez03/Comic-Space#readme",
   "dependencies": {
     "react-mic": "^12.4.6"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }

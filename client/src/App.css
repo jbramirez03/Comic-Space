@@ -20,7 +20,7 @@
 }
 
 .demoPage {
-  box-shadow: inset 0 0 10px #5a5454;
+  box-shadow: inset 0 0 15px #000000;
 }
 
 .avatar1 {
@@ -34,7 +34,7 @@
 }
 .button {
   margin: 10px;
-  background-color: white;
+  background-color: #e50914;
   border: none;
   color: white;
   text-decoration: none;
@@ -51,8 +51,8 @@
 .mainHeader {
   font-family: "Bangers", cursive;
   letter-spacing: 0.25rem;
-  color: #2b3d44;
-  text-shadow: 2px 2px 2px #4f999d;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
 }
 .mainOne {
   display: block;
@@ -73,7 +73,7 @@
   margin-top: 20px;
   width: 300px;
   height: 380px;
-  border: 2px solid #4f999d;
+  border: 2px solid #e50914;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.808);
   border-radius: 5px;
   margin-bottom: 10px;
@@ -84,19 +84,19 @@
 }
 .howHeaderMain {
   font-family: "Bangers", cursive;
-  color: #531c28;
+  color: #ffffff;
   letter-spacing: 5px;
-  text-shadow: 1px 1px 2px white;
+  text-shadow: 2px 2px 4px #000000;
 }
 .howHeader {
-  color: #2b3d44;
-  text-shadow: 2px 1px 3px white;
+  color: #ffffff;
+  text-shadow: 2px 1px 3px #000000;
   font-weight: bold;
   font-family: "Bangers", cursive;
 }
 
 .button1 {
-  background-color: rgb(211, 211, 229);
+  background-color: #e50914;
   width: 180px;
   height: 50px;
   margin: auto;
@@ -107,8 +107,8 @@
 
 .a {
   text-decoration: none;
-  color: black;
-  text-shadow: 1px 1px #5f5b5b;
+  color: #ffffff;
+  text-shadow: 1px 1px #000000;
 }
 
 .avatar {
@@ -130,7 +130,7 @@
 }
 
 .App-header {
-  background-color: #001f5c;
+  background-color: #141414;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -141,7 +141,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #e50914;
 }
 
 @keyframes App-logo-spin {
